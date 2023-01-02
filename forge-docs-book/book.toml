@@ -1,0 +1,6 @@
+[book]
+authors = ["David Fryd"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Forge Documentation"
