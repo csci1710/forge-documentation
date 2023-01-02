@@ -4,3 +4,6 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Forge Documentation"
+
+[output.html]
+site-url = "/forge-documentation/"
