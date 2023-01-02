@@ -21,17 +21,17 @@ jobs:
         run: |
           cd forge-docs-book
           mdbook build
-          git worktree add deployed-pages
+          git worktree add gh-pages
           git config user.name "Deploy from CI"
           git config user.email ""
-          cd deployed-pages
+          cd gh-pages
           # Delete the ref to avoid keeping history.
-          git update-ref -d refs/heads/deployed-pages
+          git update-ref -d refs/heads/gh-pages
           rm -rf *
           mv ../book/* .
           git add .
-          git commit -m "Deploy $GITHUB_SHA to deployed-pages"
-          git push --force --set-upstream origin deployed-pages
+          git commit -m "Deploy $GITHUB_SHA to gh-pages"
+          git push --force --set-upstream origin gh-pages
 
 # NOTE: `gh-pages` branch was replaced w/ `deployed-pages` b/c GitHub
 # had an un-removeable default GHAction on branch "gh-pages" that
