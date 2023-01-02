@@ -35,4 +35,5 @@ The original documentation is in need of hierarchical refactoring and better con
 - *Reference List for a bunch of third-party plugins:*
   - [https://github.com/rust-lang/mdBook/wiki/Third-party-plugins](https://github.com/rust-lang/mdBook/wiki/Third-party-plugins)
 - Admonish Library reference: [https://tommilligan.github.io/mdbook-admonish/reference.html](https://tommilligan.github.io/mdbook-admonish/reference.html)
+
 ```
