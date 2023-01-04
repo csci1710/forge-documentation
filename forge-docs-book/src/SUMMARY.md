@@ -6,6 +6,7 @@
 # Getting Started
 
 - [Installation](./getting-started/installation.md)
+- [Test Chapter](./todo/tim.md)
 
 # Building Models
 
