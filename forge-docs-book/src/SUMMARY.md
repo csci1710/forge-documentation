@@ -13,6 +13,17 @@
 - [Sigs](./building-models/sigs.md)
 - [Constraints](building-models/constraints.md)
 
+# Running Models
+
+<!-- Running -->
+
+- [Running](./running-models/running.md)
+- [Sterling Visualizer]()
+- [Testing]()
+- [Options]()
+- [Bounds]()
+- [Concrete Instance Bounds]()
+
 # Work In Progress
 
 <!-- Uncategorized -->
@@ -23,12 +34,5 @@
 - [Constants]()
 - [Other built-in helpers]()
 - [Integers]()
-<!-- Running -->
-- [Running]()
-- [Sterling Visualizer]()
-- [Testing]()
-- [Options]()
-- [Bounds]()
-- [Concrete Instance Bounds]()
 
 # Unsorted

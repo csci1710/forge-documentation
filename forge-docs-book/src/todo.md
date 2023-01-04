@@ -1,5 +1,11 @@
 # Main Todo Page
 
+Main tasks for Jan 4 meeting:
+
+- Get Tim up to speed on mdbooks process (~3-5 mins)
+- Discuss current state of docs, point out current flags (~3-5 mins)
+- Walk through docs and try and get a better sense for refactoring structure (~20 mins)
+
 ```admonish todo title="TODO: Tim"
 List of the TODOs that I have flagged for Tim to review
 - [Overview](building-models/overview.md) - The language that I used may or may not be accurate and/or the best way of explaining things. I took a stab at it to the best of my ability but definitely have some missing pieces and potentially some innacuracies. Also some stuff that's missing and needs completion.
