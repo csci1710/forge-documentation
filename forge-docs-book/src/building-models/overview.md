@@ -1,5 +1,11 @@
 # Overview
 
+```admonish danger title="TODO"
+- [Elaborate A](#admonition-todo-elaborate-a)
+- [Elaborate B](#admonition-todo-elaborate-b)
+- [Unsat](#admonition-todo-unsat)
+```
+
 Forge is a language that allows us to define models of systems and explore instances of those models. Ok cool! So... **_what does that mean_**? Let's break it down:
 
 <!-- --- -->
@@ -42,7 +48,8 @@ We abstract the idea of "friendship," combining all types of friends (best frien
 
 If we wanted to distinguish between types of friends, or examine familial relationships as well, we would have to expand the model to include those concepts.
 
-```admonish todo title="TODO: Tim (Meaningful conclusion/motivation paragraph) For example:"
+```admonish todo title="TODO: Elaborate A"
+(Meaningful conclusion/motivation paragraph) For example:
 _Learning how to model a system is a key skill, not just within formal methods and modeling, but in fundamentally changing the way you approach identifying and being able to identify the limitations of the models you create.!_
 ```
 
@@ -69,7 +76,11 @@ An instance represents a single of the possible combinations of the things that 
 > - Each `Person` has a list of `Person`s, representing their friends.
 > - Each `Person` must have at least one `Person` in their friends list.
 
-```admonish todo title="TODO: Tim (Elaboration/Finish this section)"
+<!-- ![Forge Instance Meme](../../images/lfsmeme9_v3.png) -->
+
+```admonish todo title="TODO: Elaborate B"
+Elaborate/Finish this section:\
+
 Well... I _guess_ those instances follow all the rules but that definitely could be different from what we expected to be valid instances! Scenarios like these should inspire reflection-
 ```
 
@@ -77,7 +88,9 @@ We'll eventually talk about generating instances from our model in Forge in the 
 
 ### A Note on the _Lack_ of Instances
 
-```admonish todo title="TODO: Touch on UNSAT here"
+```admonish todo title="TODO: Unsat"
+Touch on UNSAT here:\
+
 Instances are generated ... abiding by the structure and rules of our model. If the model we have made is too strict, and the rules
 we won't be able to generate an instance. (_TODO: Talk about unsatisfiability/link to it somewhere else_)
 ```
@@ -88,4 +101,4 @@ we won't be able to generate an instance. (_TODO: Talk about unsatisfiability/li
 
 Awesome! Hopefully this all makes sense in the abstract- but we're here to learn how to use Forge to model and explore our own systems. In Forge, we use [`Sigs`](./sigs.md) to define the "things" that exist in a system, and [`Constraints`](./constraints.md) to define the "rules" of the system.
 
-Next, we'll learn how to use [`Sigs`](./sigs.md) and [`Constraints`](./constraints.md) to build our own models in Forge!
+Next, we'll learn how to use [`Sigs`](./sigs/sigs.md) and [`Constraints`](./constraints/constraints.md) to build our own models in Forge!
