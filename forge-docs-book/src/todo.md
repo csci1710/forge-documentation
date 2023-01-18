@@ -1,5 +1,10 @@
 # Main Todo Page
 
+- [ ] Update and Create Constraints language
+- [ ] Update Everything after & including Running
+- [ ] Individual Page TODOs
+
+<!--
 Main tasks for Jan 4 meeting:
 
 - Get Tim up to speed on mdbooks process (~3-5 mins)
@@ -28,7 +33,7 @@ List of the TODOs that I have flagged for Tim to review
 - [ ] Provide Description for 'Arity' on Sigs Page (I would even consider adding a whole new page/entry for 'Arity' since its a fundamental concept that will also appear thoughtout, in relational expressions, ...,  in certain error messages and such)
 - [ ] ...
 - [ ] Go through the rest of the pages and expand this TODO list
-```
+``` -->
 
 ```admonish todo title="TODO (mdbook related)"
 - [ ] Add a preprocessor/backend for a page table-of-contents for page navigation
