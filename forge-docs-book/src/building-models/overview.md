@@ -4,6 +4,10 @@
 - [Elaborate A](#admonition-todo-elaborate-a)
 - [Elaborate B](#admonition-todo-elaborate-b)
 - [Unsat](#admonition-todo-unsat)
+- no motivation behind person example
+- car is a real world thing, obviously we care about the aerodynamics, obvious and immediate motivation.
+- running smoke over the car and capturing a picture is an instance.
+- just talk about systems, models, instances using the car analogy. now let's talk about how we would be doing it w/ a computer.
 ```
 
 Forge is a language that allows us to define models of systems and explore instances of those models. Ok cool! So... **_what does that mean_**? Let's break it down:
@@ -93,6 +97,14 @@ Touch on UNSAT here:\
 
 Instances are generated ... abiding by the structure and rules of our model. If the model we have made is too strict, and the rules
 we won't be able to generate an instance. (_TODO: Talk about unsatisfiability/link to it somewhere else_)
+```
+
+---
+
+```admonish todo
+add a system, model, instance example chain for stuff like
+- clay car...
+etc...
 ```
 
 ---

@@ -17,16 +17,19 @@
   - [Singleton and Maybe Sigs](./building-models/sigs/singleton-maybe-sigs.md)
   - [Advanced](./building-models/sigs/advanced.md)
 - [Constraints](building-models/constraints/constraints.md)
+
+  - [Constraint Fundamentals](building-models/constraints/constraint-fundamentals)
   - [Constraint Types](building-models/constraints/constraint-types.md)
-  - [Formulas]()
-    - [Operators]()
-    - [Cardinality and Membership]()
-    - [Quantifiers]()
-    - [Predicates]()
-  - [Expressions]()
-    - [Relational Expressions](building-models/constraints/relational-expressions.md)
-    - [Functions]()
-    - [Let Expressions]()
+  - [Formulas](building-models/constraints/formulas/formulas.md)
+    - [Operators](building-models/constraints/formulas/operators.md)
+    - [Cardinality and Membership](building-models/constraints/formulas/cardinality-membership.md)
+    - [Quantifiers](building-models/constraints/formulas/quantifiers.md)
+    - [Predicates](building-models/constraints/formulas/predicates.md)
+  - [Expressions](building-models/constraints/expressions/expressions.md)
+    - [Relational Expressions](building-models/constraints/expressions/relational-expressions.md)
+    - [Functions](building-models/constraints/expressions/functions.md)
+    - [Let Expressions](building-models/constraints/expressions/let-expressions.md)
+
 - [Examples](building-models/examples.md)
 
 # Running Models

@@ -2,6 +2,7 @@
 
 ```admonish danger title="TODO"
 - Link to integers in Forge at hyperlink
+- Do sigs have to be defined before they are used?
 ```
 
 _Sigs_ are the basic building block of any model in Forge. Sigs represent the "things" of the system we are modeling. You can think of a `sig` as analogous to a class in an object-oriented programming language. You can declare a `sig` in the following way:

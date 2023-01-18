@@ -1,0 +1,13 @@
+# Constraint Fundamentals
+
+
+_Constraints_ are comprised of **formulas**, and **expressions**. Formulas evaluate to a boolean value (true or false), and expressions evaluate to a "thing" in our model.
+
+By combining...writing
+
+We can enforce that something is always/sometimes/never true...
+
+-
+- Talk about the goals specifically
+
+When writing constraints for our model, we need to be able to do two things:
