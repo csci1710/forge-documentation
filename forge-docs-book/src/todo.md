@@ -2,6 +2,8 @@
 
 - [ ] Update and Create Constraints language
 - [ ] Update Everything after & including Running
+- [ ] Clarify "Sig" somewhere
+- [ ] fix/remove/dissolve concrete instance bounds?
 - [ ] Individual Page TODOs
 
 <!--

@@ -37,22 +37,30 @@
 <!-- Running -->
 
 - [Running](./running-models/running.md)
-- [Sterling Visualizer]()
-- [Testing]()
-- [Options]()
-- [Bounds]()
-- [Concrete Instance Bounds]()
+- [Sterling Visualizer](./running-models/sterling-visualizer.md)
+- [Bounds](./running-models/bounds.md)
+- [Concrete Instance Bounds](./running-models/concrete-instance-bounds.md)
+- [Options](./running-models/options.md)
+
+# Testing
+
+- [Testing](./testing-chapter/testing.md)
 
 # Forge Standard Library (Built-Ins)
 
-- [Integers]()
-- [Constants & Keywords]()
-- [Helpers]()
+- [Integers](./forge-standard-library/integers.md)
+- [Constants & Keywords](./forge-standard-library/constants-and-keywords.md)
+- [Helpers](./forge-standard-library/helpers.md)
 
 # Temporal Models (Electrum)
 
-- [Electrum Overview]()
+- [Electrum Overview](./electrum/electrum-overview.md)
 - [Running & Examining Electrum Models]()
+
+# Custom Visualizations
+
+- [Library Basics]()
+- [...]()
 
 <!-- # Work In Progress -->
 
