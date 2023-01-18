@@ -28,7 +28,7 @@
   - [Expressions](building-models/constraints/expressions/expressions.md)
     - [Relational Expressions](building-models/constraints/expressions/relational-expressions.md)
     - [Functions](building-models/constraints/expressions/functions.md)
-    - [Let Expressions](building-models/constraints/expressions/let-expressions.md)
+    - [Let-Expressions](building-models/constraints/expressions/let-expressions.md)
 
 - [Examples](building-models/examples.md)
 
