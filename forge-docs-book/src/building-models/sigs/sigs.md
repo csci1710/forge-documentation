@@ -1,6 +1,7 @@
 # Sigs
 
 ```admonish danger title="TODO"
+- Talk about field name uniqueness (in reference to scope)
 - Link to integers in Forge at hyperlink
 - Do sigs have to be defined before they are used?
 ```

@@ -1,5 +1,9 @@
 # Relational Expressions
 
+```admonish danger title="TODO"
+- Idea of "Columns", idea of "Joins"
+```
+
 There are also the following operators that produce expressions, not formulas:
 
 - `<expr-a> + <expr-b>`: returns the **union** of the two exprs i.e. all elements in either of the two exprs;
