@@ -1,6 +1,7 @@
 # Constraints
 
 ```admonish danger title="TODO"
+- This page is currently a jumble of random stuff, need to reorganize/refactor/create accordingly.
 - Figure out how to talk about solvers, do we have another page for it? How do we address what Forge is doing "Under the Hood" ?
 ```
 
@@ -22,53 +23,37 @@ In order to understand constraints, we'll first touch on some key differences be
 
 (If you are already familiar with the overview and looking for the technical implementation of constraints in Forge, you can start [on this page](../constraints/constraint-types.md))
 
+---
+
+Elements of Forge constraints are one of three types:
+
+- **formulas**, which evaluate to booleans;
+- **expressions**, which evaluate to relations, and
+- **integer expressions**, which evaluate to integers (possibly with overflow, depending on the current bitwidth).
+
+Attempting to use operators with the wrong kind of arguments (e.g., taking the `and` of two `sig`s) will produce an error in Forge when you try to run your model.
+
+### Temporal operators
+
+For more information on temporal operators, which are only handled if `option problem_type temporal` is given to Forge, see Electrum Mode. We maintain these on a separate page because the meaning of constraints can differ in Electrum mode. Concretely, in Electrum mode Forge will **only** find instances that form a lasso trace.
+
+---
+
+_Constraints_ are comprised of **formulas**, and **expressions**. Formulas evaluate to a boolean value (true or false), and expressions evaluate to a "thing" in our model.
+
+By combining...writing
+
+We can enforce that something is always/sometimes/never true...
+
+-
+- Talk about the goals specifically
+
+When writing constraints for our model, we need to be able to do two things:
+
 <!--
 Recall that in the overview of [what a model is](../overview.md#models), we said that a model
 
 > "...explicitly defines both the "things" that exist in the system, and the "rules" of the system." -->
-
-## Rules vs. Instructions
-
-Before talking about how we define the "rules" of a system in Forge, let's touch on an important distinction between traditional programming languages and Forge:
-
-In many traditional programming languages, you give the computer a set of instructions and the computer follows those instructions. In OOP languages, you can also use objects to help structure your code and even organize the logic of instructions.
-
-The goals of modeling languages are different than the goals of traditional programming languages, in that the goals of modeling languages are specifically to provide a set of tools to describe and express the structure and behavior of a model.
-
-Because the goals are different, so are the ways of "programming" in the language.
-
-<!--
-Forge, under the hood, already has
-
-So our job is to write rules, which the existing instructions...
-
-Modeling languages are fundamentally different in that the programmer
-
-With different goals, we have a different development paradigm. -->
-
-(Very) Roughly:
-
-- In OOP languages, we build <ins>software</ins> using "things" and "**<ins>instructions</ins>**."
-- In Forge, we build <ins>models</ins> using "things" and "**<ins>rules</ins>**."
-
-We've already discussed "things" in Forge ([`sigs`](../sigs/sigs.md)) and how they are roughly analogous to "things" in OOP languages (objects). However, "**instructions**" and "**rules**" are quite different...
-
-You are most likely familiar with writing programs in some languages like Python, Java, C, Racket, Javascript, etc. If you want the computer to perform a task, you have to explicitly write **instructions** to tell the computer to do that (i.e. writing a for loop to print the numbers 1-100).
-
-<!-- Forge, on the other hand, already has instructions (solver\*) -->
-
-Forge, on the other hand, already has instructions: Forge outputs all possible instances/states of a model based on the way you have defined the model. Forge will only output instances of the model that follow all of the **rules** you have written.
-
- <!-- uses **rules** that you write to only provide you with valid instances of a model. This is a fundamentally different way to think about "building" something, for the following reason: -->
-
-<!-- analyzes the model you define and outputs all the possible instances that follow the structure and rules of the model\*. With fewer rules, more things are acceptable instances of the model! -->
-
-- Given a lack of **instructions**, a Java program won't do anything.
-- Given a lack of **rules**, Forge will generate all possible [instances](../overview.md#instances) of the given model.\*
-
-Generally speaking: with fewer rules, there are more outputs which are considered valid instaces of the model! But of course, the point is to create a model whose acceptable instances match the acceptable instances of the system we are trying to represent. **The rules we write _constrain_ what we consider to be the acceptable behavior of the model, and are therefore called _Constraints_**!
-
-This can be a tricky concept to grasp, so let's take a look at an example to motivate and contextualize how we should use constraints.
 
 ---
 

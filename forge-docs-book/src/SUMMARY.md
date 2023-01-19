@@ -18,8 +18,7 @@
   - [Advanced](./building-models/sigs/advanced.md)
 - [Constraints](building-models/constraints/constraints.md)
 
-  - [Constraint Fundamentals](building-models/constraints/constraint-fundamentals)
-  - [Constraint Types](building-models/constraints/constraint-types.md)
+  - [Constraints are Rules](./building-models/constraints/constraints-are-rules.md)
   - [Formulas](building-models/constraints/formulas/formulas.md)
     - [Operators](building-models/constraints/formulas/operators.md)
     - [Cardinality and Membership](building-models/constraints/formulas/cardinality-membership.md)
@@ -30,7 +29,9 @@
     - [Functions](building-models/constraints/expressions/functions.md)
     - [Let-Expressions](building-models/constraints/expressions/let-expressions.md)
 
-- [Examples](building-models/examples.md)
+- [Over and Under-Constraining]()
+- [Examples]()
+<!-- - [Examples](building-models/examples.md) -->
 
 # Running Models
 
