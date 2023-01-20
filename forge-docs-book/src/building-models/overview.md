@@ -22,13 +22,16 @@ A **system** can be generally thought of as a "world" where there are "things" t
 - A family is a world where there are people, and rules that express how they are related to each other.
 - A cryptographic protocol is a world where there are parties, messages, and rules that govern how those things interact with each other.
 - A binary search tree is a world where there are nodes, and rules that govern how nodes are allowed to interact with each other.
-- _There is no limit to the type or complexity of a system that we can discuss!_
+_There is no limit to the type or complexity of a system that we can discuss!_
 
 ---
 
 ## Models
 
-A **model** is a representation of a system. It explicitly defines both the "things" that exist in the system, and the "rules" of the system. The model's description of a system effectively establishes the bounds of all possible states/instances of the system. We can therefore use the model to explore what scenarios are possible within the bounds of our model, and therefore make inferences and assertions about the system it represents.
+A **model** is a _representation_ of a system that faithfully includes some but not all of the system's complexity. There are many different ways to model a system, all of which have different advantages and disadvantages. **(Fill: car analogy)**
+
+
+It explicitly defines both the "things" that exist in the system, and the "rules" of the system. The model's description of a system effectively establishes the bounds of all possible states/instances of the system. We can therefore use the model to explore what scenarios are possible within the bounds of our model, and therefore make inferences and assertions about the system it represents.
 
 If we wanted to model a group of friends, we might define our model to have the following structure and properties\*:
 
