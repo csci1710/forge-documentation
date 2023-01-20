@@ -17,6 +17,38 @@
 
 In Forge, we use _Constraints_ to represent the "rules" of the system we are modeling, and [Sigs](../sigs/sigs.md) to represent the "things" of the system we are modeling.
 
+A reader familiar with ... might skip to []() for the technical docs...
+
+- students/grades example:
+  Take an english rule, break it down. what syntax do we need to express this as a rule?
+
+- By the way, weird context dependence thing, talk about next...
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
 In order to understand constraints, we'll first touch on some key differences between modeling languages and traditional programming languages, and then explore an example to motivate and contextualize how constraints are used.
 
 <!-- In order to understand constraints and how they work, we need some context about modeling languages: -->
