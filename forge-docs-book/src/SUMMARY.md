@@ -17,7 +17,6 @@
   - [Singleton and Maybe Sigs](./building-models/sigs/singleton-maybe-sigs.md)
   - [Advanced](./building-models/sigs/advanced.md)
 - [Constraints](building-models/constraints/constraints.md)
-
   - [Constraints are Rules](./building-models/constraints/constraints-are-rules.md)
   - [Formulas](building-models/constraints/formulas/formulas.md)
     - [Operators](building-models/constraints/formulas/operators.md)
@@ -25,13 +24,16 @@
     - [Quantifiers](building-models/constraints/formulas/quantifiers.md)
     - [Predicates](building-models/constraints/formulas/predicates.md)
   - [Expressions](building-models/constraints/expressions/expressions.md)
-    - [Relational Expressions](building-models/constraints/expressions/relational-expressions.md)
+    - [Relational Expressions](building-models/constraints/expressions/relational-expressions/relational-expressions.md)
+      - [Relational Join](building-models/constraints/expressions/relational-expressions/relational-join.md)
+      - [Cross Product]()
+      - [Transpose]()
+      - [Transitive Closure]()
+      - [Reflexive Transitive Closure]()
     - [Functions](building-models/constraints/expressions/functions.md)
     - [Let-Expressions](building-models/constraints/expressions/let-expressions.md)
 
-- [Over and Under-Constraining]()
-- [Examples]()
-- [Test Chapter]()
+<!-- - [Over and Under-Constraining]()
 <!-- - [Examples](building-models/examples.md) -->
 
 # Running Models

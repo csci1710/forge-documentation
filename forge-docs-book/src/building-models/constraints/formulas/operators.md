@@ -1,6 +1,6 @@
 # Operators
 
-Operators are used to create formulas from other formulas.
+Formula operators are used to create formulas from other formulas.
 
 For the following `<fmla>` means an arbitrary formula.
 
