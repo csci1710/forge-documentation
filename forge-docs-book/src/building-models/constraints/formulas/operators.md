@@ -17,7 +17,7 @@ Some operators have alternative syntax (marked by **_alt_**) which are equivalen
 
 ---
 
-### `not`
+## `not`
 
 > `not <fmla>`
 
@@ -34,7 +34,7 @@ tesdt 123
 
 ---
 
-### `and`
+## `and`
 
 > `<fmla-a> and <fmla-b>`
 
@@ -44,7 +44,7 @@ _alt:_ `&&`
 
 ---
 
-### `or`
+## `or`
 
 > `<fmla-a> and <fmla-b>`
 
@@ -54,7 +54,7 @@ _alt:_ `||`
 
 ---
 
-### `implies`
+## `implies`
 
 > `<fmla-a> implies <fmla-b>`:
 
@@ -62,15 +62,15 @@ _alt:_ `||`
 
 _alt_ `=>`
 
-#### `implies else`
+### `implies else`
 
 > `{<fmla-a> implies <fmla-b> else <fmla-c>}`
 
-takes the value of `<fmla-b>` if `<fmla-a>` evaluates to **true**, and takes the value of `<fmla-c>` otherwise.
+takes the value of `<fmla-b>` when `<fmla-a>` evaluates to **true**, and takes the value of `<fmla-c>` otherwise.
 
 ---
 
-### `iff`
+## `iff`
 
 > `<fmla-a> iff <fmla-b>`
 
