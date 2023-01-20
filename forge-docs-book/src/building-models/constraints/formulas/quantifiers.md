@@ -1,5 +1,9 @@
 # Quantifiers
 
+```admonish danger title="TODO"
+- Need to distinguish `some all` vs `all some`
+```
+
 In the following, `<x>` is a variable, `<expr>` is an expression of arity 1, and `<fmla>` is a formula (that can use the variable `<x>`). You can quantify over a unary set in the following ways:
 
 - `some <x>: <expr> | { <fmla> }`: true when `<fmla>` is true for at least one element in `<expr>`
