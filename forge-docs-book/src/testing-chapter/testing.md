@@ -1,6 +1,14 @@
+
+
 # Testing
 
-Forge supports testing in two different ways: `example`s and `test expect` blocks. Both will be solved without opening the visualizer, which makes them well-suited for building test suites for your Forge models.
+## TODO
+[] Organizing tests (`test suite for`)
+[] Testing recipe (should this go here?)
+
+Forge supports three different testing constructs: `example`s, `assert`s, and `test expect` blocks. 
+
+If tests pass, they do not open the visualizer, making them well-suited for building test suites for your Forge models.
 
 ### Examples
 
@@ -25,6 +33,28 @@ _Don't_ try to assign to the same field twice. If you want a field to contain mu
 
 Sig names may be used in place of objects only if the block has previously defined the value of the sig exactly, allowing straightforward substitution.
 
+### Assert
+
+The `assert` syntax allows you to write tests in terms of strong and weak properties of a predicate. For example, if you have two predicates `isFrog` and `isAmphibian`:
+
+```
+assert isAmphibian is necessary for isFrog
+```
+
+Tests that `isAmphibian` is a required or essential condition for `isFrog`. In other words, `isFrog` cannot occur without `isAmphibian`.
+
+For two predicates `isPoodle` and `isDog`:
+
+```
+assert isPoodle is sufficient for isDog
+```
+Tests that if `isPoodle` holds, then so must `isDog`. If you want, you could also add optional bounds.
+
+```
+assert isPoodle is sufficient for isDog for 3 Dog
+```
+
+
 ### Test-Expect Blocks
 
 If you want to do arbitrary runs/checks for testing purposes, use a `test expect` block. Here, you don't need to provide a concrete, specific instance for the tests, but can check general properties. Here's an example `test expect` block with a variety of assertions:
@@ -41,4 +71,9 @@ test expect {
 
 ### Interaction with Check-ex-spec
 
-If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.
+~~If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.~~
+
+
+## Organizing Your Tests
+
+
