@@ -1,12 +1,10 @@
-
+## TODO
+- [] Testing recipe (should this go here?)
 
 # Testing
 
-## TODO
-[] Testing recipe (should this go here?)
-
 Forge supports three different testing constructs:
--`example`
+- `example`
 - `assert`
 -  `test expect` blocks. 
 
