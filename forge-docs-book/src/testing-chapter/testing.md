@@ -5,7 +5,10 @@
 ## TODO
 [] Testing recipe (should this go here?)
 
-Forge supports three different testing constructs: `example`s, `assert`s, and `test expect` blocks. 
+Forge supports three different testing constructs:
+-`example`
+- `assert`
+-  `test expect` blocks. 
 
 If tests pass, they do not open the visualizer, making them well-suited for building test suites for your Forge models.
 
@@ -75,8 +78,7 @@ test expect {
 
 ## Organizing Your Tests
 
-You should organize your tests into test suites for each predicate you plan to test.
-For example, you could write a test suite for predicate `foo` as follows:
+You should organize your tests into test suites for each predicate you plan to test. These are similar to `test expect` blocks, but support a wider set of test constructs. For example, you could write a test suite for predicate `foo` as follows:
 
 ```
 test suite for foo {
