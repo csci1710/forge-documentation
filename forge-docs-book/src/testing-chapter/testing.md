@@ -3,7 +3,6 @@
 # Testing
 
 ## TODO
-[] Organizing tests (`test suite for`)
 [] Testing recipe (should this go here?)
 
 Forge supports three different testing constructs: `example`s, `assert`s, and `test expect` blocks. 
