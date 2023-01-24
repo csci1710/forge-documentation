@@ -1,6 +1,14 @@
+## TODO
+- [] Testing recipe (should this go here?)
+
 # Testing
 
-Forge supports testing in two different ways: `example`s and `test expect` blocks. Both will be solved without opening the visualizer, which makes them well-suited for building test suites for your Forge models.
+Forge supports three different testing constructs:
+- `example`
+- `assert`
+-  `test expect` blocks. 
+
+If tests pass, they do not open the visualizer, making them well-suited for building test suites for your Forge models.
 
 ### Examples
 
@@ -25,6 +33,28 @@ _Don't_ try to assign to the same field twice. If you want a field to contain mu
 
 Sig names may be used in place of objects only if the block has previously defined the value of the sig exactly, allowing straightforward substitution.
 
+### Assert
+
+The `assert` syntax allows you to write tests in terms of strong and weak properties of a predicate. For example, if you have two predicates `isFrog` and `isAmphibian`:
+
+```
+assert isAmphibian is necessary for isFrog
+```
+
+Tests that `isAmphibian` is a required or essential condition for `isFrog`. In other words, `isFrog` cannot occur without `isAmphibian`.
+
+For two predicates `isPoodle` and `isDog`:
+
+```
+assert isPoodle is sufficient for isDog
+```
+Tests that if `isPoodle` holds, then so must `isDog`. If you want, you could also add optional bounds.
+
+```
+assert isPoodle is sufficient for isDog for 3 Dog
+```
+
+
 ### Test-Expect Blocks
 
 If you want to do arbitrary runs/checks for testing purposes, use a `test expect` block. Here, you don't need to provide a concrete, specific instance for the tests, but can check general properties. Here's an example `test expect` block with a variety of assertions:
@@ -41,4 +71,27 @@ test expect {
 
 ### Interaction with Check-ex-spec
 
-If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.
+~~If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.~~
+
+
+## Organizing Your Tests
+
+You should organize your tests into test suites for each predicate you plan to test. These are similar to `test expect` blocks, but support a wider set of test constructs. For example, you could write a test suite for predicate `foo` as follows:
+
+```
+test suite for foo {
+
+    assert bar is necessary for foo
+
+    test expect {
+        {foo} for 3 Node is sat
+        {foo} for inst is sat
+    }
+    
+    example abc is {not foo} for {
+        Node = `Node1 + `Node2
+     }
+}
+```
+
+Test suites can only contain tests, and all tests should reference the predicate under test.
