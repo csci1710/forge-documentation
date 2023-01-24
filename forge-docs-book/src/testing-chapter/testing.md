@@ -76,4 +76,23 @@ test expect {
 
 ## Organizing Your Tests
 
+You should organize your tests into test suites for each predicate you plan to test.
+For example, you could write a test suite for predicate `foo` as follows:
 
+```
+test suite for foo {
+
+    assert bar is necessary for foo
+
+    test expect {
+        {foo} for 3 Node is sat
+        {foo} for inst is sat
+    }
+    
+    example abc is {not foo} for {
+        Node = `Node1 + `Node2
+     }
+}
+```
+
+Test suites can only contain tests, and all tests should reference the predicate under test.
