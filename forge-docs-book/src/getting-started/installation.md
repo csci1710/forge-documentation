@@ -38,6 +38,12 @@ Note the lack of `forge` at the end of the final command; `raco` will install fr
 - Click the three dots on the top.
 - Select “Install from VSIX” and select the file you just downloaded.
 
+## Installing GPT's VSCode Extension
+
+```admonish todo title="TODO"
+- For Siddhartha
+```
+
 ## Checking your installation
 
 Once Racket, Forge, and Java are installed, you should confirm that everything is working properly. Create a textfile `test.frg` with only the contents `#lang forge` and then, from your command line, type `racket test.frg`. If this runs without error, congratulations, Forge should now be installed!
