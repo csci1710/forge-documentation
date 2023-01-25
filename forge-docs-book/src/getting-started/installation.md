@@ -40,9 +40,51 @@ Note the lack of `forge` at the end of the final command; `raco` will install fr
 
 ## Installing GPT's VSCode Extension
 
-```admonish todo title="TODO"
-- For Siddhartha
-```
+This extension allows you to write to GPT-3 from your editor. 
+
+---
+### Requirements
+
+
+- Your Brown Provided API Key.
+
+- Your Brown-provided User Id.
+
+--- 
+
+[Once downloaded, the extension can be installed following the instructions here.](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix)
+
+When the extension is installed, a prompt will appear for you to enter in your API key and your User Id.
+
+---
+
+
+### Functionality
+#### Ask GPT
+Sends user input to GPT for processing. The response will appear in a modal.
+
+> Default key binding set to `alt + g` (Windows) or `cmd + g` (Mac)
+> Ask GPT in the Status Bar
+
+#### Ask GPT inline
+Queries GPT-3 with highlighted text. The response is automatically injected **below** the highlighted docs.
+
+> Default key binding set to `alt + q` (Windows) or `cmd + q` (Mac)
+
+
+#### Re-enter API Key
+
+> - Open command palette and run `Update OpenAI API Key` (alt + m on Windows, cmd + m on Mac)
+> - Enter your correct API Key into the prompt 
+> - Reload VSCODE
+
+#### Re-enter UserId
+
+> - Open command palette and run `Update UserId` (alt + u on Windows, cmd + u on Mac)
+> - Enter your correct UserId into the prompt 
+> - Reload VSCODE
+---
+
 
 ## Checking your installation
 
