@@ -16,8 +16,10 @@ on_failure = "bail" # remove for warn and to allow build to continue
 [preprocessor.katex]
 renderers = ["html"]
 
+[output.katex]
+
 [output.html]
 site-url = "/forge-documentation/"
 additional-css = ["././mdbook-admonish.css"]
 
-[output.katex]
+
