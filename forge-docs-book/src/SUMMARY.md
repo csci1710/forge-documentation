@@ -17,9 +17,9 @@
   - [Inheritance](./building-models/sigs/inheritance.md)
   - [Singleton and Maybe Sigs](./building-models/sigs/singleton-maybe-sigs.md)
   - [Advanced](./building-models/sigs/advanced.md)
-- [Constraints \[TIM\]](building-models/constraints/constraints.md)
+- [Constraints](building-models/constraints/constraints.md)
   - [Instances](./building-models/constraints/instances.md)
-  - [Constraints are Rules](./building-models/constraints/constraints-are-rules.md)
+  <!-- - [Constraints are Rules](./building-models/constraints/constraints-are-rules.md) -->
   - [Formulas](building-models/constraints/formulas/formulas.md)
     - [Operators](building-models/constraints/formulas/operators.md)
     - [Cardinality and Membership](building-models/constraints/formulas/cardinality-membership.md)
