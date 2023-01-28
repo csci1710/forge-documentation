@@ -9,7 +9,8 @@
 
 # Building Models
 
-- [Overview](building-models/overview.md)
+- [Overview](./building-models/overview.md)
+  - [Addendum for Alloy Users](building-models/alloy-user-overview.md)
 - [Sigs](./building-models/sigs/sigs.md)
   - [Field Multiplicity](./building-models/sigs/multiplicity.md)
   - [Field Types](./building-models/sigs/sig-types.md)
