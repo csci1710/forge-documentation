@@ -12,7 +12,7 @@ _Sigs_ are the basic building block of any model in Forge. Sigs represent the "t
 sig <name> {}
 ```
 
-A `sig` can also have one or more _fields_, which define relationships between that `sig` and other `sig`s and types.
+A `sig` can also have one or more _fields_, which define relationships between that `sig` and other `sig`s.
 
 ```
 sig <name> {
@@ -29,11 +29,11 @@ Ensure that there is a **comma after every field except for the last one**. This
 
 ## Fields
 
-Fields allow us to define relationships between Sigs and other "things" in our model (including other Sigs). Each _field_ in a `sig` has:
+Fields allow us to define relationships between a given `sig`s and other components of our model. Each _field_ in a `sig` has:
 
 - a _**name**_;
-- a [_**multiplicity**_](multiplicity.md) (`set`, `one`, `lone`, `pfunc`, or `func`);
-- a [_**type**_](sig-types.md)_**.**_
+- a [_**multiplicity**_](multiplicity.md) (`one`, `lone`, `pfunc`, `func`, or, in the full Forge language, `set`);
+- a [_**type**_](sig-types.md) (a `->` separated list of `sig` names)_**.**_
 
 Put together, a field takes the form:
 
@@ -44,10 +44,10 @@ name: multiplicity type
 <!-- - The **name** of a field does exactly what it sounds like, and assigns a name to the relationship. You can use the name of the relationship to reference the relationship when writing the "rules" of the system (we'll cover this when we talk about [constraints](../constraints/constraints.md)).
 - The **multiplicity** of a field allows you to define the type of relationship -->
 
-```admonish example title="Example: Sig w/ One Field"
+```admonish example title="Example: Sig with one field"
 **Basic Sig with Fields (Linked List):**
 
-A model of a circularly-linked list might have a `sig` called `Node`. `Node` might then have a field `next: one Node` to represent the contents of every `Node`'s `next` reference. We use `one` here since every `Node` has exactly one successor.&#x20;
+A model of a circularly-linked list might have a `sig` called `Node`. `Node` might then have a field `next: one Node` to represent the contents of every `Node`'s `next` reference. We use `one` here since every `Node` always has exactly one successor in a _circularly_ linked list.&#x20;
 
 ~~~
 sig Node {
@@ -56,13 +56,13 @@ sig Node {
 ~~~
 ```
 
-```admonish example title="Example: Sig w/ Multiple Fields"
+```admonish example title="Example: Sig with multiple fields"
 **Basic Sig with Fields (Binary Tree):**
 
 A model of a binary tree might have a `sig` called `Node`. `Node` might then have three fields:
 
-- `left: lone Node` and `right: lone Node` to represent the `Node`'s children. We use `lone` here since the left/right child can either be empty, or contain exactly one `Node`.
-- `val: one Int` to represent the value of each Node, where we have decided that every `Node` should have an Integer value. We use `one` here because each `Node` should have exactly one Integer as its value.
+- `left: lone Node` and `right: lone Node` to represent the `Node`'s children. We use `lone` here since the left/right child fields can either be empty or contain exactly one `Node`.
+- `val: one Int` to represent the value of each Node, where we have decided that every `Node` should have an `Int`eger value. We use `one` here because each `Node` should have exactly one value.
 
 ~~~
 sig Node {
@@ -71,20 +71,15 @@ sig Node {
     val: one Int
 }
 ~~~
-_**(`Int`** is a type provided by Forge. Read more about [valid types](./sig-types.md), and [Integers in Forge]())._
+_**(`Int`** is a built-in sig provided by Forge. Read more about [valid types](./sig-types.md), and [Integers in Forge]())._
 ```
 
-<!-- ```admonish note title="Int?"
-**`Int`** is a type provided by Forge. Read more about [valid types](sigs.md#types), and [Integers in Forge](../integers.md).
-``` -->
 
 ```admonish example title="Example: Sig w/ No Fields"
 
-#### Example - Basic Sig without Fields:
+**Example - Basic Sig without Fields:**
 
-Not every `sig` in a model needs to have fields to be a useful part of the model! `sig`s with no fields are often used in conjunction with other `sig`s that reference no-field `sig`s.
-
-One such example might look like this:
+Not every `sig` in a model needs to have fields to be a useful part of the model! `sig`s with no fields are often used in conjunction with other `sig`s that reference them. One such example might look like this:
 
 ~~~
 sig Student {}
