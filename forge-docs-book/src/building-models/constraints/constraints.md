@@ -1,9 +1,6 @@
 # Constraints
 
-```admonish danger title="TODO"
-- This page is currently a jumble of random stuff, need to reorganize/refactor/create accordingly.
-- Figure out how to talk about solvers, do we have another page for it? How do we address what Forge is doing "Under the Hood" ?
-```
+Once the model has defined the kinds of objects it deals with, it defines how those objects can interact. This process is sometimes called "adding constraints" or "rules".
 
 <!--
 ```admonish danger title="TODO"
@@ -15,92 +12,81 @@
 - Add * caveat about "not all possible instances because of inherent bounds (and then link to bounds chapter)
 ``` -->
 
-In Forge, we use _Constraints_ to represent the "rules" of the system we are modeling, and [Sigs](../sigs/sigs.md) to represent the "things" of the system we are modeling.
+## Rules vs. Instructions
 
-A reader familiar with ... might skip to []() for the technical docs...
+This idea of a "constraint" is key in Forge (and in many other modeling languages), and it's very different from programming in a language like Java, Pyret, or Python.
 
-- students/grades example:
-  Take an english rule, break it down. what syntax do we need to express this as a rule?
+When you're programming traditionally, you give the computer a set of instructions and it follows those instructions. This is true whether you're programming functionally or imperatively, with or without objects, etc. In contrast, modeling languages like Forge work differently. The goal of a Forge model isn't to _run instructions_, but rather to express relationships between objects and rules that govern systems. 
 
-- By the way, weird context dependence thing, talk about next...
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
-  \
+Here's a useful comparison to help reinforce the difference (with thanks to Daniel Jackson):
+- Given a lack of **instructions**, a program does nothing.
+- Given a lack of **constraints**, a model allows everything.
 
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
+## Example: Concentration Requirements
 
-In order to understand constraints, we'll first touch on some key differences between modeling languages and traditional programming languages, and then explore an example to motivate and contextualize how constraints are used.
+Let's get concrete. [The concentration requirements for an A.B. in CSCI](https://cs.brown.edu/degrees/undergrad/concentrating-in-cs/concentration-requirements-2020/new-ab-requirements/) state that to get an A.B., a student must (among other things) complete a pathway, which comprises two upper-level courses that are considered related. We might rewrite this as:
 
-<!-- In order to understand constraints and how they work, we need some context about modeling languages: -->
+> "Every student who gets an A.B. must have passed two 1000-level courses in the same pathway."
 
-(If you are already familiar with the overview and looking for the technical implementation of constraints in Forge, you can start [on this page](../constraints/constraint-types.md))
+If we're modeling concentration requirements, we might decide to create `sig`s for `Student`, `Course`, `Pathway`, and so on, with fields you'd expect. For example, we might create:
 
----
+```
+sig Student {
+  -- dictionary of grades for courses taken and passed
+  grades: pfunc Course -> Grade
+}
+```
 
-Elements of Forge constraints are one of three types:
+But this only describes the shape of the data, not the concentration requirements themselves! To do that, we need to create some constraints. The sentence above states a requirement for _every student_. Generally the department follows this rule. But it's possible to imagine some semester where the department makes a mistake, and gives an A.B. degrees to someone who hadn't actually finished a pathway. The sentence is something that could be true or false in any given semester:
 
-- **formulas**, which evaluate to booleans;
-- **expressions**, which evaluate to relations, and
-- **integer expressions**, which evaluate to integers (possibly with overflow, depending on the current bitwidth).
+> "<span style="color:blue">Every student</span> who gets an A.B. must have passed two 1000-level courses in the same pathway."
 
-Attempting to use operators with the wrong kind of arguments (e.g., taking the `and` of two `sig`s) will produce an error in Forge when you try to run your model.
+In Forge, we'd write this using a quantifier: 
 
-### Temporal operators
+```
+all s: Student | ...
+```
 
-For more information on temporal operators, which are only handled if `option problem_type temporal` is given to Forge, see Electrum Mode. We maintain these on a separate page because the meaning of constraints can differ in Electrum mode. Concretely, in Electrum mode Forge will **only** find instances that form a lasso trace.
+Then we have a condition that triggers a requrement: _if_ a student has gotten an A.B., then something is required. In Forge, this becomes an implication inside the quantifier: 
 
----
+```
+all s: Student | s.degreeGranted = AB implies {...}
+```
 
-_Constraints_ are comprised of **formulas**, and **expressions**. Formulas evaluate to a boolean value (true or false), and expressions evaluate to a "thing" in our model.
+Let's look more closely at the part we wrote: `s.degreeGranted = AB`. For a given student, that is also either true or false. But something important is different inside the `=`: `s.degreeGranted` doesn't denote a boolean, but rather an _object_ (which will perhaps be equal to `AB`). A similar thing is true for `s`, `course1`, and `course2`. Let's finish writing the constraint and then color-code the different parts:
 
-By combining...writing
+<pre><code><span style="color:green">all <span style="color:red">s</span>: Student |</span> <span style="color:red">s.degreeGranted</span> <span style="color:green">=</span> <span style="color:red">AB</span> <span style="color:green">implies { 
+  some disj <span style="color:red">course1</span>, <span style="color:red">course2</span>: Course |</span> <span style="color:red">course1.pathway</span> <span style="color:green">=</span> <span style="color:red">course2.pathway</span>
+<span style="color:green">}</span>
+</code>
+</pre>
 
-We can enforce that something is always/sometimes/never true...
+### Writing Constraints: Formulas vs. Expressions
 
--
-- Talk about the goals specifically
+The top-level constraints that Forge works with must always evaluate to booleans, but the inner workings of constraints can speak about specific objects, the values of their fields, and so on. We'll make the distinction between these two different kinds of syntax:
+* _Formulas_ always evaluate to booleans---i.e., either true or false; and
+* _Expressions_ always evaluate to objects or sets of objects. 
 
-When writing constraints for our model, we need to be able to do two things:
+```admonish warning title="Forge isn't 'truthy'"
+Unlike what would happen in a programming language like JavaScript or Python, attempting to use an expression in place of a formula, or vice versa, will produce an error in Forge when you try to run your model. For example, if we wrote the constraint `all s: Student | s.grades`, what would that mean? That every `s` exists? That every `s` has passed some class? Something different? To avoid this ambiguity, Forge doesn't try to infer your meaning, and just gives an error.
+```
 
-<!--
-Recall that in the overview of [what a model is](../overview.md#models), we said that a model
+### Context for Evaluating Constraints: Instances
 
-> "...explicitly defines both the "things" that exist in the system, and the "rules" of the system." -->
+Notice that there's always a context that helps us decide whether a constraint yields true or false. In the above example, the context is a collection of students, courses taken and degrees granted. For some other model, it might be a tic-tac-toe board, a run of a distributed system, a game of baseball, etc. We'll call these  _instances_.
+
+* _Instances_ contain objects and field values that make it possible to tell whether constraints have been satisfied or not. 
+
+<!-- A reader familiar with ... might skip to []() for the technical docs...
+
+(If you are already familiar with the overview and looking for the technical implementation of constraints in Forge, you can start [on this page](../constraints/constraint-types.md)) -->
 
 ---
 
 <!--
 _TODO: BEFORE TALKING ABOUT IMPL DETAILS OF CONSTRAINTS IN FORGE, LET'S TALK ABOUT HOW CONSTRAINTS PLAY INTO BUILDING MODELS BY LOOKING AT AN EXAMPLE_ -->
 
-... TBD WIP
-
-### TBD, maybe even remove separation
-
-_TESTING LANGAUGE BELOW, NOT FINAL:_
-
-Recall that one
-
-Let's bring back the [linked list](../../building-models/sigs/sigs.md#admonition-example-sig-w-one-field) example we saw when learning about sigs:
+<!-- Let's bring back the [linked list](../../building-models/sigs/sigs.md#admonition-example-sig-w-one-field) example we saw when learning about sigs:
 
 ```
 sig Node {
@@ -108,13 +94,13 @@ sig Node {
 }
 ```
 
-If the point of modeling linked-lists is to learn things about the linked-list systems, we have to
+If the point of modeling linked-lists is to learn things about the linked-list systems, we have to -->
 
 <!--
 ![LinkedList-Normal](../../../images/constraints/LinkedList-normal.png)
 ![LL-Weird-A](../../images/constraints/LinkedList-weird-A.png) -->
 
-![Linked-List-Weird-B](../../images/constraints/LinkedList-weird-B.png)
+<!-- ![Linked-List-Weird-B](../../images/constraints/LinkedList-weird-B.png)
 
 Let's look at the example we first introduced when discussing sigs, [a linked list](../../building-models/sigs/sigs.md#admonition-example-sig-w-one-field)
 
@@ -122,12 +108,14 @@ We _constrain_ the acceptable outputs of the model by defining more rules and be
 
 a model with a lack of rules just means that you are allowing lots of things to be acceptable instances of the model!
 
-Forge will by default try and give you all possible instances
+Forge will by default try and give you all possible instances -->
 
 <!-- In Forge, the computer already has a set of instructions: construct instances of the model based on how you defined the "things" and "rules" of the model. -->
 
-Many people are tempted to tell Forge
+## Next Steps
 
-What Forge is basically doing....
+The next sections describe [formula](./formulas/formulas.md) and [expression](./expressions/expressions.md) syntax in more detail. A reader familiar with this syntax is free to skip to the section on [instances](./instances.md), or progress to [running models](../../running-models/running.md) in Forge.
 
----
+```admonish info title="Temporal Models"
+For more information on _temporal_ operators, which are only handled if `option problem_type temporal` is given to Forge, see the page on [Temporal Mode](../../electrum/electrum-overview.md). We maintain these in separate chapter because the meaning of constraints in this mode can differ subtly, and temporal mode is only introduced later in the course.
+```

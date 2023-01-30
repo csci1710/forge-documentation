@@ -114,6 +114,4 @@ etc...
 
 ## Modeling in Forge: Sigs and Constraints
 
-Awesome! Hopefully this all makes sense in the abstract- but we're here to learn how to use Forge to model and explore our own systems. In Forge, we use [`Sigs`](./sigs.md) to define the "things" that exist in a system, and [`Constraints`](./constraints.md) to define the "rules" of the system.
-
-Next, we'll learn how to use [`Sigs`](./sigs/sigs.md) and [`Constraints`](./constraints/constraints.md) to build our own models in Forge!
+In Forge, we use [`sig`s](./sigs.md) to define the "things" that exist in a system, and [constraints](./constraints.md) to define the "rules" of the system.
