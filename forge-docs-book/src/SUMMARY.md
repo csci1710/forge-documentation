@@ -1,7 +1,6 @@
 # Summary
 
 [Home](./home.md)
-[TODO Page](./todo.md)
 
 # Getting Started
 
@@ -12,11 +11,17 @@
 - [Overview](./building-models/overview.md)
   - [Addendum for Alloy Users](building-models/alloy-user-overview.md)
 - [Sigs](./building-models/sigs/sigs.md)
-  - [Field Multiplicity](./building-models/sigs/multiplicity.md)
+    <!-- TODO: Uncomment to deobfuscate -->
+  - [Field Multiplicity]()
+  - [Field Types]()
+  - [Inheritance]()
+  - [Singleton and Maybe Sigs]()
+  - [Advanced]()
+  <!-- - [Field Multiplicity](./building-models/sigs/multiplicity.md)
   - [Field Types](./building-models/sigs/sig-types.md)
   - [Inheritance](./building-models/sigs/inheritance.md)
   - [Singleton and Maybe Sigs](./building-models/sigs/singleton-maybe-sigs.md)
-  - [Advanced](./building-models/sigs/advanced.md)
+  - [Advanced](./building-models/sigs/advanced.md) -->
 - [Constraints](building-models/constraints/constraints.md)
   - [Instances](./building-models/constraints/instances.md)
   <!-- - [Constraints are Rules](./building-models/constraints/constraints-are-rules.md) -->
@@ -25,7 +30,17 @@
     - [Cardinality and Membership](building-models/constraints/formulas/cardinality-membership.md)
     - [Quantifiers](building-models/constraints/formulas/quantifiers.md)
     - [Predicates](building-models/constraints/formulas/predicates.md)
-  - [Expressions](building-models/constraints/expressions/expressions.md)
+    <!-- TODO: Uncomment to deobfuscate -->
+  - [Expressions]()
+    - [Relational Expressions]()
+      - [Relational Join]()
+      - [Cross Product]()
+      - [Transpose]()
+      - [Transitive Closure]()
+      - [Reflexive Transitive Closure]()
+    - [Functions]()
+    - [Let-Expressions]()
+    <!-- - [Expressions](building-models/constraints/expressions/expressions.md)
     - [Relational Expressions](building-models/constraints/expressions/relational-expressions/relational-expressions.md)
       - [Relational Join](building-models/constraints/expressions/relational-expressions/relational-join.md)
       - [Cross Product]()
@@ -33,7 +48,7 @@
       - [Transitive Closure]()
       - [Reflexive Transitive Closure]()
     - [Functions](building-models/constraints/expressions/functions.md)
-    - [Let-Expressions](building-models/constraints/expressions/let-expressions.md)
+    - [Let-Expressions](building-models/constraints/expressions/let-expressions.md) -->
 
 <!-- - [Over and Under-Constraining]()
 <!-- - [Examples](building-models/examples.md) -->
@@ -50,7 +65,10 @@
 
 # Testing
 
-- [Testing](./testing-chapter/testing.md)
+<!-- TODO: Uncomment to deobfuscate -->
+
+- [Testing]()
+<!-- - [Testing](./testing-chapter/testing.md) -->
 
 # Forge Standard Library (Built-Ins)
 
@@ -60,13 +78,14 @@
 
 # Temporal Models (Electrum)
 
-- [Electrum Overview](./electrum/electrum-overview.md)
+- [Electrum Overview]()
+<!-- - [Electrum Overview](./electrum/electrum-overview.md) -->
 - [Running & Examining Electrum Models]()
 
 # Custom Visualizations
 
 - [Library Basics]()
-- [...]()
+<!-- - [...]() -->
 
 <!-- # Work In Progress -->
 

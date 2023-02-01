@@ -7,3 +7,9 @@ Forge is a lightweight modeling language, similar to [Alloy](https://alloytools.
 - **Temporal Forge**, an extension of Forge to include linear-temporal operators (akin to Alloy 6 or [Electrum](https://github.com/haslab/Electrum)).
 
 Students progress through this language hierarchy as new concepts are introduced in class; this lets the course avoid a steep language-learning curve and cover important practical material earlier than would otherwise be possible.
+
+---
+
+```admonish
+Don't worry about the grayed-out chapters! Those chapters will become available when they become relevant in the course/assignments.
+```

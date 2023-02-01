@@ -6,7 +6,7 @@ For the following `<fmla>` means an arbitrary formula.
 
 Some operators have alternative syntax (marked by **_alt_**) which are equivalent, use whichever is most natural and convenient to you.
 
-### List of Availible Operators:
+### List of Available Operators:
 
 - [`not (!)`](./operators.md#not)
 - [`and (&&)`](./operators.md#and)
