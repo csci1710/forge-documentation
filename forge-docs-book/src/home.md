@@ -11,5 +11,5 @@ Students progress through this language hierarchy as new concepts are introduced
 ---
 
 ```admonish
-Don't worry about the grayed-out chapters! Those chapters will become available when they become relevant in the course/assignments.
+Don't worry about the greyed-out chapters! Those chapters will become available when they become relevant in the course/assignments.
 ```
