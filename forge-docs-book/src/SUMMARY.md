@@ -70,6 +70,9 @@
 - [Testing]()
 <!-- - [Testing](./testing-chapter/testing.md) -->
 
+- [Testing Against Wheats]()
+<!-- - [Testing](./testing-chapter/wheats.md) -->
+
 # Forge Standard Library (Built-Ins)
 
 - [Integers](./forge-standard-library/integers.md)
