@@ -1,17 +1,29 @@
 
-Inlcuded in Forge assignments are solution file(s) for each part of the assignment. 
+# What is a Wheat?
+Included in Forge assignments are solution file(s) for each part of the assignment. 
 These are referred to as *wheats*, and have the `.wheat` file extension.
-
 These *wheats* allow you to check your understanding of the problem using tests. As long as you can
 express your question about the assignment as a test, you can receive an authorotative answer from the wheat!
 
+
+To run tests in your test file (e.g. `stacks.test.frg`) using the wheat solution, follow these steps:
+
+- Replace `open` statements to your implementation file (ex. `stacks.frg`) with the associated wheat.
+    For example, you may replace `open "stacks.frg"` with `open "stacks.wheat"`. *Ensure not open both files at the same time.*
+- Run your tests file in Racket. All associated tests will be run against the *wheat* instead of your implementation.
+
+*Wheats* only implement top level predicates of a project. Tests that deal with the specific internals of *your* implementation
+will not be able to be run against the wheat.
+
+
+# Test Writing Strategies
 
 We have found the following testing-writing stratgies useful when interacting with the wheat.
 These are recommendations, you do not **have** to follow these strategies!
 
 
 
-## Test Writing Strategy 1
+## Strategy 1
 
 
 1. Write example behaviors that you believe the wheat would allow and non-examples that the wheat would rule out in terms of Forge’s example syntax.
