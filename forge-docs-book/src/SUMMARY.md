@@ -67,11 +67,13 @@
 
 <!-- TODO: Uncomment to deobfuscate -->
 
-- [Testing]()
-<!-- - [Testing](./testing-chapter/testing.md) -->
+<!-- - [Testing]() -->
 
-- [Testing Against Wheats]()
-<!-- - [Testing](./testing-chapter/wheats.md) -->
+- [Testing](./testing-chapter/testing.md)
+
+<!-- - [Testing Against Wheats]() -->
+
+- [Testing Against Wheats](./testing-chapter/wheats.md)
 
 # Forge Standard Library (Built-Ins)
 

@@ -1,12 +1,13 @@
-## TODO
-- [] Testing recipe (should this go here?)
+<!-- ## TODO
+- [] Testing recipe (should this go here?) -->
 
 # Testing
 
 Forge supports three different testing constructs:
+
 - `example`
 - `assert`
--  `test expect` blocks. 
+- `test expect` blocks.
 
 If tests pass, they do not open the visualizer, making them well-suited for building test suites for your Forge models.
 
@@ -48,12 +49,12 @@ For two predicates `isPoodle` and `isDog`:
 ```
 assert isPoodle is sufficient for isDog
 ```
+
 Tests that if `isPoodle` holds, then so must `isDog`. If you want, you could also add optional bounds.
 
 ```
 assert isPoodle is sufficient for isDog for 3 Dog
 ```
-
 
 ### Test-Expect Blocks
 
@@ -73,7 +74,6 @@ test expect {
 
 ~~If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.~~
 
-
 ## Organizing Your Tests
 
 You should organize your tests into test suites for each predicate you plan to test. These are similar to `test expect` blocks, but support a wider set of test constructs. For example, you could write a test suite for predicate `foo` as follows:
@@ -87,7 +87,7 @@ test suite for foo {
         {foo} for 3 Node is sat
         {foo} for inst is sat
     }
-    
+
     example abc is {not foo} for {
         Node = `Node1 + `Node2
      }
