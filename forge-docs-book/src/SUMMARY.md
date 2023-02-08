@@ -39,7 +39,7 @@
       - [Transitive Closure]()
       - [Reflexive Transitive Closure]()
     - [Functions]()
-    - [Let-Expressions]()
+    - [Let-Expressions](building-models/constraints/expressions/let-expressions.md)
     <!-- - [Expressions](building-models/constraints/expressions/expressions.md)
     - [Relational Expressions](building-models/constraints/expressions/relational-expressions/relational-expressions.md)
       - [Relational Join](building-models/constraints/expressions/relational-expressions/relational-join.md)

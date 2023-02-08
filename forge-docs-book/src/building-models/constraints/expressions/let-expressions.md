@@ -1,7 +1,7 @@
 # Let-Expressions
 
-```admonish danger title="TODO"
-- talk about using "let" in the evaluator
+```admonish todo title="TODO"
+- TODO: Add documentation about using "let" in the evaluator
 ```
 
 You can bind an expression to an identifier locally by using a `let` form:
