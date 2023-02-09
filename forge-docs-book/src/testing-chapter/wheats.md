@@ -27,7 +27,26 @@ These are recommendations, you do not **have** to follow these strategies!
    1. Add examples to the test suite for this necessary property, to make sure the property works as you intend.
    1. Using `assert necessary`, check that your property is really less specific than the wheat.
    1. If the property is not less specific than the wheat, add tests to your test-suite to figure out why.
-3. Now test that the conjunction of your weak properties is **sufficient** for the wheat.
+3. Now test that the conjunction of your necessary properties is **sufficient** for the wheat.
    1. If this test succeeds, you are done. This conjunction reflects all the characteristics of a correct solution.
    1. If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.
    1. Write some of these counter examples as non-examples of the wheat. Return to step 2
+
+
+## Strategy 2
+
+For each predicate `p` surfaced by the wheat:
+
+1. Write behaviors that p would allow and behaviors that the p would rule out in terms of either Forge’s example syntax or sufficient properties of the wheat. 
+    1. Run your test file to check these tests against the wheat. Revise any that fail the check.
+2. Study these tests and develop properties that are necessary for p to hold. For each *necessary* property (`n`):
+    1. Add tests (examples or sufficient properties) of `n` to make sure the property works as you intend.
+    2. Using `assert necessary`, check that `n` is really less specific than p.
+    3. If `n` is not less specific than p, add tests to your test-suite to figure out why.
+3. Now test that the conjunction of your necessary properties is **sufficient** for the wheat.
+   1. If this test succeeds, you are done. This conjunction reflects all the characteristics of a correct solution.
+   1. If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.
+   1. Write some of these counter examples as non-examples of the wheat. Return to step 2
+
+
+
