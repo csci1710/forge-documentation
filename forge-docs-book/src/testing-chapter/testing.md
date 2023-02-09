@@ -62,8 +62,9 @@ If you want to do arbitrary runs/checks for testing purposes, use a `test expect
 
 ```
 test expect {
-    {foo} is sat    -- we expect foo to be sat and raise an error otherwise
-    {bar} is unsat  -- we expect bar to be unsat and raise an error otherwise
+    {foo} is sat                 -- we expect foo to be sat and raise an error otherwise
+    {bar} is unsat               -- we expect bar to be unsat and raise an error otherwise
+    {baz} is theorem             -- baz always holds
     mytest : {foo} is sat        -- tests can (and should!) be named
     {foo} for 3 Node is sat      -- bounds can be given
     {foo} for inst is sat        -- concrete instances can be given
