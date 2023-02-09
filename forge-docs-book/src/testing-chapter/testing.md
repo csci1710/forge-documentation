@@ -36,7 +36,7 @@ Sig names may be used in place of objects only if the block has previously defin
 
 ### Assert
 
-The `assert` syntax allows you to write tests in terms of strong and weak properties of a predicate. For example, if you have two predicates `isFrog` and `isAmphibian`:
+The `assert` syntax allows you to write tests in terms of necessary and sufficient properties of a predicate. For example, if you have two predicates `isFrog` and `isAmphibian`:
 
 ```
 assert isAmphibian is necessary for isFrog
