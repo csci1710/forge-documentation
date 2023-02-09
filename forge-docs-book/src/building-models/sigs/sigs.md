@@ -1,10 +1,8 @@
 # Sigs
 
-```admonish danger title="TODO"
-- Talk about field name uniqueness (in reference to scope)
-- Link to integers in Forge at hyperlink
+<!-- ```admonish danger title="TODO"
 - Do sigs have to be defined before they are used?
-```
+``` -->
 
 _Sigs_ are the basic building block of any model in Forge. Sigs represent the "things" of the system we are modeling. You can think of a `sig` as analogous to a class in an object-oriented programming language. You can declare a `sig` in the following way:
 
@@ -71,7 +69,7 @@ sig Node {
     val: one Int
 }
 ~~~
-_**(`Int`** is a built-in sig provided by Forge. Read more about [valid types](./sig-types.md), and [Integers in Forge]())._
+_**(`Int`** is a built-in sig provided by Forge. Read more about [valid types](./sig-types.md), and [Integers in Forge](../../forge-standard-library/integers.md))._
 ```
 
 
@@ -88,3 +86,8 @@ sig Group {
 }
 ~~~
 ```
+
+```admonish note title="Field names must be unique"
+You cannot use the same field name within two different `sigs` in a model. This is because field names are globally available for writing constraints.
+```
+
