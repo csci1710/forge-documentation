@@ -16,8 +16,7 @@ will not be able to be run against the wheat.
 
 # Test Writing Strategies
 
-We have found the following testing-writing stratgies useful when interacting with the wheat.
-These are recommendations, you do not **have** to follow these strategies!
+**We recommend the following recipe for writing tests**. While we have found these very helpful, you do not *have* to follow these strategies.
 
 ## Strategy 1
 
@@ -32,6 +31,9 @@ These are recommendations, you do not **have** to follow these strategies!
    1. If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.
    1. Write some of these counter examples as non-examples of the wheat. Return to step 2
 
+### An Example
+
+Imagine you have to write and test the predicate `isDirectedTree`.
 
 ## Strategy 2
 
