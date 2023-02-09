@@ -29,7 +29,7 @@ will not be able to be run against the wheat.
 3. Now test that the conjunction of your necessary properties is **sufficient** for the wheat.
    1. If this test succeeds, you are done. This conjunction reflects all the characteristics of a correct solution.
    1. If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.
-   1. Write some of these counter examples as non-examples of the wheat. Return to step 2
+   1. Write some of these counter examples as non-examples of the wheat. Return to step 2.
 
 
 
@@ -41,12 +41,12 @@ For each predicate `p` surfaced by the wheat:
     1. Run your test file to check these tests against the wheat. Revise any that fail the check.
 2. Study these tests and develop properties that are necessary for p to hold. For each *necessary* property (`n`):
     1. Add tests (examples or sufficient properties) of `n` to make sure the property works as you intend.
-    2. Using `assert necessary`, check that `n` is really less specific than p.
-    3. If `n` is not less specific than p, add tests to your test-suite to figure out why.
+    2. Using `assert necessary`, check that `n` is really necessary for p.
+    3. If `n` is necessary for p, add tests to your test-suite to figure out why.
 3. Now test that the conjunction of your necessary properties is **sufficient** for the wheat.
    1. If this test succeeds, you are done. This conjunction reflects all the characteristics of a correct solution.
    1. If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.
-   1. Write some of these counter examples as non-examples of the wheat. Return to step 2
+   1. Write some of these counter examples as non-examples of the wheat. Return to step 2.
 
 
 ## Walking through Strategy 1
@@ -56,7 +56,7 @@ Let's put Strategy 1 into action by  figuring out how to implement a predicate d
 ```
 sig Node {edges: set Node}
 
-pred  {
+pred isDirectedTree {
    ...
 }
 ```
