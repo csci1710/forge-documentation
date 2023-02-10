@@ -83,7 +83,7 @@ test suite for isList {
 ```
 
 **Step 2**: The two examples above pass the wheat. We now look at them, trying to see if they describe a necessary property of `isList`.
-While there are many such properties, one that immediately comes to mind is: "The entire linked list must be connected".
+While there are many such properties, one that immediately comes to mind is: "The entire list must be connected".
 
 As a result, you may write the following property:
 
