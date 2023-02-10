@@ -51,12 +51,14 @@ For each predicate `p` surfaced by the wheat:
 
 ## Walking through Strategy 1
 
-Let's put Strategy 1 into action by  figuring out how to implement a predicate describing a directed tree.
-
+Let's put Strategy 1 into action by  figuring out how to implement a predicate describing a
+list.
 ```
-sig Node {edges: set Node}
+sig Node { 
+    next: lone Node
+}
 
-pred isDirectedTree {
+pred isList {
    ...
 }
 ```
@@ -65,39 +67,42 @@ pred isDirectedTree {
 
 ```
 
-test suite for isUndirectedTree {
-    example line is {isDirectedTree} for
+test suite for isList {
+    example line is {isList} for
     {
         Node = `Node0 + `Node1 + `Node2 
         edges = `Node0->`Node1 + `Node1->`Node2 
     }
 
-    example MultipleRoots is {not isDirectedTree} for
+    example twoLists is {not isList} for
     {
-        Node = `Node0 + `Node1 + `Node2 + `Node3 + `Node4
-        edges = `Node0->`Node1 + `Node1 -> `Node2 + `Node1->`Node3 + `Node4->`Node1
+        Node = `Node0 + `Node1 + `Node2 + `Node3
+        edges = `Node0->`Node1 + `Node2->`Node3 
     }
  }
 ```
 
-**Step 2**: The two examples above pass the wheat. We now look at them, trying to see if they describe a necessary property of `isDirectedTree`.
-While there are many such properties, one that immediately comes to mind is: "Each node in the tree can have at most one parent.".
+**Step 2**: The two examples above pass the wheat. We now look at them, trying to see if they describe a necessary property of `isList`.
+While there are many such properties, one that immediately comes to mind is: "The entire linked list must be connected".
 
-As a result, you may write the following weak property:
+As a result, you may write the following property:
 
 ```
-pred atMostOneParent {
-    edges.~edges in iden
+pred connected {
+(one a : Node | 
+    all b : Node | 
+        a != b => reachable[b, a, next]) 
 }
 ```
 
-We should substantiate this property with some tests. Notice that these are tests for `atMostOneParent`, not `isDirectedTree`.
+We should substantiate this property with some tests. Notice that these are tests for `connected`, not `isList`.
 ```
-test suite for atMostOneParent {
-        example points is {atMostOneParent} for
+test suite for connected {
+    example loop is {atMostOneParent} for
     {
-        Node = `Node0 + `Node1 + `Node2 
-        no edges
+        Node = `Node0 + `Node1
+        next = `Node0->`Node1 +  `Node1->`Node0
+        
     }
     // More tests
 
@@ -107,31 +112,31 @@ test suite for atMostOneParent {
 Now, we can assert that this is indeed a necessary property of the wheat.
 
 ```
-assert atMostOneParent is necessary for isDirectedTree
+assert connected is necessary for isList
 ```
 
-If this fails the wheat, add more examples to the test suite for `atMostOneParent` to figure out why.
-Perhaps the property needs to be revised.
+If this fails the wheat, add more examples to the test suite for `connected` to figure out why.
+Perhaps the property needs to be revised. In this case the test **will fail**. Connected requires a list
+to be non-empty. We would have to revise the predicate to allow for empty lists.
+Once you have fixed `connected`, repeat **Step 2** to come up with more necessary properties.
 
-Repeat **Step 2** to come up with more necessary properties.
 
-
-** Step 3**: Say we now have 2 properties necessary for isDirectedTree: `noLoops` and `atMostOneParent`.
+** Step 3**: Say we now have 2 properties necessary for `isList`: `noSelfLoops` and `connected`.
 Write a predicate to check the conjunction of these 2 properties and check if it is
-sufficient for the wheat. If this test succeeds, your necessary properties characterize the wheat. You can
-use these properties to write your solution!
+sufficient for the wheat. **If this test succeeds, your necessary properties characterize the wheat. You can
+use these properties to write your solution!**
 
 
 ```
 pred allNecessary {
-    noLoops
-    atMostOneParent
+    noSelfLoops
+    connected
 }
 
-assert allNecessary is sufficient for isDirectedTree
+assert allNecessary is sufficient for isList
 ```
 
-In this case, however, these 2 proeprties are not sufficient for `isDirectedTree`. Upon running this test
+In this case, however, these 2 proeprties are not sufficient for `isList`. Upon running this test
 against the wheat, Forge will provide you with an instance where 
 all your necessary properties are true, but the wheat is not.
 
