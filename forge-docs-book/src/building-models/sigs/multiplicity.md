@@ -1,9 +1,9 @@
 # Field Multiplicity
 
-```admonish danger title="TODO"
+<!-- ```admonish danger title="TODO"
 - Examples
 - ...
-```
+``` -->
 
 Given a field `f` with type `A`, the set of possible multiplicities is:
 
