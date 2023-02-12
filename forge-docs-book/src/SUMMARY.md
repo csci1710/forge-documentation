@@ -12,14 +12,14 @@
   - [Addendum for Alloy Users](building-models/alloy-user-overview.md)
 - [Sigs](./building-models/sigs/sigs.md)
   - [Inheritance](./building-models/sigs/inheritance.md)
+  - [Singleton, Maybe, and Abstract Sigs](./building-models/sigs/singleton-maybe-sigs.md)
     <!-- TODO: Uncomment to deobfuscate -->
   - [Field Multiplicity]()
   - [Field Types]()  
-  - [Singleton and Maybe Sigs]()
   - [Advanced]()
   <!-- - [Field Multiplicity](./building-models/sigs/multiplicity.md)
   - [Field Types](./building-models/sigs/sig-types.md)
-  - [Singleton and Maybe Sigs](./building-models/sigs/singleton-maybe-sigs.md)
+  
   - [Advanced](./building-models/sigs/advanced.md) -->
 - [Constraints](building-models/constraints/constraints.md)
   - [Instances](./building-models/constraints/instances.md)

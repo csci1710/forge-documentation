@@ -40,7 +40,16 @@ example workingCats is {myPredicate} for {
 This produces an error: 
 > run: Please specify an upper bound for ancestors of ActorCat.
 
-Forge knows only that there are 2 actors and 2 programmers, not if there are any cats who are neither. 
+This error occurs because Forge knows only that there are 2 specific actors and 2 specific programmers, and can't infer whether any _other_ cats exist. To fix the error, provide bounds for the parent sig:
+
+```clike
+example workingCats is {myPredicate} for {    
+    ActorCat = `ActorCat0 + `ActorCat1
+    ProgrammerCat = `ProgrammerCat0 + `ProgrammerCat1
+    Cat = `ActorCat0 + `ActorCat1 + `ProgrammerCat0 + `ProgrammerCat1
+}
+```
+
 ~~~
 
 
