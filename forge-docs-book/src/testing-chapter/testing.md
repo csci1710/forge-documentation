@@ -1,6 +1,3 @@
-<!-- ## TODO
-- [] Testing recipe (should this go here?) -->
-
 # Testing
 
 Forge supports three different testing constructs:
@@ -71,9 +68,9 @@ test expect {
 }
 ```
 
-### Interaction with Check-ex-spec
+<!-- ### Interaction with Check-ex-spec
 
-~~If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.~~
+~~If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.~~ -->
 
 ## Organizing Your Tests
 
@@ -95,4 +92,4 @@ test suite for foo {
 }
 ```
 
-Test suites can only contain tests, and all tests should reference the predicate under test.
+**Test suites can only contain tests, and all tests should reference the predicate under test.**

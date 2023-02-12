@@ -107,3 +107,9 @@ returns the reflexive-transitive closure of `<expr>`, assuming it is has arity 2
 
 - `*<expr>`: returns the reflexive-transitive closure of `<expr>`, assuming it is has arity 2; and
 - `{<fmla> => <expr-a> else <expr-b>}` returns `<expr-a>` if `<fmla>` evaluates to true, and `<expr-b>` otherwise.
+
+## Set Comprehension
+
+> `{x1: T1, ..., xn: Tn | <fmla>}` evaluates to a set of arity-n tuples. A tuple of objects `o1, ... on` is in the set if and only if `<fmla>` is satisfied when `x1` takes the value `o1`, etc. 
+
+For example, `{s: Student, i: Faculty | some c: Course | { some s.grades[c] and c.instructor = i} }` would evaluate to the set of student-faculty pairs where the student has taken a course from that faculty member.

@@ -1,15 +1,15 @@
 # What is a Wheat?
 
-Included in Forge assignments are solution file(s) for each part of the assignment.
+Included in most Forge assignments are solution file(s) for each part of the assignment.
 These are referred to as _wheats_, and have the `.wheat` file extension.
 These _wheats_ allow you to check your understanding of the problem using tests. As long as you can
-express your question about the assignment as a test, you can receive an authorotative answer from the wheat!
+express your question about the assignment as a test, you can receive an authoritative answer from the wheat! (For more on wheats, learning goals, and critiquing wheats, see [these lecture notes](https://hackmd.io/@lfs/SJDRo3Qpj) from February, 2023.)
 
 To run tests in your test file (e.g. `stacks.test.frg`) using the wheat solution, follow these steps:
 
 - Replace `open` statements to your implementation file (ex. `stacks.frg`) with the associated wheat.
-  For example, you may replace `open "stacks.frg"` with `open "stacks.wheat"`. _Ensure not open both files at the same time._
-- Run your tests file in Racket. All associated tests will be run against the _wheat_ instead of your implementation.
+  For example, you may replace `open "stacks.frg"` with `open "stacks.wheat"`. _Be careful not to open both files at the same time._
+- Run your tests file as you would any other Forge file. All associated tests will be run against the _wheat_ instead of your implementation.
 
 _Wheats_ only implement top level predicates of a project. Tests that deal with the specific internals of _your_ implementation
 will not be able to be run against the wheat.
@@ -30,8 +30,6 @@ will not be able to be run against the wheat.
    1. If this test succeeds, you are done. This conjunction reflects all the characteristics of a correct solution.
    1. If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.
    1. Write some of these counter examples as non-examples of the wheat. Return to step 2.
-
-
 
 ## Strategy 2
 
@@ -136,10 +134,10 @@ pred allNecessary {
 assert allNecessary is sufficient for isList
 ```
 
-In this case, however, these 2 proeprties are not sufficient for `isList`. Upon running this test
+In this case, however, these 2 properties are not sufficient for `isList`. Upon running this test
 against the wheat, Forge will provide you with an instance where 
 all your necessary properties are true, but the wheat is not.
 
-Write this out as an counter-example (ie a non-example of the wheat), and return to step 2.
+Write this out as an counter-example (i.e., a non-example of the wheat), and return to step 2.
 
 
