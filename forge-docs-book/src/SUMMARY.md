@@ -48,6 +48,7 @@
       - [Reflexive Transitive Closure]()
     - [Functions](building-models/constraints/expressions/functions.md)
     - [Let-Expressions](building-models/constraints/expressions/let-expressions.md) -->
+- [Comments](./building-models/comments.md)
 
 <!-- - [Over and Under-Constraining]()
 <!-- - [Examples](building-models/examples.md) -->

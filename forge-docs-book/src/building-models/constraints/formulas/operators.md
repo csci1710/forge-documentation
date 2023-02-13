@@ -1,36 +1,34 @@
 # Operators
 
-Formula operators are used to create formulas from other formulas.
-
-For the following `<fmla>` means an arbitrary formula.
-
-Some operators have alternative syntax (marked by **_alt_**) which are equivalent, use whichever is most natural and convenient to you.
+Formula operators are used to create bigger formulas from other formulas.
 
 ### List of Available Operators:
 
-- [`not (!)`](./operators.md#not)
-- [`and (&&)`](./operators.md#and)
-- [`or (||)`](./operators.md#or)
-- [`implies (=>)`](./operators.md#implies)
-  - [`else`](./operators.md#implies-else)
-- [`iff (<=>)`](./operators.md#iff)
+For the following `<fmla>` means an arbitrary formula.
+
+- Negation: [`not (!)`](./operators.md#not)
+- Conjunction: [`and (&&)`](./operators.md#and)
+- Disjunction: [`or (||)`](./operators.md#or)
+- Implication: [`implies (=>)`](./operators.md#implies)
+  - If-then-else: [`else`](./operators.md#implies-else)
+- Bi-implication: [`iff (<=>)`](./operators.md#iff)
+
+```admonish note title="Alternative syntax"
+Some operators have alternative syntax (marked by **_alt_**) which are equivalent. Use whichever is most natural and convenient to you.
+```
 
 ---
-
-## `not`
+## `not` (_alt:_ `!`)
 
 > `not <fmla>`
+> 
+> `! <fmla>`
 
 **true** when `<fmla>` evaluates to **false**
 
-_alt:_ `!`
-
-<!-- ```admonish example
-test 123
-~~~
-tesdt 123
-~~~
-``` -->
+```admonish example
+If `some p.spouse` is true when the person `p` is married, `not (some p.spouse)` denotes the opposite, being true whenever `p` is _not_ married.
+```
 
 ---
 
