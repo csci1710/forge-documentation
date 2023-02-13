@@ -32,50 +32,99 @@ If `some p.spouse` is true when the person `p` is married, `not (some p.spouse)`
 
 ---
 
-## `and`
+## `and` (_alt:_ `&&`)
 
 > `<fmla-a> and <fmla-b>`
+>
+> `<fmla-a> && <fmla-b>`
 
 **true** when both `<fmla-a>` and `<fmla-b>` evaluate to **true**.
 
-_alt:_ `&&`
+```admonish example
+If `some p.spouse` is true when the person `p` is married, and `p.spouse != p` is true when `p` is not married to themselves, then `some p.spouse and p.spouse != p` is true exactly when `p` is married, but not to themselves.
+```
+
+```admonish note title="Implicit and"
+Forge treats consecutive formulas within `{ ... }` as implicitly combined using `and`. For instance, the above example could also be written as:
+~~~
+{
+  some p.spouse
+  p.spouse != p
+}
+~~~
+```
 
 ---
 
-## `or`
+## `or` (_alt:_ `||`)
 
-> `<fmla-a> and <fmla-b>`
+> `<fmla-a> or <fmla-b>`
+>
+> `<fmla-a> || <fmla-b>`
 
 **true** when either `<fmla-a>` is **true** or `<fmla-b>` evaluates to **true**.
 
-_alt:_ `||`
+```admonish example
+If `some p.spouse` is true when the person `p` is married, and `p.spouse != p` is true when `p` is not married to themselves, then `some p.spouse or p.spouse != p` is true exactly when `p` is _either_:
+- married; or 
+- not married to themselves (including the case where `p` is unmarried).
+```
 
 ---
 
-## `implies`
+## `implies` (_alt_ `=>`)
 
-> `<fmla-a> implies <fmla-b>`:
+> `<fmla-a> implies <fmla-b>`
+> 
+> `<fmla-a> => <fmla-b>`
 
-**true** when either `<fmla-a>` evaluates to **false**, or both `<fmla-a>` and `<fmla-b>` evaluate to **true**.
+**true** when either `<fmla-a>` evaluates to **false** or `<fmla-b>` evaluates to **true**.
 
-_alt_ `=>`
+```admonish example
+If `some p.spouse` is true when the person `p` is married, and `p.spouse != p` is true when `p` is not married to themselves, then `some p.spouse implies p.spouse != p` is true exactly when `p` is _either_:
+- unmarried; or 
+- not married to themselves.
+```
 
-### `implies else`
+---
+
+### `implies else` (_alt:_ `=> else`)
 
 > `{<fmla-a> implies <fmla-b> else <fmla-c>}`
+>
+> `{<fmla-a> => <fmla-b> else <fmla-c>}`
 
 takes the value of `<fmla-b>` when `<fmla-a>` evaluates to **true**, and takes the value of `<fmla-c>` otherwise.
 
+```admonish example
+If:
+- `some p.spouse` is true when the person `p` is married, 
+- `p.spouse != p` is true when `p` is not married to themselves, and
+- `some p.parent1` is true when `p` has a `parent1` in the instance, 
+
+then `some p.spouse => p.spouse != p else some p.parent1` is true exactly when:
+- `p` is married, and not to themselves; or
+- `p` is not married and have a `parent1` in the instance.
+```
+
 ---
 
-## `iff`
+## `iff` (_alt:_ `<=>`)
 
 > `<fmla-a> iff <fmla-b>`
+> 
+> `<fmla-a> <=> <fmla-b>`
 
 true when `<fmla-a>` evaluates to **true** exactly when `<fmla-b>` evaluates to **true**.
 
-(iff = "if and only if")
+```admonish note title="IFF"
+The term `iff` is short for "if and only if".
+```
 
-_alt:_ `<=>`
+```admonish example
+If `some p.spouse` is true when the person `p` is married, and `some p.parent1` is true when `p` has a `parent1` in the instance, then `some p.spouse iff some p.parent1` is true exactly when _either_:
+- `p` is married and has a `parent1` in the instance; or 
+- `p` is unmarried has no `parent1` in the instance.
+```
 
 ---
