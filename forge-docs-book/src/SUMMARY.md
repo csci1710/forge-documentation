@@ -60,7 +60,7 @@
 - [Running](./running-models/running.md)
 - [Sterling Visualizer](./running-models/sterling-visualizer.md)
 - [Bounds](./running-models/bounds.md)
-- [Concrete Instance Bounds](./running-models/concrete-instance-bounds.md)
+  - [Concrete Instance Bounds](./running-models/concrete-instance-bounds.md)
 - [Options](./running-models/options.md)
 
 # Testing
