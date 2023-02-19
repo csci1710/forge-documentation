@@ -65,14 +65,7 @@
 
 # Testing
 
-<!-- TODO: Uncomment to deobfuscate -->
-
-<!-- - [Testing]() -->
-
 - [Testing](./testing-chapter/testing.md)
-
-<!-- - [Testing Against Wheats]() -->
-
 - [Testing Against Wheats](./testing-chapter/wheats.md)
 
 # Forge Standard Library (Built-Ins)
@@ -81,16 +74,18 @@
 - [Constants & Keywords](./forge-standard-library/constants-and-keywords.md)
 - [Helpers](./forge-standard-library/helpers.md)
 
+# Custom Visualizations
+
+- [Custom Visualization Basics](./sterling/custom-basics.md)
+  - [D3FX Helpers](./sterling/d3fx.md)
+  - [Working with SVG and Imports](./sterling/svg-tips.md)
+
 # Temporal Models (Electrum)
 
 - [Electrum Overview]()
 <!-- - [Electrum Overview](./electrum/electrum-overview.md) -->
 - [Running & Examining Electrum Models]()
 
-# Custom Visualizations
-
-- [Library Basics]()
-<!-- - [...]() -->
 
 <!-- # Work In Progress -->
 
