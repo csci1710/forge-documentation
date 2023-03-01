@@ -29,26 +29,24 @@
     - [Cardinality and Membership](building-models/constraints/formulas/cardinality-membership.md)
     - [Quantifiers](building-models/constraints/formulas/quantifiers.md)
     - [Predicates](building-models/constraints/formulas/predicates.md)
-    <!-- TODO: Uncomment to deobfuscate -->
-  - [Expressions]()
-    - [Relational Expressions]()
-      - [Relational Join]()
-      - [Cross Product]()
-      - [Transpose]()
-      - [Transitive Closure]()
-      - [Reflexive Transitive Closure]()
-    - [Functions]()
-    - [Let-Expressions](building-models/constraints/expressions/let-expressions.md)
-    <!-- - [Expressions](building-models/constraints/expressions/expressions.md)
-    - [Relational Expressions](building-models/constraints/expressions/relational-expressions/relational-expressions.md)
-      - [Relational Join](building-models/constraints/expressions/relational-expressions/relational-join.md)
-      - [Cross Product]()
-      - [Transpose]()
-      - [Transitive Closure]()
-      - [Reflexive Transitive Closure]()
+  - [Expressions](building-models/constraints/expressions/expressions.md)
+    - [Relational Operators](building-models/constraints/expressions/relational-expressions/relational-expressions.md)
+      - [`+ (union)`](building-models/constraints/expressions/relational-expressions.md#-union)
+      - [`- (set difference)`](building-models/constraints/expressions/relational-expressions.md#--set-difference)
+      - [`& (intersection)`](building-models/constraints/expressions/relational-expressions.md#intersection)
+      - [`.  [] (relational join)`](building-models/constraints/expressions/relational-expressions.md#-and--relational-join)
+      - [`-> (cross product)`](building-models/constraints/expressions/relational-expressions.md#--cross-product)
+      - [`~ (transpose)`](building-models/constraints/expressions/relational-expressions.md#-transpose)
+      - [`^ (transitive closure)`](building-models/constraints/expressions/relational-expressions.md#-transitive-closure)
+      - [`* (reflexive transitive closure)`](building-models/constraints/expressions/relational-expressions.md#-reflexive-transitive-closure)
+      - [`=> else`](building-models/constraints/expressions/relational-expressions.md#if-then-else)
+      - [`set comprehension`](building-models/constraints/expressions/relational-expressions.md#set-comprehension)
     - [Functions](building-models/constraints/expressions/functions.md)
     - [Let-Expressions](building-models/constraints/expressions/let-expressions.md) -->
 - [Comments](./building-models/comments.md)
+
+
+
 
 <!-- - [Over and Under-Constraining]()
 <!-- - [Examples](building-models/examples.md) -->
@@ -71,8 +69,8 @@
 # Forge Standard Library (Built-Ins)
 
 - [Integers](./forge-standard-library/integers.md)
-- [Constants & Keywords](./forge-standard-library/constants-and-keywords.md)
-- [Helpers](./forge-standard-library/helpers.md)
+- [Constants and Keywords](./forge-standard-library/constants-and-keywords.md)
+- [Helpers: Sequences and Reachability](./forge-standard-library/helpers.md)
 
 # Custom Visualizations
 

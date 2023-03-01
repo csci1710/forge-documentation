@@ -10,12 +10,17 @@ Visual objects comprise all other objects to display using the helper library. T
 
 ### Textbox
 
-Textboxes render text to the screen at a given location. They use the following syntax: 
+Textboxes render text to the screen at a given location. To instantiate one, use:
 
 ```
-let text = new Textbox(
-<text>:string, <coords>:Coords, <color>:string, <textSize>:string
-)
+new Textbox(<text>:string, <coords>:Coords, <color>:string, <textSize>:string)
+```
+where `Coords` is an object with `x` and `y` fields. 
+
+```admonish example title="TextBox"
+~~~
+new TextBox('hello!', {x: 50, y: 50}, 'black', 12)
+~~~
 ```
 
 All parameters after `text` are optional, and can be edited afterwards with corresponding setter methods. 
@@ -38,6 +43,19 @@ Rectangles work how one would expect them to. Along with the rest of the `Shape`
 
 Circles take in all the optional parameters associated with shapes, along with the additional parameters of `coords` and `radius`. The x and y values contained in the `coords` will determine the center of the circle, around which the `radius` will determine the rest. 
 
+```
+new Circle(
+        radius: number,
+        coords?: Coords,
+        color?: string,
+        borderWidth?: number,
+        borderColor?: string,
+        label?: string,
+        labelColor?: string,
+        labelSize?: number
+    )
+```
+
 #### Polygon
 
 Polygons are a bit more complicated, and serve as a very general tool. Along with the standard optional shape parameters, they also take in a `points` parameter. This is in the form of an array of coordinates. Each coordinate should be a point on the outside of the polygon, traversing the outside of the desired shape in order. 
@@ -59,7 +77,17 @@ let poly = new Polygon(
 
 #### Line
 
-`Line`s work similar to `Polygon`s, however without an interior. They also take in an array of coordinates called `points`, however these points will form a line, and will not reconnect at the end. 
+`Line`s work similar to `Polygon`s, however without an interior. Their constructor takes in an array of coordinates called `points`, however these points will form a line, and will not reconnect at the end:
+
+```
+new Line(points: Coords[], color?: string, width?: number)
+```
+
+```admonish example title="Line"
+~~~
+new Line(points: [{x:50, y:50}, {x:100, y:100}], color: 'black', width: 5)
+~~~
+```
 
 ## Complex Objects
 

@@ -8,12 +8,27 @@ fun <fun-name>[<args>]: <result-type> {
 }
 ```
 
-As with predicates, arguments will be evaluated via substitution. For example:
-
+~~~admonish example title="Helper function"
 ```
 fun inLawA[p: Person]: one Person {
   p.spouse.parent1
 }
 ```
+~~~
 
-Functions may be used anywhere expressions can appear.
+As with predicates, arguments will be evaluated via substitution. Functions may be used (with appropriate arguments) anywhere expressions can appear.
+
+~~~admonish example title="Helper function use"
+```
+all p: Person | some inLawA[p]
+```
+
+This expands to:
+
+```
+all p: Person | some (p.spouse.parent1)
+```
+
+~~~
+
+
