@@ -1,0 +1,2336 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Forge Documentation</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="././mdbook-admonish.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="home.html">Home</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded affix "><li class="part-title">Building Models</li><li class="chapter-item expanded "><a href="building-models/overview.html"><strong aria-hidden="true">2.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item expanded "><a href="building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item expanded "><a href="building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Field Multiplicity</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Field Types</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Advanced</div></li></ol></li><li class="chapter-item expanded "><a href="building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.1.</strong> Formulas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.1.1.</strong> Operators</a></li><li class="chapter-item expanded "><a href="building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.1.2.</strong> Cardinality and Membership</a></li><li class="chapter-item expanded "><a href="building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.1.3.</strong> Quantifiers</a></li><li class="chapter-item expanded "><a href="building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.1.4.</strong> Predicates</a></li></ol></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.2.</strong> Expressions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.</strong> Relational Operators</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.1.</strong> + (union)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.2.</strong> - (set difference)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.3.</strong> & (intersection)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.4.</strong> .  [] (relational join)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.5.</strong> -&gt; (cross product)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.6.</strong> ~ (transpose)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.7.</strong> ^ (transitive closure)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.8.</strong> * (reflexive transitive closure)</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.9.</strong> =&gt; else</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.10.</strong> set comprehension</a></li></ol></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.2.2.</strong> Functions</a></li><li class="chapter-item expanded "><a href="building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.2.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item expanded affix "><li class="part-title">Running Models</li><li class="chapter-item expanded "><a href="running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item expanded "><a href="running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item expanded "><a href="running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item expanded "><a href="running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item expanded affix "><li class="part-title">Testing</li><li class="chapter-item expanded "><a href="testing-chapter/testing.html"><strong aria-hidden="true">10.</strong> Testing</a></li><li class="chapter-item expanded "><a href="testing-chapter/wheats.html"><strong aria-hidden="true">11.</strong> Testing Against Wheats</a></li><li class="chapter-item expanded affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item expanded "><a href="forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item expanded "><a href="forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item expanded "><a href="forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item expanded affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item expanded "><a href="sterling/custom-basics.html"><strong aria-hidden="true">15.</strong> Custom Visualization Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sterling/d3fx.html"><strong aria-hidden="true">15.1.</strong> D3FX Helpers</a></li><li class="chapter-item expanded "><a href="sterling/svg-tips.html"><strong aria-hidden="true">15.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Temporal Mode</li><li class="chapter-item expanded "><a href="electrum/electrum-overview.html"><strong aria-hidden="true">16.</strong> Temporal Mode Overview and Operators</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="home"><a class="header" href="#home">Home</a></h1>
+<p>Forge is a lightweight modeling language, similar to <a href="https://alloytools.org">Alloy</a>, that has been designed for <em>teaching</em> modeling and lightweight formal methods. It comprises three sublanguages or modes:</p>
+<ul>
+<li><strong>Froglet</strong> (<code>#lang forge/bsl</code>), a core language for modeling using object-oriented intuitions;</li>
+<li><strong>Forge</strong> (<code>#lang forge</code>), an extension of Frglet to include relations and relational operators;</li>
+<li><strong>Temporal Forge</strong>, an extension of Forge to include linear-temporal operators (akin to Alloy 6 or <a href="https://github.com/haslab/Electrum">Electrum</a>).</li>
+</ul>
+<p>Students progress through this language hierarchy as new concepts are introduced in class; this lets the course avoid a steep language-learning curve and cover important practical material earlier than would otherwise be possible.</p>
+<hr />
+<div id="admonition-note" class="admonition note">
+<div class="admonition-title">
+<p>Note</p>
+<p><a class="admonition-anchor-link" href="home.html#admonition-note"></a></p>
+</div>
+<div>
+<p>Don't worry about the greyed-out chapters! Those chapters will become available when they become relevant in the course/assignments.</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
+<p>To run Forge, you will need to have installed:</p>
+<ul>
+<li><a href="https://download.racket-lang.org/all-versions.html">Racket</a> (we suggest the latest version, which was 8.3 as of writing);</li>
+<li>Java 11 or later (which you can get <a href="https://www.oracle.com/java/technologies/javase-downloads.html">here</a> if you don't have it)</li>
+</ul>
+<h2 id="installing-forge"><a class="header" href="#installing-forge">Installing Forge</a></h2>
+<p>To install Forge, you have two options. The first is to install from Racket’s package system, and the second is to work from the latest development build.</p>
+<h3 id="standard-package-system"><a class="header" href="#standard-package-system">Standard Package System</a></h3>
+<p>For the standard package-system installation, after installing Racket, run <code>raco pkg install forge</code> from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to <em>File &gt; Install Package</em>. Type <em>forge</em> as the package name and choose <strong>Install</strong> (if it's already installed, it'll be an <strong>Update</strong> button, which it's good to do regularly as we will be pushing new features/content throughout the semester).</p>
+<h4 id="forge-version"><a class="header" href="#forge-version">Forge Version</a></h4>
+<p>When you run a Forge file, you'll be told the <em>Forge version</em> you're running. This is important information to include with questions, etc. We'll be announcing Forge updates on EdStem roughly every week.</p>
+<h3 id="latest-development-build"><a class="header" href="#latest-development-build">Latest Development Build</a></h3>
+<p>For the latest development build, you'll need to:</p>
+<ul>
+<li>clone our Git repository (<code>git clone https://github.com/tnelson/forge</code>);</li>
+<li>cd to the repository (<code>cd forge</code>);</li>
+<li>check out the development branch (<code>git checkout dev</code>);</li>
+<li>finally, install the <code>forge</code> and <code>froglet</code> packages (<code>raco pkg install ./forge ./froglet</code>).</li>
+</ul>
+<p>Note the <code>./</code> in the command! If you write <code>raco pkg install forge froglet</code>, that will install both from the package server. Adding <code>./</code> makes the install use those local folders. It's also important to have both <code>./forge</code> and <code>./froglet</code> in the single command; they depend on each other, so leaving one out will cause <code>raco</code> to install it from the package server, not your local drive.</p>
+<h2 id="installing-vscode-extension-for-forge"><a class="header" href="#installing-vscode-extension-for-forge">Installing VSCode Extension for Forge</a></h2>
+<ul>
+<li>Download the latest release from <a href="https://github.com/csci1710/forge-language-extension-vscode/releases/">here</a>. You should download the file that says &quot;forge-language-server-[version].vsix&quot;.</li>
+<li>Open VSCode and click on the Extensions button on the left hand side of the window.</li>
+<li>Click the three dots on the top.</li>
+<li>Select “Install from VSIX” and select the file you just downloaded.</li>
+</ul>
+<p>We may be issuing updates to the extension via EdStem as the semester progresses.</p>
+<h2 id="installing-vscode-extension-for-gpt-3"><a class="header" href="#installing-vscode-extension-for-gpt-3">Installing VSCode Extension for GPT-3</a></h2>
+<p>This extension allows you to write questions to GPT-3 from your editor. </p>
+<hr />
+<h3 id="requirements"><a class="header" href="#requirements">Requirements</a></h3>
+<ul>
+<li>Your Brown Provided API Key.</li>
+<li>Your Brown-provided User Id.</li>
+</ul>
+<hr />
+<p><a href="https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix">Once downloaded, the extension can be installed following the instructions here.</a></p>
+<p>When the extension is installed, a prompt will appear for you to enter in your API key and your User Id. You must use the extension <strong>only with the API key provided by the course</strong>, obtained from filling out the <a href="https://docs.google.com/forms/d/e/1FAIpQLSe18e5qNnaZm6JBMsAM3cNJiEC43ElsLyL6IJIN6U3WDOR1-w/viewform?usp=sf_link">responsible-use form</a>.</p>
+<hr />
+<h3 id="functionality"><a class="header" href="#functionality">Functionality</a></h3>
+<h4 id="ask-gpt"><a class="header" href="#ask-gpt">Ask GPT</a></h4>
+<p>Sends user input to GPT for processing. The response will appear in a modal.</p>
+<blockquote>
+<p>Default key binding set to <code>alt + g</code> (Windows) or <code>cmd + g</code> (Mac)
+Ask GPT in the Status Bar</p>
+</blockquote>
+<h4 id="ask-gpt-inline"><a class="header" href="#ask-gpt-inline">Ask GPT inline</a></h4>
+<p>Queries GPT-3 with highlighted text. The response is automatically injected <strong>below</strong> the highlighted docs.</p>
+<blockquote>
+<p>Default key binding set to <code>alt + q</code> (Windows) or <code>cmd + q</code> (Mac)</p>
+</blockquote>
+<h4 id="re-enter-api-key"><a class="header" href="#re-enter-api-key">Re-enter API Key</a></h4>
+<blockquote>
+<ul>
+<li>Open command palette and run <code>Update OpenAI API Key</code> (alt + m on Windows, cmd + m on Mac)</li>
+<li>Enter your correct API Key into the prompt </li>
+<li>Reload VSCODE</li>
+</ul>
+</blockquote>
+<h4 id="re-enter-userid"><a class="header" href="#re-enter-userid">Re-enter UserId</a></h4>
+<blockquote>
+<ul>
+<li>Open command palette and run <code>Update UserId</code> (alt + u on Windows, cmd + u on Mac)</li>
+<li>Enter your correct UserId into the prompt </li>
+<li>Reload VSCODE</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="checking-your-installation"><a class="header" href="#checking-your-installation">Checking your installation</a></h2>
+<p>Once Racket, Forge, and Java are installed, you should confirm that everything is working properly. Create a textfile <code>test.frg</code> with only the contents <code>#lang forge/bsl</code> and then, from your command line, type <code>racket test.frg</code>. If this runs without error, congratulations, Forge should now be installed!</p>
+<p>If you encounter any issues installing, please report them on EdStem! We'll do our best to get you help as soon as possible.</p>
+<h2 id="updating-forge"><a class="header" href="#updating-forge">Updating Forge</a></h2>
+<p>Please remember to update using the method appropriate for your install. </p>
+<h3 id="if-you-installed-via-rackets-package-system"><a class="header" href="#if-you-installed-via-rackets-package-system">If you installed via Racket's package system</a></h3>
+<p>Do:</p>
+<ul>
+<li><code>raco pkg update forge</code> and </li>
+<li><code>raco pkg update froglet</code>.<br />
+or click <code>Update</code> for both in the DrRacket package manager.</li>
+</ul>
+<h3 id="if-you-installed-via-git"><a class="header" href="#if-you-installed-via-git">If you installed via Git</a></h3>
+<p>Do:</p>
+<ul>
+<li><code>cd</code> to the location of the Forge repository on your system;</li>
+<li>make sure you're in the branch you want (<code>main</code> for published updates, <code>dev</code> for our development build);</li>
+<li><code>git pull</code> in the repository, and then </li>
+<li><code>raco setup forge</code> and <code>raco setup froglet</code> (to rebuild the packages). </li>
+</ul>
+<p>Confirm that these packages are installed properly from local directories using <code>raco pkg show froglet</code> and <code>raco pkg show forge</code>. If one is installed from a directory on your machine, and another via the Racket package system, issues can occur. You should see both say <code>link &lt;path on your machine&gt;</code>. If one says <code>catalog ...</code> then it's installed via Racket's servers. </p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="overview"><a class="header" href="#overview">Overview</a></h1>
+<!-- ```admonish danger title="TODO"
+- [Elaborate A](#admonition-todo-elaborate-a)
+- [Elaborate B](#admonition-todo-elaborate-b)
+- [Unsat](#admonition-todo-unsat)
+- no motivation behind person example
+- car is a real world thing, obviously we care about the aerodynamics, obvious and immediate motivation.
+- running smoke over the car and capturing a picture is an instance.
+- just talk about systems, models, instances using the car analogy. now let's talk about how we would be doing it w/ a computer. 
+```
+  -->
+<p>Forge is a language that allows us to define models of systems and explore instances of those models. But <strong><em>what does that mean</em></strong>? Let's break it down:</p>
+<!-- --- -->
+<h2 id="systems"><a class="header" href="#systems">Systems</a></h2>
+<p>A <strong>system</strong> can be generally thought of as a particular way that various objects interact.  A system isn't necessarily a <em>computer</em> system, although it can be. For example:</p>
+<ul>
+<li>The game of baseball is a system involving players, a ball, a field and bases, etc. along with rules that govern how those things interact with each other.</li>
+<li>Family trees are a system where there are people, and rules that express how they are related to each other.</li>
+<li>A cryptographic protocol is a system where there are parties, messages, cryptographic primitives, and rules that govern how messages can be encrypted, decrypted, sent, and received.</li>
+<li>Binary search trees are a system where there are nodes, values, connections between nodes, and rules that govern how nodes can be created, removed, and positioned relative to one another.
+<em>There is no limit to the type or complexity of a system that we can discuss</em>, although different tools and techniques are useful for working with different kinds of systems.</li>
+</ul>
+<hr />
+<h2 id="models"><a class="header" href="#models">Models</a></h2>
+<p>A <strong>model</strong> is a <em>representation</em> of a system that faithfully includes some but not all of the system's complexity. There are many different ways to model a system, all of which have different advantages and disadvantages. Think about what a car company does before it produces a new car design. Among other things, it creates multiple models. E.g.,</p>
+<ul>
+<li>it models the car in some computer-aided design tool; and then</li>
+<li>creates a physical model of the car, perhaps with clay, for testing in wind tunnels etc.</li>
+</ul>
+<p>There may be many different models of a system, all of them focused on something different, and all of them useful for something. (As the statisticians say, &quot;all models are wrong, but some models are useful&quot;.)</p>
+<!-- The model's description of a system effectively establishes the bounds of all possible states/instances of the system -->
+<p>Models define a notion of what kinds of things exist in the system and (some of) the &quot;rules&quot; governing the system. In a well-crafted model, we can explore what scenarios are possible in the system, which gives us insight and the ability to reason about the system itself---within the bounds of what the model expresses. </p>
+<h3 id="example-friends"><a class="header" href="#example-friends">Example: Friends</a></h3>
+<p>If we wanted to model a group of friends, we might define our model to have the following structure and properties*:</p>
+<ul>
+<li>There's a type of object, <code>Person</code>, in the system.</li>
+<li>Each <code>Person</code> has a list of <code>Person</code>s, representing their friends.</li>
+<li>Each <code>Person</code> must have at least one <code>Person</code> in their friends list.</li>
+</ul>
+<p>(*This seems like a very reasonable model for what we want to do, but we'll discuss some potential errors later on when talking about <a href="building-models/./overview.html#instances">instances</a>).</p>
+<h3 id="a-note-on-imperfect-representations"><a class="header" href="#a-note-on-imperfect-representations">A Note on Imperfect Representations</a></h3>
+<p>It is very difficult to fully model some systems, especially if the system is complex and involves many intricate sub-systems. That being said, <em>we don't need to fully model a system to be able to make useful inferences</em>. We can simplify, omit, and abstract concepts/attributes to make models that approximate the system while preserving the fundamentals that we're interested in.</p>
+<p>We can see this principle applied in the car-manufacturing example above. You could use a solid clay model of a car to accurately determine the car's aerodynamics in a wind tunnel, but you'd have a hard time exploring how the doors of the car operate or how any of the interior parts work. What you can explore is limited by how the system is modeled. If all you care about is exploring the aerodynamic profile of a car, then we can safely abstract out the internals of the car and focus on the shape. There's no need to represent things in our model that we aren't interested in exploring!</p>
+<p>Likewise, in our &quot;friend group&quot; system example, we don't have to fully describe a <code>Person</code> in our model, we just have to describe the relevant properties of a <code>Person</code>. We abstract the idea of &quot;friendship,&quot; combining all types of friends (best friend, acquaintance, etc.) into a single concept of &quot;friend.&quot; We omit from our model the concept of a <code>Person</code>'s dietary restrictions and myriad other things. These are all choices (<em>sometimes unintentional</em>) that affect the scope of our model. If we wanted to distinguish between types of friends, or examine familial relationships as well, we would have to expand the model to include those concepts.</p>
+<p>Learning how to model a system is a key skill for engineers, not just within &quot;formal methods&quot;. Abstraction is one of the key tools in Computer Science, and modeling lies at the heart of abstraction.</p>
+<hr />
+<h2 id="instances"><a class="header" href="#instances">Instances</a></h2>
+<p>An <strong>instance</strong> is a concrete scenario that abides by the rules of a model, containing <em>specific</em> objects and their relationships with each other.</p>
+<!-- We can draw rough analogues to object-oriented programming here:
+
+- A Class is a Model: The Class isn't something you can directly interact with, but defines how the instances of the objects are created
+- An Object (after it is instantiated) is an Instance: It contains specific values and data in the form defined by the class it was instantiated from. -->
+<!-- An instance represents one of the possible combinations of the things that exist in a system and their interactions according to the rules we defined. Continuing our "friend group" example, here are three separate instances that abide by the rules of our model:
+
+- **Person A** has **Person B** as a friend, and **Person B** has **Person A** as a friend.
+- **Person A** has **Person B** as a friend, **Person B** has **Person C** as a friend, and **Person C** has **Person A** as a friend\*.
+- **Person A** has **Person A** as a friend\*.
+
+\*Oops... we seem to have gotten some strange instances! Does it make sense for Person A to be friends with Person B, but Person B not be friends with Person A? What about the scenario where everyone is their own friend? Let's recall the model of our system:
+
+> - There are `Person`s in the system.
+> - Each `Person` has a list of `Person`s, representing their friends.
+> - Each `Person` must have at least one `Person` in their friends list. -->
+<!-- ![Forge Instance Meme](../../images/lfsmeme9_v3.png) -->
+<!-- ```admonish todo title="TODO: Elaborate B"
+Elaborate/Finish this section:\
+
+Well... I _guess_ those instances follow all the rules but that definitely could be different from what we expected to be valid instances! Scenarios like these should inspire reflection-
+```
+
+We'll eventually talk about generating instances from our model in Forge in the section on [running models](./running-models/running.md).
+
+### A Note on the _Lack_ of Instances
+
+```admonish todo title="TODO: Unsat"
+Touch on UNSAT here:\
+
+Instances are generated ... abiding by the structure and rules of our model. If the model we have made is too strict, and the rules
+we won't be able to generate an instance. (_TODO: Talk about unsatisfiability/link to it somewhere else_)
+```
+
+---
+
+```admonish todo
+add a system, model, instance example chain for stuff like
+- clay car...
+etc...
+```
+
+--- -->
+<h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
+<p>In Forge, we use <a href="building-models/./sigs.html"><code>sig</code>s</a> to define the &quot;things&quot; that exist in a system, and <a href="building-models/./constraints.html">constraints</a> to define the &quot;rules&quot; of the system.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="addendum-for-alloy-users"><a class="header" href="#addendum-for-alloy-users">Addendum for Alloy Users</a></h1>
+<p>Forge syntax and semantics are nearly identical to Alloy 6. There are some minor differences. E.g.:</p>
+<ul>
+<li>Forge eschews the <code>fact</code> construct and <code>sig</code>-facts in favor of using predicates.</li>
+<li>Forge disallows some complex field declaration (Forge fields always have exactly one multiplicity keyword and a product of sig names).</li>
+<li>Forge introduces <code>test expect</code> blocks for testing, among other improved testing features. It also supports partial instances via the <code>inst</code> keyword.</li>
+<li>Activating <code>option problem_type temporal</code> enables the use of Alloy6-style LTL. Due to user-experience concerns, we have changed the name of the <code>after</code> operator to <code>next_state</code>.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="sigs"><a class="header" href="#sigs">Sigs</a></h1>
+<!-- ```admonish danger title="TODO"
+- Do sigs have to be defined before they are used?
+``` -->
+<p><em>Sigs</em> are the basic building block of any model in Forge. Sigs represent the &quot;things&quot; of the system we are modeling. You can think of a <code>sig</code> as analogous to a class in an object-oriented programming language. You can declare a <code>sig</code> in the following way:</p>
+<pre><code>sig &lt;name&gt; {}
+</code></pre>
+<p>A <code>sig</code> can also have one or more <em>fields</em>, which define relationships between that <code>sig</code> and other <code>sig</code>s.</p>
+<pre><code>sig &lt;name&gt; {
+    &lt;field&gt;,
+    &lt;field&gt;,
+    ...
+    &lt;field&gt;
+}
+</code></pre>
+<div id="admonition-syntax-note" class="admonition note">
+<div class="admonition-title">
+<p>Syntax Note</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/sigs.html#admonition-syntax-note"></a></p>
+</div>
+<div>
+<p>Ensure that there is a <strong>comma after every field except for the last one</strong>. This is a common source of compilation errors when first defining a model!</p>
+</div>
+</div>
+<h2 id="fields"><a class="header" href="#fields">Fields</a></h2>
+<p>Fields allow us to define relationships between a given <code>sig</code>s and other components of our model. Each <em>field</em> in a <code>sig</code> has:</p>
+<ul>
+<li>a <em><strong>name</strong></em>;</li>
+<li>a <a href="building-models/sigs/multiplicity.html"><em><strong>multiplicity</strong></em></a> (<code>one</code>, <code>lone</code>, <code>pfunc</code>, <code>func</code>, or, in the full Forge language, <code>set</code>);</li>
+<li>a <a href="building-models/sigs/sig-types.html"><em><strong>type</strong></em></a> (a <code>-&gt;</code> separated list of <code>sig</code> names)<em><strong>.</strong></em></li>
+</ul>
+<p>Put together, a field takes the form:</p>
+<pre><code>name: multiplicity type
+</code></pre>
+<!-- - The **name** of a field does exactly what it sounds like, and assigns a name to the relationship. You can use the name of the relationship to reference the relationship when writing the "rules" of the system (we'll cover this when we talk about [constraints](../constraints/constraints.md)).
+- The **multiplicity** of a field allows you to define the type of relationship -->
+<div id="admonition-example-sig-with-one-field" class="admonition example">
+<div class="admonition-title">
+<p>Example: Sig with one field</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/sigs.html#admonition-example-sig-with-one-field"></a></p>
+</div>
+<div>
+<p><strong>Basic Sig with Fields (Linked List):</strong></p>
+<p>A model of a circularly-linked list might have a <code>sig</code> called <code>Node</code>. <code>Node</code> might then have a field <code>next: one Node</code> to represent the contents of every <code>Node</code>'s <code>next</code> reference. We use <code>one</code> here since every <code>Node</code> always has exactly one successor in a <em>circularly</em> linked list. </p>
+<pre><code>sig Node {
+    next: one Node
+}
+</code></pre>
+</div>
+</div>
+<div id="admonition-example-sig-with-multiple-fields" class="admonition example">
+<div class="admonition-title">
+<p>Example: Sig with multiple fields</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/sigs.html#admonition-example-sig-with-multiple-fields"></a></p>
+</div>
+<div>
+<p><strong>Basic Sig with Fields (Binary Tree):</strong></p>
+<p>A model of a binary tree might have a <code>sig</code> called <code>Node</code>. <code>Node</code> might then have three fields:</p>
+<ul>
+<li><code>left: lone Node</code> and <code>right: lone Node</code> to represent the <code>Node</code>'s children. We use <code>lone</code> here since the left/right child fields can either be empty or contain exactly one <code>Node</code>.</li>
+<li><code>val: one Int</code> to represent the value of each Node, where we have decided that every <code>Node</code> should have an <code>Int</code>eger value. We use <code>one</code> here because each <code>Node</code> should have exactly one value.</li>
+</ul>
+<pre><code>sig Node {
+    left: lone Node,
+    right: lone Node,
+    val: one Int
+}
+</code></pre>
+<p><em><strong>(<code>Int</code></strong> is a built-in sig provided by Forge. Read more about <a href="building-models/sigs/./sig-types.html">valid types</a>, and <a href="building-models/sigs/../../forge-standard-library/integers.html">Integers in Forge</a>).</em></p>
+</div>
+</div>
+<div id="admonition-example-sig-w-no-fields" class="admonition example">
+<div class="admonition-title">
+<p>Example: Sig w/ No Fields</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/sigs.html#admonition-example-sig-w-no-fields"></a></p>
+</div>
+<div>
+<p><strong>Example - Basic Sig without Fields:</strong></p>
+<p>Not every <code>sig</code> in a model needs to have fields to be a useful part of the model! <code>sig</code>s with no fields are often used in conjunction with other <code>sig</code>s that reference them. One such example might look like this:</p>
+<pre><code>sig Student {}
+sig Group {
+    member: set Student
+}
+</code></pre>
+</div>
+</div>
+<div id="admonition-field-names-must-be-unique" class="admonition note">
+<div class="admonition-title">
+<p>Field names must be unique</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/sigs.html#admonition-field-names-must-be-unique"></a></p>
+</div>
+<div>
+<p>You cannot use the same field name within two different <code>sigs</code> in a model. This is because field names are globally available for writing constraints.</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="inheritance"><a class="header" href="#inheritance">Inheritance</a></h1>
+<p>Sigs may inherit from other sigs via the <code>extends</code> keyword:</p>
+<pre><code class="language-clike">sig &lt;name&gt; extends &lt;parent sig name&gt; {
+    &lt;additional fields&gt; ...
+}
+</code></pre>
+<p>Sigs may only have <em>at most one parent sig</em>. Moreover, much like how no object can be belong to multiple top-level sigs, no object can belong to more than one immediate child of any sig. That is, any two sigs <code>A</code> and <code>B</code> will never contain an object in common unless one is a descendent of the other. </p>
+<div id="admonition-different-kinds-of-cat" class="admonition example">
+<div class="admonition-title">
+<p>Different kinds of cat</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/inheritance.html#admonition-different-kinds-of-cat"></a></p>
+</div>
+<div>
+<pre><code class="language-clike">sig Cat {
+    favoriteFood: one Food
+}
+sig ActorCat extends Cat {
+    playName: one Play
+}
+sig ProgrammerCat extends Cat {}
+</code></pre>
+<p>This means that any <code>ProgrammerCat</code> object is also a <code>Cat</code> object, and so will have a <code>favoriteFood</code> field. But only <code>ActorCat</code>s have the <code>playName</code> field. Moreover, any cat may be either an <code>ActorCat</code>, <code>ProgrammerCat</code>, or neither---but not both.</p>
+</div>
+</div>
+<div id="admonition-inheritance-and-bounds" class="admonition warning">
+<div class="admonition-title">
+<p>Inheritance and Bounds</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/inheritance.html#admonition-inheritance-and-bounds"></a></p>
+</div>
+<div>
+<p>Forge must have bounds for <em>every</em> sig, including child sigs. The default of 0-to-4 objects is applied to every top-level sig. Forge can often infer consistent bounds for child sigs, but it cannot always do so and will require you to provide them. This is most often the case in the presence of complex hierarchies involving <code>abstract</code> and <code>one</code> sigs. </p>
+<p>More importantly, <code>example</code> and <code>inst</code> syntax require the contents of parent sigs to be defined once the contents of a single child are set. To see why, consider this example:</p>
+<pre><code class="language-clike">example workingCats is {myPredicate} for {
+    ActorCat = `ActorCat0 + `ActorCat1
+    ProgrammerCat = `ProgrammerCat0 + `ProgrammerCat1
+}
+</code></pre>
+<p>This produces an error: </p>
+<blockquote>
+<p>run: Please specify an upper bound for ancestors of ActorCat.</p>
+</blockquote>
+<p>This error occurs because Forge knows only that there are 2 specific actors and 2 specific programmers, and can't infer whether any <em>other</em> cats exist. To fix the error, provide bounds for the parent sig:</p>
+<pre><code class="language-clike">example workingCats is {myPredicate} for {    
+    ActorCat = `ActorCat0 + `ActorCat1
+    ProgrammerCat = `ProgrammerCat0 + `ProgrammerCat1
+    Cat = `ActorCat0 + `ActorCat1 + `ProgrammerCat0 + `ProgrammerCat1
+}
+</code></pre>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="singleton-and-maybe-sigs"><a class="header" href="#singleton-and-maybe-sigs">Singleton and Maybe Sigs</a></h1>
+<p>A sig declaration can be annotated to indicate:</p>
+<ul>
+<li>that there is always exactly one object of that sig (<code>one sig</code>);</li>
+<li>that there is never more than one object of that sig (<code>lone sig</code>); or</li>
+<li>that any object of that sig must also be a member of some child sig (<code>abstract sig</code>).</li>
+</ul>
+<div id="admonition-one-sig" class="admonition example">
+<div class="admonition-title">
+<p>One Sig</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/singleton-maybe-sigs.html#admonition-one-sig"></a></p>
+</div>
+<div>
+<pre><code class="language-clike">sig Dog {}
+-- &quot;Beauty without Vanity, Courage without Ferosity, Strength without Insolence&quot;
+one sig Boatswain extends Dog {}
+</code></pre>
+<p>If you'd asked <a href="https://en.wikipedia.org/wiki/Epitaph_to_a_Dog">Lord Byron</a>, there was only one Boatswain---whose tomb was famously larger than Lord Byron's own.</p>
+</div>
+</div>
+<div id="admonition-abstract-sig" class="admonition example">
+<div class="admonition-title">
+<p>Abstract Sig</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/singleton-maybe-sigs.html#admonition-abstract-sig"></a></p>
+</div>
+<div>
+<pre><code class="language-clike">abstract sig Student {}
+sig Undergrad, Grad extends Student {}
+</code></pre>
+<p>In this example, any <code>Student</code> must be either an <code>Undergrad</code> or <code>Grad</code> student.</p>
+</div>
+</div>
+<div id="admonition-lone-sig" class="admonition example">
+<div class="admonition-title">
+<p>Lone Sig</p>
+<p><a class="admonition-anchor-link" href="building-models/sigs/singleton-maybe-sigs.html#admonition-lone-sig"></a></p>
+</div>
+<div>
+<p>Lone sigs aren't used much; you can think of them in the same way you'd use a <code>one</code> sig, but with the possibility that the sig will be empty. This can sometimes be useful for efficiency. E.g., if we were modeling soup recipes:</p>
+<pre><code class="language-clike">abstract sig Ingredient {}
+lone sig Potatoes extends Ingredient {}
+lone sig Carrots extends Ingredient {}
+lone sig Celery extends Ingredient {}
+lone sig Water extends Ingredient {}
+// ...
+</code></pre>
+<p>There might be dozens of possible ingredients. But if we only want to use a few at a time, it can be useful to set a lower bound on <code>Ingredient</code> and allow un-used ingredients to simply not exist.</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="constraints"><a class="header" href="#constraints">Constraints</a></h1>
+<p>Once the model has defined the kinds of objects it deals with, it defines how those objects can interact. This process is sometimes called &quot;adding constraints&quot; or &quot;rules&quot;.</p>
+<!--
+```admonish danger title="TODO"
+- **PAGE IS UNFINISHED!**:
+  - Needs re-wording past Rules vs. Instructions, perhaps refactoring to different page
+  - Fit the linked list example in there somehow
+  - Needs transition statement into constraint types and such
+- Clarify or remove * relating to "can/will generate many instances of a model." Well, will Forge **always** do this?
+- Add * caveat about "not all possible instances because of inherent bounds (and then link to bounds chapter)
+``` -->
+<h2 id="rules-vs-instructions"><a class="header" href="#rules-vs-instructions">Rules vs. Instructions</a></h2>
+<p>This idea of a &quot;constraint&quot; is key in Forge (and in many other modeling languages), and it's very different from programming in a language like Java, Pyret, or Python.</p>
+<p>When you're programming traditionally, you give the computer a set of instructions and it follows those instructions. This is true whether you're programming functionally or imperatively, with or without objects, etc. In contrast, modeling languages like Forge work differently. The goal of a Forge model isn't to <em>run instructions</em>, but rather to express relationships between objects and rules that govern systems. </p>
+<p>Here's a useful comparison to help reinforce the difference (with thanks to Daniel Jackson):</p>
+<ul>
+<li>Given a lack of <strong>instructions</strong>, a program does nothing.</li>
+<li>Given a lack of <strong>constraints</strong>, a model allows everything.</li>
+</ul>
+<h2 id="example-concentration-requirements"><a class="header" href="#example-concentration-requirements">Example: Concentration Requirements</a></h2>
+<p>Let's get concrete. <a href="https://cs.brown.edu/degrees/undergrad/concentrating-in-cs/concentration-requirements-2020/new-ab-requirements/">The concentration requirements for an A.B. in CSCI</a> state that to get an A.B., a student must (among other things) complete a pathway, which comprises two upper-level courses that are considered related. We might rewrite this as:</p>
+<blockquote>
+<p>&quot;Every student who gets an A.B. must have passed two 1000-level courses in the same pathway.&quot;</p>
+</blockquote>
+<p>If we're modeling concentration requirements, we might decide to create <code>sig</code>s for <code>Student</code>, <code>Course</code>, <code>Pathway</code>, and so on, with fields you'd expect. For example, we might create:</p>
+<pre><code>sig Student {
+  -- dictionary of grades for courses taken and passed
+  grades: pfunc Course -&gt; Grade
+}
+</code></pre>
+<p>But this only describes the shape of the data, not the concentration requirements themselves! To do that, we need to create some constraints. The sentence above states a requirement for <em>every student</em>. Generally the department follows this rule. But it's possible to imagine some semester where the department makes a mistake, and gives an A.B. degrees to someone who hadn't actually finished a pathway. The sentence is something that could be true or false in any given semester:</p>
+<blockquote>
+<p>&quot;<span style="color:blue">Every student</span> who gets an A.B. must have passed two 1000-level courses in the same pathway.&quot;</p>
+</blockquote>
+<p>In Forge, we'd write this using a quantifier: </p>
+<pre><code>all s: Student | ...
+</code></pre>
+<p>Then we have a condition that triggers a requrement: <em>if</em> a student has gotten an A.B., then something is required. In Forge, this becomes an implication inside the quantifier: </p>
+<pre><code>all s: Student | s.degreeGranted = AB implies {...}
+</code></pre>
+<p>Let's look more closely at the part we wrote: <code>s.degreeGranted = AB</code>. For a given student, that is also either true or false. But something important is different inside the <code>=</code>: <code>s.degreeGranted</code> doesn't denote a boolean, but rather an <em>object</em> (which will perhaps be equal to <code>AB</code>). A similar thing is true for <code>s</code>, <code>course1</code>, and <code>course2</code>. Let's finish writing the constraint and then color-code the different parts:</p>
+<pre><code><span style="color:green">all <span style="color:red">s</span>: Student |</span> <span style="color:red">s.degreeGranted</span> <span style="color:green">=</span> <span style="color:red">AB</span> <span style="color:green">implies { 
+  some disj <span style="color:red">course1</span>, <span style="color:red">course2</span>: Course |</span> <span style="color:red">course1.pathway</span> <span style="color:green">=</span> <span style="color:red">course2.pathway</span>
+<span style="color:green">}</span>
+</code>
+</pre>
+<h3 id="writing-constraints-formulas-vs-expressions"><a class="header" href="#writing-constraints-formulas-vs-expressions">Writing Constraints: Formulas vs. Expressions</a></h3>
+<p>The top-level constraints that Forge works with must always evaluate to booleans, but the inner workings of constraints can speak about specific objects, the values of their fields, and so on. We'll make the distinction between these two different kinds of syntax:</p>
+<ul>
+<li><em>Formulas</em> always evaluate to booleans---i.e., either true or false; and</li>
+<li><em>Expressions</em> always evaluate to objects or sets of objects. </li>
+</ul>
+<div id="admonition-forge-isnt-truthy" class="admonition warning">
+<div class="admonition-title">
+<p>Forge isn't 'truthy'</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/constraints.html#admonition-forge-isnt-truthy"></a></p>
+</div>
+<div>
+<p>Unlike what would happen in a programming language like JavaScript or Python, attempting to use an expression in place of a formula, or vice versa, will produce an error in Forge when you try to run your model. For example, if we wrote the constraint <code>all s: Student | s.grades</code>, what would that mean? That every <code>s</code> exists? That every <code>s</code> has passed some class? Something different? To avoid this ambiguity, Forge doesn't try to infer your meaning, and just gives an error.</p>
+</div>
+</div>
+<h3 id="context-for-evaluating-constraints-instances"><a class="header" href="#context-for-evaluating-constraints-instances">Context for Evaluating Constraints: Instances</a></h3>
+<p>Notice that there's always a context that helps us decide whether a constraint yields true or false. In the above example, the context is a collection of students, courses taken and degrees granted. For some other model, it might be a tic-tac-toe board, a run of a distributed system, a game of baseball, etc. We'll call these  <em>instances</em>.</p>
+<ul>
+<li><em>Instances</em> contain objects and field values that make it possible to tell whether constraints have been satisfied or not. </li>
+</ul>
+<!-- A reader familiar with ... might skip to []() for the technical docs...
+
+(If you are already familiar with the overview and looking for the technical implementation of constraints in Forge, you can start [on this page](../constraints/constraint-types.md)) -->
+<hr />
+<!--
+_TODO: BEFORE TALKING ABOUT IMPL DETAILS OF CONSTRAINTS IN FORGE, LET'S TALK ABOUT HOW CONSTRAINTS PLAY INTO BUILDING MODELS BY LOOKING AT AN EXAMPLE_ -->
+<!-- Let's bring back the [linked list](../../building-models/sigs/sigs.md#admonition-example-sig-w-one-field) example we saw when learning about sigs:
+
+```
+sig Node {
+    next: one Node
+}
+```
+
+If the point of modeling linked-lists is to learn things about the linked-list systems, we have to -->
+<!--
+![LinkedList-Normal](../../../images/constraints/LinkedList-normal.png)
+![LL-Weird-A](../../images/constraints/LinkedList-weird-A.png) -->
+<!-- ![Linked-List-Weird-B](../../images/constraints/LinkedList-weird-B.png)
+
+Let's look at the example we first introduced when discussing sigs, [a linked list](../../building-models/sigs/sigs.md#admonition-example-sig-w-one-field)
+
+We _constrain_ the acceptable outputs of the model by defining more rules and being more specific about the constraints of the model. In general, the more rules we add, the fewer acceptable outputs.
+
+a model with a lack of rules just means that you are allowing lots of things to be acceptable instances of the model!
+
+Forge will by default try and give you all possible instances -->
+<!-- In Forge, the computer already has a set of instructions: construct instances of the model based on how you defined the "things" and "rules" of the model. -->
+<h2 id="next-steps-1"><a class="header" href="#next-steps-1">Next Steps</a></h2>
+<p>The next sections describe <a href="building-models/constraints/./formulas/formulas.html">formula</a> and <a href="building-models/constraints/./expressions/expressions.html">expression</a> syntax in more detail. A reader familiar with this syntax is free to skip to the section on <a href="building-models/constraints/./instances.html">instances</a>, or progress to <a href="building-models/constraints/../../running-models/running.html">running models</a> in Forge.</p>
+<div id="admonition-temporal-models" class="admonition info">
+<div class="admonition-title">
+<p>Temporal Models</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/constraints.html#admonition-temporal-models"></a></p>
+</div>
+<div>
+<p>For more information on <em>temporal</em> operators, which are only handled if <code>option problem_type temporal</code> is given to Forge, see the page on <a href="building-models/constraints/../../electrum/electrum-overview.html">Temporal Mode</a>. We maintain these in separate chapter because the meaning of constraints in this mode can differ subtly, and temporal mode is only introduced later in the course.</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="formulas"><a class="header" href="#formulas">Formulas</a></h1>
+<p><em>Formulas</em> are a type of Forge syntax. Given an instance, every formula evaluates to a boolean value. If the formula is true of an instance, we say that the instance <em>satisfies</em> the formula.</p>
+<!-- We will talk about _expressions_ after covering formulas, but you will see expressions (`<expr>`)
+while we discuss formulas.  -->
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="operators"><a class="header" href="#operators">Operators</a></h1>
+<p>Formula operators are used to create bigger formulas from other formulas.</p>
+<h3 id="list-of-available-operators"><a class="header" href="#list-of-available-operators">List of Available Operators:</a></h3>
+<p>For the following <code>&lt;fmla&gt;</code> means an arbitrary formula.</p>
+<ul>
+<li>Negation: <a href="building-models/constraints/formulas/./operators.html#not"><code>not (!)</code></a></li>
+<li>Conjunction: <a href="building-models/constraints/formulas/./operators.html#and"><code>and (&amp;&amp;)</code></a></li>
+<li>Disjunction: <a href="building-models/constraints/formulas/./operators.html#or"><code>or (||)</code></a></li>
+<li>Implication: <a href="building-models/constraints/formulas/./operators.html#implies"><code>implies (=&gt;)</code></a>
+<ul>
+<li>If-then-else: <a href="building-models/constraints/formulas/./operators.html#implies-else"><code>else</code></a></li>
+</ul>
+</li>
+<li>Bi-implication: <a href="building-models/constraints/formulas/./operators.html#iff"><code>iff (&lt;=&gt;)</code></a></li>
+</ul>
+<div id="admonition-alternative-syntax" class="admonition note">
+<div class="admonition-title">
+<p>Alternative syntax</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-alternative-syntax"></a></p>
+</div>
+<div>
+<p>Some operators have alternative syntax (marked by <strong><em>alt</em></strong>) which are equivalent. Use whichever is most natural and convenient to you.</p>
+</div>
+</div>
+<hr />
+<h2 id="not-alt-"><a class="header" href="#not-alt-"><code>not</code> (<em>alt:</em> <code>!</code>)</a></h2>
+<blockquote>
+<p><code>not &lt;fmla&gt;</code></p>
+<p><code>! &lt;fmla&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when <code>&lt;fmla&gt;</code> evaluates to <strong>false</strong></p>
+<div id="admonition-example" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-example"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, <code>not (some p.spouse)</code> denotes the opposite, being true whenever <code>p</code> is <em>not</em> married.</p>
+</div>
+</div>
+<hr />
+<h2 id="and-alt-"><a class="header" href="#and-alt-"><code>and</code> (<em>alt:</em> <code>&amp;&amp;</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; and &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; &amp;&amp; &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when both <code>&lt;fmla-a&gt;</code> and <code>&lt;fmla-b&gt;</code> evaluate to <strong>true</strong>.</p>
+<div id="admonition-example-1" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-example-1"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, then <code>some p.spouse and p.spouse != p</code> is true exactly when <code>p</code> is married, but not to themselves.</p>
+</div>
+</div>
+<div id="admonition-implicit-and" class="admonition note">
+<div class="admonition-title">
+<p>Implicit and</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-implicit-and"></a></p>
+</div>
+<div>
+<p>Forge treats consecutive formulas within <code>{ ... }</code> as implicitly combined using <code>and</code>. For instance, the above example could also be written as:</p>
+<pre><code>{
+  some p.spouse
+  p.spouse != p
+}
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="or-alt-"><a class="header" href="#or-alt-"><code>or</code> (<em>alt:</em> <code>||</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; or &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; || &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when either <code>&lt;fmla-a&gt;</code> is <strong>true</strong> or <code>&lt;fmla-b&gt;</code> evaluates to <strong>true</strong>.</p>
+<div id="admonition-example-2" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-example-2"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, then <code>some p.spouse or p.spouse != p</code> is true exactly when <code>p</code> is <em>either</em>:</p>
+<ul>
+<li>married; or </li>
+<li>not married to themselves (including the case where <code>p</code> is unmarried).</li>
+</ul>
+</div>
+</div>
+<hr />
+<h2 id="implies-alt-"><a class="header" href="#implies-alt-"><code>implies</code> (<em>alt</em> <code>=&gt;</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; implies &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; =&gt; &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p><strong>true</strong> when either <code>&lt;fmla-a&gt;</code> evaluates to <strong>false</strong> or <code>&lt;fmla-b&gt;</code> evaluates to <strong>true</strong>.</p>
+<div id="admonition-example-3" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-example-3"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, then <code>some p.spouse implies p.spouse != p</code> is true exactly when <code>p</code> is <em>either</em>:</p>
+<ul>
+<li>unmarried; or </li>
+<li>not married to themselves.</li>
+</ul>
+</div>
+</div>
+<hr />
+<h3 id="implies-else-alt--else"><a class="header" href="#implies-else-alt--else"><code>implies else</code> (<em>alt:</em> <code>=&gt; else</code>)</a></h3>
+<blockquote>
+<p><code>{&lt;fmla-a&gt; implies &lt;fmla-b&gt; else &lt;fmla-c&gt;}</code></p>
+<p><code>{&lt;fmla-a&gt; =&gt; &lt;fmla-b&gt; else &lt;fmla-c&gt;}</code></p>
+</blockquote>
+<p>takes the value of <code>&lt;fmla-b&gt;</code> when <code>&lt;fmla-a&gt;</code> evaluates to <strong>true</strong>, and takes the value of <code>&lt;fmla-c&gt;</code> otherwise.</p>
+<div id="admonition-example-4" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-example-4"></a></p>
+</div>
+<div>
+<p>If:</p>
+<ul>
+<li><code>some p.spouse</code> is true when the person <code>p</code> is married, </li>
+<li><code>p.spouse != p</code> is true when <code>p</code> is not married to themselves, and</li>
+<li><code>some p.parent1</code> is true when <code>p</code> has a <code>parent1</code> in the instance, </li>
+</ul>
+<p>then <code>some p.spouse =&gt; p.spouse != p else some p.parent1</code> is true exactly when:</p>
+<ul>
+<li><code>p</code> is married, and not to themselves; or</li>
+<li><code>p</code> is not married and have a <code>parent1</code> in the instance.</li>
+</ul>
+</div>
+</div>
+<hr />
+<h2 id="iff-alt-"><a class="header" href="#iff-alt-"><code>iff</code> (<em>alt:</em> <code>&lt;=&gt;</code>)</a></h2>
+<blockquote>
+<p><code>&lt;fmla-a&gt; iff &lt;fmla-b&gt;</code></p>
+<p><code>&lt;fmla-a&gt; &lt;=&gt; &lt;fmla-b&gt;</code></p>
+</blockquote>
+<p>true when <code>&lt;fmla-a&gt;</code> evaluates to <strong>true</strong> exactly when <code>&lt;fmla-b&gt;</code> evaluates to <strong>true</strong>.</p>
+<div id="admonition-iff" class="admonition note">
+<div class="admonition-title">
+<p>IFF</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-iff"></a></p>
+</div>
+<div>
+<p>The term <code>iff</code> is short for &quot;if and only if&quot;.</p>
+</div>
+</div>
+<div id="admonition-example-5" class="admonition example">
+<div class="admonition-title">
+<p>Example</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/operators.html#admonition-example-5"></a></p>
+</div>
+<div>
+<p>If <code>some p.spouse</code> is true when the person <code>p</code> is married, and <code>some p.parent1</code> is true when <code>p</code> has a <code>parent1</code> in the instance, then <code>some p.spouse iff some p.parent1</code> is true exactly when <em>either</em>:</p>
+<ul>
+<li><code>p</code> is married and has a <code>parent1</code> in the instance; or </li>
+<li><code>p</code> is unmarried has no <code>parent1</code> in the instance.</li>
+</ul>
+</div>
+</div>
+<hr />
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="cardinality-and-membership"><a class="header" href="#cardinality-and-membership">Cardinality and Membership</a></h1>
+<p>The following formulas produce booleans based on expression arguments:</p>
+<ul>
+<li><code>no &lt;expr&gt;</code>: true when <code>&lt;expr&gt;</code> is <strong>empty</strong></li>
+<li><code>lone &lt;expr&gt;</code>: true when <code>&lt;expr&gt;</code> contains <strong>zero or one</strong> elements</li>
+<li><code>one &lt;expr&gt;</code>: true when <code>&lt;expr&gt;</code> contains <strong>exactly one</strong> element</li>
+<li><code>some &lt;expr&gt;</code>: true when <code>&lt;expr&gt;</code> contains <strong>at least one</strong> element</li>
+<li><code>&lt;expr-a&gt; in &lt;expr-b&gt;</code>: true when <code>&lt;expr-a&gt;</code> is a <strong>subset</strong> of or equal to <code>&lt;expr-b&gt;</code></li>
+<li><code>&lt;expr-a&gt; = &lt;expr-b&gt;</code>: true when <code>&lt;expr-a&gt;</code> and <code>&lt;expr-b&gt;</code> contain exactly the <strong>same elements</strong></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="quantifiers"><a class="header" href="#quantifiers">Quantifiers</a></h1>
+<div id="admonition-todo" class="admonition danger">
+<div class="admonition-title">
+<p>TODO</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/quantifiers.html#admonition-todo"></a></p>
+</div>
+<div>
+<ul>
+<li>Need to distinguish <code>some all</code> vs <code>all some</code></li>
+</ul>
+</div>
+</div>
+<p>In the following, <code>&lt;x&gt;</code> is a variable, <code>&lt;expr&gt;</code> is an expression of arity 1, and <code>&lt;fmla&gt;</code> is a formula (that can use the variable <code>&lt;x&gt;</code>). You can quantify over a unary set in the following ways:</p>
+<ul>
+<li><code>some &lt;x&gt;: &lt;expr&gt; | { &lt;fmla&gt; }</code>: true when <code>&lt;fmla&gt;</code> is true for at least one element in <code>&lt;expr&gt;</code></li>
+<li><code>all &lt;x&gt;: &lt;expr&gt; | { &lt;fmla&gt; }</code>: true when <code>&lt;fmla&gt;</code> is true for all elements in <code>&lt;expr&gt;</code></li>
+</ul>
+<p>Forge also provides 3 additional quantifiers, which encode somewhat richer constraints than the above:</p>
+<ul>
+<li><code>no &lt;x&gt;: &lt;expr&gt; | { &lt;fmla&gt; }</code>: true when <code>&lt;fmla&gt;</code> is false for all elements in <code>&lt;expr&gt;</code></li>
+<li><code>lone &lt;x&gt;: &lt;expr&gt; | { &lt;fmla&gt; }</code>: true when <code>&lt;fmla&gt;</code> is true for zero or one elements in <code>&lt;expr&gt;</code></li>
+<li><code>one &lt;x&gt;: &lt;expr&gt; | { &lt;fmla&gt; }</code>: true when <code>&lt;fmla&gt;</code> is true for exactly one element in <code>&lt;expr&gt;</code></li>
+</ul>
+<p>But the above 3 quantifiers (<code>no</code>, <code>lone</code>, and <code>one</code>) should be used carefully. Because they invisibly encode extra constraints, they do not commute the same way <code>some</code> and <code>all</code> quantifiers do. E.g., <code>some x : A | some y : A | myPred[x,y]</code> is always equivalent to <code>some y : A | some x : A | myPred[x,y]</code>, but <code>one x : A | one y : A | myPred[x,y]</code> is <strong>NOT</strong> always equivalent to <code>one y : A | one x : A | myPred[x,y]</code>. (Why not? Try it out in Forge!)</p>
+<p>If you want to quantify over several variables, you can also do the following:</p>
+<ul>
+<li><code>some &lt;x&gt;: &lt;expr-a&gt;, &lt;y&gt;: &lt;expr-b&gt; | { &lt;fmla&gt; }</code>;</li>
+<li><code>some &lt;x&gt;, &lt;y&gt;: &lt;expr&gt; | { &lt;fmla&gt; }</code>; and</li>
+<li>(similarly for all other quantifiers).</li>
+</ul>
+<div id="admonition-warning" class="admonition warning">
+<div class="admonition-title">
+<p>Warning</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/formulas/quantifiers.html#admonition-warning"></a></p>
+</div>
+<div>
+<p>Beware combining the <code>no</code>, <code>one</code>, and <code>lone</code> quantifiers with multiple variables at once; the meaning of, e.g., <code>one x, y: A | ...</code> is &quot;there exists a <strong>unique pair</strong> <code>&lt;x, y&gt;</code> such that <code>...</code>&quot;. This is different from the meaning of <code>one x: A | one y: A | ...</code>, which is &quot;there is a unique <code>x</code> such that there is a unique <code>y</code> such that ...&quot;.</p>
+</div>
+</div>
+<p><strong>Quantifying Over Disjoint Objects</strong></p>
+<p>Sometimes, it might be useful to try to quantify over all pairs of elements in <code>A</code>, where the two in the pair are distinct atoms. You can do that using the <code>disj</code> keyword, e.g.:</p>
+<ul>
+<li><code>some disj x, y : A | ...</code> (adds an implicit <code>x != y and ...</code>); and</li>
+<li><code>all disj x, y : A | ...</code> (adds an implicit <code>x != y implies ...</code>)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="predicates"><a class="header" href="#predicates">Predicates</a></h1>
+<p>If you have a set of constraints that you use often, or that you'd like to give a name to, you can define a <em>predicate</em> using the <code>pred</code> keyword:</p>
+<pre><code>pred &lt;pred-name&gt; {
+   &lt;fmla-1&gt;
+   &lt;fmla-2&gt;
+   ...
+   &lt;fmla-n&gt;
+}
+</code></pre>
+<p>Newlines between formulas in a <code>pred</code> will be combined implicitly with <code>and</code>s, helping keep your predicates uncluttered. Predicates can also be defined with arguments, which will be evaluated via substitution. For instance, in a family-tree model, you could create:</p>
+<pre><code>pred parentOrChildOf[p1, p2: Person] {
+  p2 = p1.parent1 or
+  p2 = p1.parent2 or
+  p1 = p2.parent1 or
+  p1 = p2.parent1
+}
+</code></pre>
+<p>and then write something like <code>some p : Person | parentOrChildOf[Tim, p]</code>. Predicates may be used like this anywhere a formula can appear.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="expressions"><a class="header" href="#expressions">Expressions</a></h1>
+<p><em>Expressions</em> are a type of Forge syntax.  Given an instance, every expression evaluates to an object or set of objects. In the <code>froglet</code> sublanguage, expressions are limited to improve error-checking and reduce reliance on the relational algebra that the solver engine uses and the full <code>forge</code> language includes.</p>
+<!-- ```admonish danger title="TODO"
+- talk somewhere about the distinction between () and {} and when to use them
+``` -->
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="relational-operators"><a class="header" href="#relational-operators">Relational Operators</a></h1>
+<p><em>Relational Operators</em> produce expressions (not formulas) from other expressions.</p>
+<h3 id="important-note-fields"><a class="header" href="#important-note-fields">Important Note: Fields</a></h3>
+<p>Recall that Forge treats every field of a sig as a relation of arity 1 higher than the arity of the field itself, with the object the field belongs to as the added left-most column. </p>
+<div id="admonition-sig-fields-as-relations" class="admonition example">
+<div class="admonition-title">
+<p>Sig Fields as Relations</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-sig-fields-as-relations"></a></p>
+</div>
+<div>
+<p>In this sig definition:</p>
+<pre><code>sig City {
+    roads: set City
+}
+</code></pre>
+<p>the relation <code>roads</code> is an arity-2 set which contains ordered pairs of <code>City</code> objects.</p>
+</div>
+</div>
+<p>This is what allows the dot operator in Forge to act as if it is field access when it is actually a <a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#-join">relational join</a>.</p>
+<h3 id="list-of-relational-expression-operators"><a class="header" href="#list-of-relational-expression-operators">List of Relational Expression Operators:</a></h3>
+<ul>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#-union"><code>+ (union)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#--set-difference"><code>- (set difference)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#intersection"><code>&amp; (intersection)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#-and--relational-join"><code>.  [] (relational join)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#--cross-product"><code>-&gt; (cross product)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#-transpose"><code>~ (transpose)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#-transitive-closure"><code>^ (transitive closure)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#-reflexive-transitive-closure"><code>* (reflexive transitive closure)</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#if-then-else"><code>=&gt; else</code></a></li>
+<li><a href="building-models/constraints/expressions/relational-expressions/./relational-expressions.html#set-comprehension"><code>set comprehension</code></a></li>
+</ul>
+<!-- (Unlike [Formula Operators](../../formulas/operators.md), the parentheticals are _not alternative syntax_. They are the mathematical names) -->
+<hr />
+<h2 id="-union"><a class="header" href="#-union"><code>+ (union)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; + &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>union</strong> of the two exprs, i.e., the set containing all elements that are in either of the two exprs.</p>
+<div id="admonition-union" class="admonition example">
+<div class="admonition-title">
+<p>Union</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-union"></a></p>
+</div>
+<div>
+<p>The set of employees who work at Brown CS include both faculty and staff:</p>
+<pre><code>BrownCS.employees = BrownCS.faculty + BrownCS.staff
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="--set-difference"><a class="header" href="#--set-difference"><code>- (set difference)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; - &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>set difference</strong> of the two exprs, i.e., everything in <code>expr-a</code> that is <strong>not</strong> also in <code>expr-b</code>.</p>
+<div id="admonition-difference" class="admonition example">
+<div class="admonition-title">
+<p>Difference</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-difference"></a></p>
+</div>
+<div>
+<p>The set of students eligible to UTA includes all students except those who are already hired as head TAs:</p>
+<pre><code>BrownCS.utaCandidates = Student - BrownCS.htaHires
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="intersection"><a class="header" href="#intersection"><code>&amp; (intersection)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; &amp; &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>intersection</strong> of the two exprs, i.e., all elements in both <code>expr-a</code> and <code>expr-b</code>.</p>
+<div id="admonition-intersection" class="admonition example">
+<div class="admonition-title">
+<p>Intersection</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-intersection"></a></p>
+</div>
+<div>
+<p>Students in the &quot;AI/ML&quot; pathway must take multiple intermediate courses. In this (oversimplified) example, students can use the AI/ML pathway if they've taken both linear algebra and probability:</p>
+<pre><code>BrownCS.canUseAIML = BrownCS.tookLinearAlgebra &amp; BrownCS.tookProbability 
+</code></pre>
+</div>
+</div>
+<hr />
+<h2 id="--cross-product"><a class="header" href="#--cross-product"><code>-&gt; (cross product)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; -&gt; &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>cross product</strong> of the two exprs. </p>
+<div id="admonition-product-example-1" class="admonition example">
+<div class="admonition-title">
+<p>Product (example 1)</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-product-example-1"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself, and <code>Providence</code> and <code>Pawtucket</code> are cities:</p>
+<pre><code>sig City {
+    roads: set City
+}
+one sig Providence, Pawtucket extends City {}
+</code></pre>
+<p>then <code>Providence -&gt; Pawtucket</code> is an arity-2, one-element set, which can be used with other operators. E.g.,  <code>roads + (Providence -&gt; Pawtucket)</code> represents the set of roads augmented with a new road (if it wasn't already there). </p>
+<p>Likewise, <code>City -&gt; City</code> will produce an arity-2 set containing every possible pair-wise combination of cities.</p>
+</div>
+</div>
+<hr />
+<h2 id="-transpose"><a class="header" href="#-transpose"><code>~ (transpose)</code></a></h2>
+<blockquote>
+<p><code>~&lt;expr&gt;</code></p>
+</blockquote>
+<p>returns the transpose of <code>&lt;expr&gt;</code>, assuming it is has arity 2. (Attempting to use transpose on a different-arity relation will produce an error.)</p>
+<div id="admonition-transpose" class="admonition example">
+<div class="admonition-title">
+<p>Transpose</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-transpose"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself:</p>
+<pre><code>sig City {
+    roads: set City
+}
+</code></pre>
+<p>then <code>~roads</code> is an arity-2, set that contains exactly the same elements in <code>roads</code> except reversed. E.g., if <code>Providence -&gt; Pawtucket</code> was in <code>roads</code>, then <code>Pawtucket -&gt; Providence</code> would be in <code>~roads</code>.</p>
+</div>
+</div>
+---
+<h2 id="set-comprehension"><a class="header" href="#set-comprehension">Set Comprehension</a></h2>
+<p>A set-comprehension expression <code>{x1: T1, ..., xn: Tn | &lt;fmla&gt;}</code> evaluates to a set of arity-n tuples. A tuple of objects <code>o1, ... on</code> is in the set if and only if <code>&lt;fmla&gt;</code> is satisfied when <code>x1</code> takes the value <code>o1</code>, etc. </p>
+<div id="admonition-set-comprehension" class="admonition example">
+<div class="admonition-title">
+<p>Set Comprehension</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-set-comprehension"></a></p>
+</div>
+<div>
+<p>In a model with sigs for <code>Student</code>, <code>Faculty</code>, and <code>Course</code>, the expression</p>
+<pre><code>{s: Student, i: Faculty | some c: Course | { some s.grades[c] and c.instructor = i} }
+</code></pre>
+<p>would evaluate to the set of student-faculty pairs where the student has taken a course from that faculty member.</p>
+</div>
+</div>
+<hr />
+<h2 id="-and--relational-join"><a class="header" href="#-and--relational-join"><code>.</code> <em>and</em> <code>[] (relational join)</code></a></h2>
+<blockquote>
+<p><code>&lt;expr-a&gt; . &lt;expr-b&gt;</code></p>
+</blockquote>
+<p>returns the <strong>relational join</strong> of the two exprs. It combines two relations by seeking out rows with common values in their rightmost and leftmost columns. Concretely, if <code>A</code> is an <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>-ary relation, and <code>B</code> is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span>-ary, then <code>A.B</code> equals the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>-ary relation:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣∃</span><span class="mord mathnormal">x</span><span class="mord">∣</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord text"><span class="mord"> and </span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">}</span></span></span></span></span></p>
+<div id="admonition-product-example-1-1" class="admonition example">
+<div class="admonition-title">
+<p>Product (example 1)</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-product-example-1-1"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself, and <code>Providence</code> is a city:</p>
+<pre><code>sig City {
+    roads: set City
+}
+one sig Providence extends City {}
+</code></pre>
+<p>then <code>roads.roads</code> is an arity-2 set and <code>Providence.roads</code> is an arity-1 set. </p>
+<p>In the instance:</p>
+<pre><code>inst joinExample {
+    City = `Providence + `City0 + `City2
+    roads = `Providence -&gt; `City0 +
+            `City0 -&gt; `City1 +
+            `City1 -&gt; Providence
+}
+</code></pre>
+<p><code>roads.roads</code> would contain:</p>
+<pre><code>`Providence -&gt; `City1   (because `Providence -&gt; `City0 and `City0 -&gt; `City1)
+`City0 -&gt; `Providence (because `City0 -&gt; `City1 and `City1 -&gt; `Providence)
+`City1 -&gt; `City0 (because `City1 -&gt; `Providence and `Providence -&gt; `City0)
+</code></pre>
+<p><code>Providence.roads</code> would contain:</p>
+<pre><code>`City0 (because `Providence -&gt; `City0)
+</code></pre>
+</div>
+</div>
+<div id="admonition-forge-is-not-sql" class="admonition warning">
+<div class="admonition-title">
+<p>Forge is not SQL</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-forge-is-not-sql"></a></p>
+</div>
+<div>
+<p>Relations in Forge don't have column <em>names</em> like they do in most databases. The join is always on the innermost columns of the two relations being joined.</p>
+</div>
+</div>
+<!-- [TODOLINK]() -->
+<p><strong>Alternative syntax:</strong> <code>&lt;expr-a&gt;[&lt;expr-b&gt;]</code>: is equivalent to <code>&lt;expr-b&gt; . &lt;expr-a&gt;</code>;</p>
+<hr />
+<h2 id="-transitive-closure"><a class="header" href="#-transitive-closure"><code>^ (transitive closure)</code></a></h2>
+<blockquote>
+<p><code>^&lt;expr&gt;</code></p>
+</blockquote>
+<p>returns the transitive closure of <code>&lt;expr&gt;</code>, assuming it is has arity 2. Attempting to apply <code>^</code> to a relation of different arity will produce an error. The transitive closure of a binary relation $r$ is defined as the <em>smallest</em> relation $t$ such that:</p>
+<ul>
+<li><code>r in t</code>; and </li>
+<li>for all <code>a</code>, <code>b</code>, and <code>c</code>, if <code>a-&gt;b</code> is in <code>t</code> and <code>b-&gt;c</code> is in <code>t</code>, then <code>a-&gt;c</code> is in <code>t</code>.</li>
+</ul>
+<p>Informally, it is useful to think of <code>^r</code> as encoding <em>reachability</em> using <code>r</code>. It is equivalent to the (unbounded and thus inexpressible in Forge) union: <code>r + r.r + r.r.r + r.r.r.r + ...</code>. </p>
+<div id="admonition-transitive-closure" class="admonition example">
+<div class="admonition-title">
+<p>Transitive Closure</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/relational-expressions/relational-expressions.html#admonition-transitive-closure"></a></p>
+</div>
+<div>
+<p>If <code>roads</code> is a binary relation between <code>City</code> and itself, and <code>Providence</code> is a city:</p>
+<pre><code>sig City {
+    roads: set City
+}
+one sig Providence extends City {}
+</code></pre>
+<p>then <code>^roads</code> is the <em>reachability relation</em> between cities.</p>
+</div>
+</div>
+<!-- [TODOLINK]() -->
+<hr />
+<h2 id="-reflexive-transitive-closure"><a class="header" href="#-reflexive-transitive-closure"><code>* (reflexive transitive closure)</code></a></h2>
+<blockquote>
+<p><code>*&lt;expr&gt;</code></p>
+</blockquote>
+<p>returns the reflexive-transitive closure of <code>&lt;expr&gt;</code>, assuming it is has arity 2. Attempting to apply <code>*</code> to a relation of different arity will produce an error.</p>
+<p>For a given 2-ary relation <code>r</code>, <code>*r</code> is equivalent to <code>^r + iden</code>. </p>
+<hr />
+<h2 id="if-then-else"><a class="header" href="#if-then-else"><code>if then else</code></a></h2>
+<blockquote>
+<p><code>{&lt;fmla&gt; =&gt; &lt;expr-a&gt; else &lt;expr-b&gt;}</code> </p>
+</blockquote>
+<p>returns <code>&lt;expr-a&gt;</code> if <code>&lt;fmla&gt;</code> evaluates to true, and <code>&lt;expr-b&gt;</code> otherwise.</p>
+<hr />
+<h2 id="caveats-alloy-support"><a class="header" href="#caveats-alloy-support">Caveats: Alloy support</a></h2>
+<p>Forge does not currently support the relational Alloy operators <code>&lt;:</code>, <code>:&gt;</code>, or <code>++</code>; if your models require them, please contact the Forge team.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="-union-1"><a class="header" href="#-union-1">+ (union)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="--set-difference-1"><a class="header" href="#--set-difference-1">- (set difference)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="intersection-1"><a class="header" href="#intersection-1">&amp; (intersection)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="---relational-join"><a class="header" href="#---relational-join">.  [] (relational join)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="--cross-product-1"><a class="header" href="#--cross-product-1">-&gt; (cross product)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="-transpose-1"><a class="header" href="#-transpose-1">~ (transpose)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="-transitive-closure-1"><a class="header" href="#-transitive-closure-1">^ (transitive closure)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="-reflexive-transitive-closure-1"><a class="header" href="#-reflexive-transitive-closure-1">* (reflexive transitive closure)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="-else"><a class="header" href="#-else">=&gt; else</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="set-comprehension-1"><a class="header" href="#set-comprehension-1">set comprehension</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="functions"><a class="header" href="#functions">Functions</a></h1>
+<p>In the same way that predicates define reusable constraints, <em>functions</em> define reusable expressions. Define functions with the <code>fun</code> keyword:</p>
+<pre><code>fun &lt;fun-name&gt;[&lt;args&gt;]: &lt;result-type&gt; {
+   &lt;expr&gt;
+}
+</code></pre>
+<div id="admonition-helper-function" class="admonition example">
+<div class="admonition-title">
+<p>Helper function</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/functions.html#admonition-helper-function"></a></p>
+</div>
+<div>
+<pre><code>fun inLawA[p: Person]: one Person {
+  p.spouse.parent1
+}
+</code></pre>
+</div>
+</div>
+<p>As with predicates, arguments will be evaluated via substitution. Functions may be used (with appropriate arguments) anywhere expressions can appear.</p>
+<div id="admonition-helper-function-use" class="admonition example">
+<div class="admonition-title">
+<p>Helper function use</p>
+<p><a class="admonition-anchor-link" href="building-models/constraints/expressions/functions.html#admonition-helper-function-use"></a></p>
+</div>
+<div>
+<pre><code>all p: Person | some inLawA[p]
+</code></pre>
+<p>This expands to:</p>
+<pre><code>all p: Person | some (p.spouse.parent1)
+</code></pre>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="let-expressions"><a class="header" href="#let-expressions">Let-Expressions</a></h1>
+<p>You can bind an expression to an identifier locally by using a <code>let</code> form:</p>
+<pre><code>let &lt;id&gt; = &lt;expression&gt; |
+  &lt;formula&gt;
+</code></pre>
+<p>This is useful to avoid coat bloat due to re-use. E.g., if <code>s</code> is a state:</p>
+<pre><code>let s2 = Traces.nextState[s] |
+  canTransition[s, s2]
+</code></pre>
+<h2 id="using-let-in-the-evaluator"><a class="header" href="#using-let-in-the-evaluator">Using <code>let</code> in the evaluator</a></h2>
+<p>A <code>let</code> expression can be useful when debugging a model using Sterling's evaluator. E.g., if you want to evaluate an internal subformula for a specific value of a quantifier:</p>
+<pre><code>some p: Person | some p.spouse
+</code></pre>
+<p>you can check individual values by directly substituting (e.g., <code>some Person0.spouse</code>) but this is tiresome if the variable is used in multiple places. Instead, consider using let: </p>
+<pre><code>let p = Person0 | some p.spouse
+</code></pre>
+<p>This trick (referring to concrete objects) is only usable in the evaluator.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="comments"><a class="header" href="#comments">Comments</a></h1>
+<p>Forge models support 3 different syntactic styles of comment:</p>
+<ul>
+<li>lines beginning with <code>--</code> are ignored;</li>
+<li>lines beginning with <code>//</code> are ignored; and </li>
+<li>all text between <code>/*</code> and <code>*/</code> are ignored. </li>
+</ul>
+<div id="admonition-no-nesting-comments" class="admonition warning">
+<div class="admonition-title">
+<p>No nesting comments</p>
+<p><a class="admonition-anchor-link" href="building-models/comments.html#admonition-no-nesting-comments"></a></p>
+</div>
+<div>
+<p><code>/* ... */</code> comments may <strong>not</strong> be nested. E.g., </p>
+<pre><code class="language-clike">/*
+/*
+*/
+*/
+</code></pre>
+<p>would be a syntax error, because the first instance of <code>*/</code> terminates all preceding instances of `/*.</p>
+</div>
+</div><div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="running"><a class="header" href="#running">Running</a></h1>
+<p>There are two primary ways of running your spec. You can either as Forge to show you instances that satisfy a predicate you wrote with the run command, or ask Forge to look for counterexamples to a predicate you wrote with the check command.</p>
+<h4 id="run"><a class="header" href="#run">Run</a></h4>
+<p>The run command can be used in a few different ways, show below:</p>
+<pre><code>&lt;run-name&gt;: run &lt;pred&gt; for &lt;bounds&gt;
+&lt;run-name&gt;: run { &lt;expr&gt; } for &lt;bounds&gt;
+</code></pre>
+<p>Note that the run-name is optional to provide, but is helpful to distinguish what different run commands are showing.</p>
+<p>When using the run command, Forge will display possible worlds (instances) where the predicates or expressions you specified evaluate to true, within the given bounds. Instances are displayed in <a href="https://github.com/tnelson/Forge/wiki/Sterling-Visualizer">Sterling</a> If no such instances are found, &quot;UNSAT&quot; is displayed.</p>
+<p>When no more satisfying instances can be found, Sterling displays &quot;No more instances found&quot;.</p>
+<h4 id="check"><a class="header" href="#check">Check</a></h4>
+<p>The check command is used to ask Forge to look for counterexamples to a given set of predicates, i.e. instances where the predicate or expression evaluates to false. The syntax is the same as for the run command, just with the keyword <code>check</code> instead:</p>
+<pre><code>&lt;check-name&gt;: check &lt;pred&gt; for &lt;bounds&gt;
+&lt;check-name&gt;: check { &lt;expr&gt; } for &lt;bounds&gt;
+</code></pre>
+<p>If no counterexamples are found, Sterling displays &quot;No counterexamples found. Assertion may be valid&quot;. When no more counterexamples can be found, Sterling displays &quot;No more instances found&quot;.</p>
+<div id="admonition-common-mistake" class="admonition warning">
+<div class="admonition-title">
+<p>Common Mistake!</p>
+<p><a class="admonition-anchor-link" href="running-models/running.html#admonition-common-mistake"></a></p>
+</div>
+<div>
+<p>Unless defined in the run/test statement, predicates don't take effect!</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="sterling-visualizer"><a class="header" href="#sterling-visualizer">Sterling Visualizer</a></h1>
+<p>Forge uses the <a href="https://sterling-js.github.io/">Sterling</a> model visualizer.</p>
+<p>When you run your spec, depending on the type of run you use, Forge will either look for instances that satisfy the predicates you wrote, or look for counterexamples to the assertion you wrote. When it finds them (or doesn't) it launches a window in your browser that displays the instances. See the run and check sections for the different displays Sterling has in various scenarios.</p>
+<p>The basic representation of the visualization is a graph showing all the atoms in that instance and the relations between them. You can also view an alternate depiction of the instance in the table view tab. To keep visualizations neat, Sterling will not show you any <code>Int</code> atoms that are not in any relation in that instance.</p>
+<p><strong>Temporal Mode</strong></p>
+<p>In temporal mode, and when the trace found is of length greater than 1, Sterling will enable a few new features:</p>
+<ul>
+<li>You can advance back and forth through the trace by using the arrow buttons in the edge styling panel. Next to these buttons, Sterling will say which state the lasso loops back to. For instance, &quot;Loop: 1&quot; would mean that the lasso loops back to the second state (states are 0-indexed).</li>
+<li>Rather than one &quot;Next&quot; button, you'll see two: one labeled &quot;Next&quot; and the other &quot;Next Config&quot;.
+<ul>
+<li>The &quot;Next Config&quot; button will ask the solver for a new trace that <em>varies the non-variable relations</em> of your model. If all your relations are variable, or if other constraints prevent a different non-variable subset of the instance from satisfying your run, this button will lead to a no-more-instances screen.</li>
+<li>The &quot;Next&quot; button will ask the solver for a new trace that <em>holds the non-variable relations constant</em>. If there are no other traces possible without changing the non-variable relations, this button will lead to a no-more-instances screen.</li>
+</ul>
+</li>
+</ul>
+<h4 id="evaluator"><a class="header" href="#evaluator">Evaluator</a></h4>
+<p>The evaluator provides a repl that lets you query instances with a language very similar to Forge itself. There are some minor differences between the evaluator language and Forge itself:</p>
+<ul>
+<li>Individual atoms can be directly referenced by name</li>
+<li>Exact values of expressions are returned</li>
+<li>Higher order quantification is allowed</li>
+</ul>
+<p>Other minor differences may exist as language features are added.</p>
+<p>The evaluator can also be given commands like <code>--version</code> (<code>-v</code>) to show the version of Forge being used or <code>--help</code> (<code>-h</code>) to show the file being run.</p>
+<p><strong>Temporal Mode</strong></p>
+<p>If running in temporal mode, the evaluator is run in the context of the first state of the trace shown. To ask about later traces, use the <code>'</code> or <code>after</code> operators. Remember that <code>after</code> applies to formulas, and <code>'</code> applies to relational expressions. So in a directed graph you could ask whether there are <code>edges</code> in the second state via <code>some edges'</code> or <code>after some edges</code>.</p>
+<h4 id="custom-visualizations-script-view"><a class="header" href="#custom-visualizations-script-view">Custom Visualizations: Script View</a></h4>
+<p>Sterling also allows you to write and run scripts that produce your own custom visualizations. You can find a basic example script in the <a href="https://csci1710.github.io/2023/livecode/feb03_ttt.js">2023 lecture notes for tic-tac-toe</a>. For more complex examples, library documentation, etc. see <a href="running-models/../sterling/custom-basics.html">Custom Visualizations</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="bounds"><a class="header" href="#bounds">Bounds</a></h1>
+<p>Forge is a <em>bounded</em> model finder, meaning it can only look for instances up to a certain bound. You can specify bounds in two seperate ways in Forge: using numeric bounds or instance bounds.</p>
+<hr />
+<h2 id="numeric-bounds"><a class="header" href="#numeric-bounds">Numeric bounds</a></h2>
+<p>The most basic way of specifying bounds in Forge is providing a maximum number of objects for each <code>sig</code>. If no bound is specified, Forge defaults to allowing up to 4 of each <code>sig</code>. The default bound on <code>Int</code> is a <em>bitwidth</em> of 4 (16 integers total).</p>
+<p>Numeric bounds can be provided explicitly per sig in a <code>run</code>, <code>assert</code>, etc. command by adding a trailing <code>for ...</code> after the constraint block (see <a href="running-models/running.html">Running</a>). </p>
+<div id="admonition-applying-a-numeric-bound" class="admonition example">
+<div class="admonition-title">
+<p>Applying a numeric bound</p>
+<p><a class="admonition-anchor-link" href="running-models/bounds.html#admonition-applying-a-numeric-bound"></a></p>
+</div>
+<div>
+<p>E.g., to add a bound to a <code>run</code> command in a model with <code>Cat</code> and <code>Dog</code> sigs, you would write something like:</p>
+<pre><code>run { ... } for 5 Cat
+run { ... } for 5 Cat, 2 Dog
+</code></pre>
+<p>The first run will search for instances containing 0--5 cats and 0--4 dogs. The second run will search for instances containing 0--5 cats and 0--2 dogs.</p>
+</div>
+</div>
+<p>Note that this sets an <strong>upper</strong> bound on the size of instances Forge will show you. In other words, Forge will search for instances of size <strong>up to</strong> the bound you specify. If you instead want to set an <strong>exact</strong> bound, you can add the <code>exactly</code> keyword per sig. You may mix and match exact and upper numeric bounds as desired.</p>
+<div id="admonition-exact-and-upper-numeric-bounds" class="admonition example">
+<div class="admonition-title">
+<p>Exact and upper numeric bounds</p>
+<p><a class="admonition-anchor-link" href="running-models/bounds.html#admonition-exact-and-upper-numeric-bounds"></a></p>
+</div>
+<div>
+<pre><code>run { ... } for exactly 5 Cat
+run { ... } for exactly 5 Cat, 2 Dog
+</code></pre>
+<p>The first run will search for instances containing exactly 5 cats and 0--4 dogs. The second run will search for instances contsaining exactly 5 cats and 0--2 dogs.</p>
+</div>
+</div>
+<div id="admonition-two-important-exceptions" class="admonition warning">
+<div class="admonition-title">
+<p>Two Important Exceptions</p>
+<p><a class="admonition-anchor-link" href="running-models/bounds.html#admonition-two-important-exceptions"></a></p>
+</div>
+<div>
+<p>Although a numeric bound without <code>exact</code> generally means anything <strong>up to</strong> that bound, there are two important exceptions to this rule:</p>
+<p>(1) The set of available integers is always fixed exactly by the bitwidth. E.g., <code>3 Int</code> corresponds to the 8 integers in the range -4 through 3 (inclusive). </p>
+<p>(2) If the <code>&lt;field&gt; is linear</code> annotation is present, the <code>sig</code> to which the field belongs will become exact-bounded, even if you have not written <code>exactly</code> in the numeric bound.</p>
+</div>
+</div>
+<h2 id="instance-bounds"><a class="header" href="#instance-bounds">Instance bounds</a></h2>
+<p>Instance bounds allow you to encode specific partial instances that you want Forge to run on. When creating an instance bound, you give upper and lower bounds in terms of concrete objects, not numeric sizes. This allows you to test your predicates on a specific instance, which can be convenient (see <a href="running-models/../testing-chapter/testing.html#examples">Examples</a>). It is also useful for optimization in some cases (see <a href="running-models/./concrete-instance-bounds.html#instances">Partial Instances</a>, which use the same bounds syntax as examples). </p>
+<div id="admonition-a-partial-instance" class="admonition example">
+<div class="admonition-title">
+<p>A partial instance</p>
+<p><a class="admonition-anchor-link" href="running-models/bounds.html#admonition-a-partial-instance"></a></p>
+</div>
+<div>
+<p>If we have defined a single sig with a single field:</p>
+<pre><code>sig Person {
+    spouse: lone Person
+}
+</code></pre>
+<p>then this <code>inst</code> describes an instance for our model:</p>
+<pre><code>inst exampleInstance {
+    Person = `Person0 + `Person1 + `Person2
+    spouse = `Person0 -&gt; `Person1 + `Person1 + `Person0
+}
+</code></pre>
+<p>Similarly, we could write an example using the same syntax (assuming that <code>marriageRules</code> is defined as a predicate):</p>
+<pre><code>example myExample is {marriageRules} for {
+    Person = `Person0 + `Person1 + `Person2
+    spouse = `Person0 -&gt; `Person1 + `Person1 + `Person0
+}
+</code></pre>
+</div>
+</div>
+<p>Note that Forge expects concrete object names to be prefixed with a backquote; this is mandatory, and used to distinguish object names (which only make sense in the context of an instance or instances) from sigs, fields, predicates, and other kinds of identifiers that make sense in arbitrary formulas. </p>
+<p>Instances defined via <code>inst</code> can be used in <code>run</code>, <code>assert</code>, etc. and may be combined with numeric bounds, provided they are consistent. Bounds annotations, such as <code>is linear</code>, can be included in instance bounds as well. See the <a href="running-models/./concrete-instance-bounds.html">Concrete Instances</a> section for more information about writing instance bounds.</p>
+<div id="admonition-using-instance-bounds" class="admonition example">
+<div class="admonition-title">
+<p>Using Instance Bounds</p>
+<p><a class="admonition-anchor-link" href="running-models/bounds.html#admonition-using-instance-bounds"></a></p>
+</div>
+<div>
+<p>You may give the entire instance bound verbatim:</p>
+<pre><code>run {} for 3 Int for {
+    Person = `Person0 + `Person1 + `Person2
+    spouse = `Person0 -&gt; `Person1 + `Person1 + `Person0
+}
+</code></pre>
+<p>or you may use the instance name directly:</p>
+<pre><code>run {} for 3 Int for exampleInstance
+</code></pre>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="concrete-instance-bounds"><a class="header" href="#concrete-instance-bounds">Concrete Instance Bounds</a></h1>
+<h3 id="instances-1"><a class="header" href="#instances-1">Instances</a></h3>
+<p>The types of problems that Forge creates and solves consist of 3 mathematical objects:</p>
+<ul>
+<li>A set of signatures and relations (the <strong>language</strong> of the problem);</li>
+<li>A set of logical/relational formulas (the <strong>constraints</strong> of the problem);</li>
+<li>A set of bounds on sigs and relations (the <strong>bounds</strong> of the problem).</li>
+</ul>
+<p>Forge presents a syntax that helps users keep these concerns separated. The first two concerns are represented by <code>sig</code> and <code>pred</code> declarations. The third concern is usually addressed by numeric bounds, but numeric bounds must always be converted (usually invisibly to the user) into set-based lower and upper bounds that specify what <em>must</em> be in an instance and what <em>may</em> be in an instance.</p>
+<p>The <code>inst</code> syntax provides the ability to manipulate these set-based bounds directly, instead of via numeric bounds. Because bounds declarations interface more directly with the solver than constraints, at times they can yield performance improvements.</p>
+<h3 id="syntax"><a class="header" href="#syntax">Syntax</a></h3>
+<p>An instance declaration contains a <code>{}</code>-enclosed sequence of bounds declarations. A bounds declaration is one of the following, where <code>A</code> is a sig name or field name.</p>
+<ul>
+<li><code>#Int = k</code>: use bitwidth <code>k</code> (where <code>k</code> is an integer greater than zero); </li>
+<li><code>A = &lt;bounds-expr&gt;</code>: exactly specify the contents of the sig or field</li>
+<li><code>A in &lt;bounds-expr&gt;</code>: specify upper bounds on a sig or field </li>
+<li><code>A ni &lt;bounds-expr&gt;</code>: specify lower bounds on a sig or field </li>
+<li><code>r is linear</code> : use bounds-based symmetry breaking to make sure <code>r</code> is a linear ordering on its types (useful for optimizing model-checking queries in Forge)</li>
+<li><code>r is plinear</code> : similar to <code>r is linear</code>, but possibly not involving the entire contents of the sig. I.e., a total linear order on <code>A'</code>-&gt;<code>A'</code> for some subset <code>A'</code> of <code>A</code>.</li>
+</ul>
+<p>A <code>&lt;bounds-expr&gt;</code> is a union (<code>+</code>) of products (<code>-&gt;</code>) of object names (each prefixed by backquote). Bounds expressions must be of appropriate arity for the sig or field name they are bounding. </p>
+<div id="admonition-bounds-expressions" class="admonition example">
+<div class="admonition-title">
+<p>Bounds expressions</p>
+<p><a class="admonition-anchor-link" href="running-models/concrete-instance-bounds.html#admonition-bounds-expressions"></a></p>
+</div>
+<div>
+<pre><code>A = `Alice+`Alex+`Adam
+f = `Alice-&gt;`Alex + 
+    `Adam-&gt;`Alex
+g in `Alice-&gt;2 
+</code></pre>
+<p>where <code>A</code> is a sig, <code>f</code> is a field of <code>A</code> with value in <code>A</code>, and <code>g</code> is a field of <code>A</code> with integer value. Note that integers should be used directly, without backquotes.</p>
+</div>
+</div>
+<h2 id="semantics"><a class="header" href="#semantics">Semantics</a></h2>
+<p>Bounds declarations are resolved <em>in order</em> before the problem is sent to the solver. The right-hand side of each bounds declaration is evaluated given all preceding bounds declarations, which means that using <code>sig</code> names on the right-hand side is allowed so long as those sigs are <em>exact bounded</em> by some preceding bounds declaration. </p>
+<p>A bounds declaration cannot define bounds for a sig unless bounds for its ancestors are also defined. Bounds inconsistencies will produce an error message.</p>
+<!-- The semantics of comparison commands using `=`, `in`, or `ni` are asymmetrical.  -->
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="options"><a class="header" href="#options">Options</a></h1>
+<p>Forge has a number of options that affect how it functions and how its solver is configured. They all have the same form: <code>option &lt;key&gt; &lt;value&gt;</code>. <strong>Settings are case sensitive.</strong> The available setting keys are:</p>
+<ul>
+<li><code>verbose</code>: governs the amount of information provided in the REPL. <code>1</code> is standard; <code>0</code> will omit statistical information (useful for test suites); <code>10</code> will print exceedingly verbose debugging information. Values between <code>1</code> and <code>10</code> gradually increase verbosity.</li>
+<li><code>solver</code>: sets the solver used by Forge's worker process. The default is <code>SAT4J</code>, a Java-based solver. Other solvers can be more performant, and produce different instance orderings, depending on model. The <code>MiniSatProver</code> solver will enable extraction of unsat cores. Support for native solvers varies by OS. Currently: 
+<ul>
+<li>MacOS (x64 and arm64 <code>.dylib</code>):
+<ul>
+<li><code>MiniSat</code>, <code>MiniSatProver</code>, and <code>Glucose</code></li>
+</ul>
+</li>
+<li>Linux (<code>.so</code>): 
+<ul>
+<li><code>MiniSat</code>, <code>MiniSatProver</code>, and <code>Glucose</code></li>
+</ul>
+</li>
+<li>Windows (<code>.dll</code>):
+<ul>
+<li><code>MiniSatProver</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>logtranslation</code>: controls how much of the translation from Forge to boolean logic is logged. The default is <code>0</code>; must be <code>1</code> or higher to extract unsatisfiable cores.</li>
+<li><code>coregranularity</code>: controls how fine-grained an unsatisfiable core will be returned. Default is <code>0</code>. Suggested value is <code>1</code> if you want to see cores.</li>
+<li><code>core_minimization</code>: controls whether cores are guaranteed minimal. Default is <code>off</code>. For minimal cores, use <code>rce</code>; <code>hybrid</code> is not guaranteed minimal but is often better than <code>off</code> while being faster than <code>rce</code>.</li>
+<li><code>sb</code>: controls maximum size of symmetry-breaking predicate. <code>20</code> is default. Higher numbers increase Forge's ability to rule out equivalent instances, at a potential performance cost.</li>
+<li><code>skolem_depth</code>: gives how many layers of universal quantifiers to Skolemize past. Default is <code>0</code>; to disable Skolemization, give <code>-1</code>.</li>
+<li><code>engine_verbosity</code>: sets the Logger level used by Pardinus (default=0). The following table is current as of version 1.5.0 (when the option was added):</li>
+</ul>
+<pre><code>case 0 : return Level.OFF;
+case 1 : return Level.SEVERE;
+case 2 : return Level.WARNING;
+case 3 : return Level.INFO;
+case 4 : return Level.FINE;
+case 5 : return Level.FINER;
+case 6 : return Level.FINEST;
+default : return Level.ALL;
+</code></pre>
+<ul>
+<li><code>run_sterling</code>: decides whether to use the Sterling visualizer. Default is <code>on</code>. To disable, give <code>off</code>.</li>
+<li><code>sterling_port</code>: sets the port used by the Racket web-server that Sterling connects to. The default picks an unused ephemeral port.</li>
+<li><code>problem_type</code>: used to enable <code>temporal_mode</code> for Alloy6-style LTL support.</li>
+</ul>
+<div id="admonition-location-matters" class="admonition warning">
+<div class="admonition-title">
+<p>Location matters!</p>
+<p><a class="admonition-anchor-link" href="running-models/options.html#admonition-location-matters"></a></p>
+</div>
+<div>
+<p>Options apply from the point they occur onward until either the file ends or the same setting is changed. For instance, only the second <code>run</code> command in this example will print verbose debugging information.</p>
+<pre><code>sig Node {edges: set Node}
+run {}
+option verbose 10
+run {}
+option verbose 1
+run {}
+</code></pre>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>Forge supports three different testing constructs:</p>
+<ul>
+<li><code>example</code></li>
+<li><code>assert</code></li>
+<li><code>test expect</code> blocks.</li>
+</ul>
+<p>If tests pass, they do not open the visualizer, making them well-suited for building test suites for your Forge models.</p>
+<h3 id="examples"><a class="header" href="#examples">Examples</a></h3>
+<p>The <code>example</code> syntax lets you test whether a specific individual instance is satisfied by some predicate in your model. Here's an illustrative <code>example</code> statement, from a model of the game Tic-TacToe, where the board indexes are <code>A</code>, <code>B</code>, and <code>C</code>:</p>
+<pre><code>example diagonalPasses is {some brd: Board | winningDiag[brd, X] } for {
+  Board = `Board0
+  X = `X0
+  O = `O0
+  A = `A0
+  B = `B0
+  C = `C0
+  inverse = A-&gt;C + B-&gt;B + C-&gt;A
+  places = Board -&gt; (A -&gt; A + B -&gt; B + C -&gt; C ) -&gt; X
+}
+</code></pre>
+<p>The block within the second pair of braces must always be a concrete instance. That is, a series of assignments for each sig and field to some set of tuples, defined over object names. Object names must be preceded by a backquote; this reinforces the idea that they are objects in a specific instance, rather than names in the model.</p>
+<p><em>Don't</em> try to assign to the same field twice. If you want a field to contain multiple entries, use <code>+</code> instead. Remember that <code>=</code> in the context of an instance is <em>assignment</em>, not a constraint, and that most constraints won't work inside an instance.</p>
+<p>Sig names may be used in place of objects only if the block has previously defined the value of the sig exactly, allowing straightforward substitution.</p>
+<h3 id="assert"><a class="header" href="#assert">Assert</a></h3>
+<p>The <code>assert</code> syntax allows you to write tests in terms of necessary and sufficient properties of a predicate. For example, if you have two predicates <code>isFrog</code> and <code>isAmphibian</code>:</p>
+<pre><code>assert isAmphibian is necessary for isFrog
+</code></pre>
+<p>Tests that <code>isAmphibian</code> is a required or essential condition for <code>isFrog</code>. In other words, <code>isFrog</code> cannot occur without <code>isAmphibian</code>.</p>
+<p>For two predicates <code>isPoodle</code> and <code>isDog</code>:</p>
+<pre><code>assert isPoodle is sufficient for isDog
+</code></pre>
+<p>Tests that if <code>isPoodle</code> holds, then so must <code>isDog</code>. If you want, you could also add optional bounds.</p>
+<pre><code>assert isPoodle is sufficient for isDog for 3 Dog
+</code></pre>
+<h3 id="test-expect-blocks"><a class="header" href="#test-expect-blocks">Test-Expect Blocks</a></h3>
+<p>If you want to do arbitrary runs/checks for testing purposes, use a <code>test expect</code> block. Here, you don't need to provide a concrete, specific instance for the tests, but can check general properties. Here's an example <code>test expect</code> block with a variety of assertions:</p>
+<pre><code>test expect {
+    {foo} is sat                 -- we expect foo to be sat and raise an error otherwise
+    {bar} is unsat               -- we expect bar to be unsat and raise an error otherwise
+    {baz} is theorem             -- baz always holds
+    mytest : {foo} is sat        -- tests can (and should!) be named
+    {foo} for 3 Node is sat      -- bounds can be given
+    {foo} for inst is sat        -- concrete instances can be given
+}
+</code></pre>
+<!-- ### Interaction with Check-ex-spec
+
+~~If you are using a version of Forge that supports Check-ex-spec, and are working on a Check-ex-spec assignment, both of these two forms will be recognized by Check-ex-spec as providing a concrete test. However, not all assignments are supported by Check-ex-spec; see writeups for more details.~~ -->
+<h2 id="organizing-your-tests"><a class="header" href="#organizing-your-tests">Organizing Your Tests</a></h2>
+<p>You should organize your tests into test suites for each predicate you plan to test. These are similar to <code>test expect</code> blocks, but support a wider set of test constructs. For example, you could write a test suite for predicate <code>foo</code> as follows:</p>
+<pre><code>test suite for foo {
+
+    assert bar is necessary for foo
+
+    test expect {
+        {foo} for 3 Node is sat
+        {foo} for inst is sat
+    }
+
+    example abc is {not foo} for {
+        Node = `Node1 + `Node2
+     }
+}
+</code></pre>
+<p><strong>Test suites can only contain tests, and all tests should reference the predicate under test.</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="what-is-a-wheat"><a class="header" href="#what-is-a-wheat">What is a Wheat?</a></h1>
+<p>Included in most Forge assignments are solution file(s) for each part of the assignment.
+These are referred to as <em>wheats</em>, and have the <code>.wheat</code> file extension.
+These <em>wheats</em> allow you to check your understanding of the problem using tests. As long as you can
+express your question about the assignment as a test, you can receive an authoritative answer from the wheat! (For more on wheats, learning goals, and critiquing wheats, see <a href="https://hackmd.io/@lfs/SJDRo3Qpj">these lecture notes</a> from February, 2023.)</p>
+<p>To run tests in your test file (e.g. <code>stacks.test.frg</code>) using the wheat solution, follow these steps:</p>
+<ul>
+<li>Replace <code>open</code> statements to your implementation file (ex. <code>stacks.frg</code>) with the associated wheat.
+For example, you may replace <code>open &quot;stacks.frg&quot;</code> with <code>open &quot;stacks.wheat&quot;</code>. <em>Be careful not to open both files at the same time.</em></li>
+<li>Run your tests file as you would any other Forge file. All associated tests will be run against the <em>wheat</em> instead of your implementation.</li>
+</ul>
+<p><em>Wheats</em> only implement top level predicates of a project. Tests that deal with the specific internals of <em>your</em> implementation
+will not be able to be run against the wheat.</p>
+<h1 id="test-writing-strategies"><a class="header" href="#test-writing-strategies">Test Writing Strategies</a></h1>
+<p><strong>We recommend the following recipe for writing tests</strong>. While we have found these very helpful, you do not <em>have</em> to follow these strategies.</p>
+<h2 id="strategy-1"><a class="header" href="#strategy-1">Strategy 1</a></h2>
+<ol>
+<li>Write example behaviors that you believe the wheat would allow and non-examples that the wheat would rule out in terms of Forge’s example syntax.
+<ol>
+<li>Run your test file to check your examples and non-examples against the wheat. Revise any that fail the check.</li>
+</ol>
+</li>
+<li>Study your examples and develop properties that are <strong>necessary</strong> for the wheat to hold. For each property:
+<ol>
+<li>Add examples to the test suite for this necessary property, to make sure the property works as you intend.</li>
+<li>Using <code>assert necessary</code>, check that your property is really necessary for the wheat.</li>
+<li>If the property is not necessary for the wheat, add tests to your test-suite to figure out why.</li>
+</ol>
+</li>
+<li>Now test that the conjunction of your necessary properties is <strong>sufficient</strong> for the wheat.
+<ol>
+<li>If this test succeeds, you are done. This conjunction reflects all the characteristics of a correct solution.</li>
+<li>If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.</li>
+<li>Write some of these counter examples as non-examples of the wheat. Return to step 2.</li>
+</ol>
+</li>
+</ol>
+<h2 id="strategy-2"><a class="header" href="#strategy-2">Strategy 2</a></h2>
+<p>For each predicate <code>p</code> surfaced by the wheat:</p>
+<ol>
+<li>Write behaviors that p would allow and behaviors that the p would rule out in terms of either Forge’s example syntax or sufficient properties of the wheat. 
+<ol>
+<li>Run your test file to check these tests against the wheat. Revise any that fail the check.</li>
+</ol>
+</li>
+<li>Study these tests and develop properties that are necessary for p to hold. For each <em>necessary</em> property (<code>n</code>):
+<ol>
+<li>Add tests (examples or sufficient properties) of <code>n</code> to make sure the property works as you intend.</li>
+<li>Using <code>assert necessary</code>, check that <code>n</code> is really necessary for p.</li>
+<li>If <code>n</code> is necessary for p, add tests to your test-suite to figure out why.</li>
+</ol>
+</li>
+<li>Now test that the conjunction of your necessary properties is <strong>sufficient</strong> for the wheat.
+<ol>
+<li>If this test succeeds, you are done. This conjunction reflects all the characteristics of a correct solution.</li>
+<li>If this test fails, Forge will provide you with counter-example(s) illustrating scenarios where all your necessary properties are true, but the wheat is not.</li>
+<li>Write some of these counter examples as non-examples of the wheat. Return to step 2.</li>
+</ol>
+</li>
+</ol>
+<h2 id="walking-through-strategy-1"><a class="header" href="#walking-through-strategy-1">Walking through Strategy 1</a></h2>
+<p>Let's put Strategy 1 into action by  figuring out how to implement a predicate describing a
+list.</p>
+<pre><code>sig Node { 
+    next: lone Node
+}
+
+pred isList {
+   ...
+}
+</code></pre>
+<p><strong>Step 1</strong>: Write some examples and counter-examples of this predicate, and make sure they pass the wheat.</p>
+<pre><code>
+test suite for isList {
+    example line is {isList} for
+    {
+        Node = `Node0 + `Node1 + `Node2 
+        edges = `Node0-&gt;`Node1 + `Node1-&gt;`Node2 
+    }
+
+    example twoLists is {not isList} for
+    {
+        Node = `Node0 + `Node1 + `Node2 + `Node3
+        edges = `Node0-&gt;`Node1 + `Node2-&gt;`Node3 
+    }
+ }
+</code></pre>
+<p><strong>Step 2</strong>: The two examples above pass the wheat. We now look at them, trying to see if they describe a necessary property of <code>isList</code>.
+While there are many such properties, one that immediately comes to mind is: &quot;The entire list must be connected&quot;.</p>
+<p>As a result, you may write the following property:</p>
+<pre><code>pred connected {
+(one a : Node | 
+    all b : Node | 
+        a != b =&gt; reachable[b, a, next]) 
+}
+</code></pre>
+<p>We should substantiate this property with some tests. Notice that these are tests for <code>connected</code>, not <code>isList</code>.</p>
+<pre><code>test suite for connected {
+    example loop is {atMostOneParent} for
+    {
+        Node = `Node0 + `Node1
+        next = `Node0-&gt;`Node1 +  `Node1-&gt;`Node0
+        
+    }
+    // More tests
+
+}
+</code></pre>
+<p>Now, we can assert that this is indeed a necessary property of the wheat.</p>
+<pre><code>assert connected is necessary for isList
+</code></pre>
+<p>If this fails the wheat, add more examples to the test suite for <code>connected</code> to figure out why.
+Perhaps the property needs to be revised. In this case the test <strong>will fail</strong>. Connected requires a list
+to be non-empty. We would have to revise the predicate to allow for empty lists.
+Once you have fixed <code>connected</code>, repeat <strong>Step 2</strong> to come up with more necessary properties.</p>
+<p>** Step 3**: Say we now have 2 properties necessary for <code>isList</code>: <code>noSelfLoops</code> and <code>connected</code>.
+Write a predicate to check the conjunction of these 2 properties and check if it is
+sufficient for the wheat. <strong>If this test succeeds, your necessary properties characterize the wheat. You can
+use these properties to write your solution!</strong></p>
+<pre><code>pred allNecessary {
+    noSelfLoops
+    connected
+}
+
+assert allNecessary is sufficient for isList
+</code></pre>
+<p>In this case, however, these 2 properties are not sufficient for <code>isList</code>. Upon running this test
+against the wheat, Forge will provide you with an instance where 
+all your necessary properties are true, but the wheat is not.</p>
+<p>Write this out as an counter-example (i.e., a non-example of the wheat), and return to step 2.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="integers"><a class="header" href="#integers">Integers</a></h1>
+<p>There are two types of &quot;integers&quot; in Forge: integer <strong>values</strong> (e.g. 4) and integer <strong>objects</strong> (e.g. the object representing 4). You can think of this as roughly similar to the primitive-<code>int</code> vs. object-<code>Integer</code> distinction in Java, although the analogy is not perfect. Forge will usually be able to automatically convert between these two, but we will still document the difference.</p>
+<p>By the way, sometimes you'll see us refer to an object as an <em>atom</em>; this alternate term is used in some other contexts (like our solver engine), and we'll discuss this about mid-way through the semester. </p>
+<h3 id="integer-operators"><a class="header" href="#integer-operators">Integer Operators</a></h3>
+<p>In the following, <code>&lt;atoms&gt;</code> represents a set of integer atoms and <code>&lt;value&gt;</code>, <code>&lt;value-a&gt;</code> and <code>&lt;value-b&gt;</code> are integer values. </p>
+<ul>
+<li><code>add[&lt;value-a&gt;, &lt;value-b&gt; ...]</code>: returns the value of the sum <code>value-a</code> + <code>value-b</code> + ...</li>
+<li><code>subtract[&lt;value-a&gt;, &lt;value-a&gt; ...]</code>: returns the value of the difference <code>value-a</code> - <code>value-b</code> - ... </li>
+<li><code>multiply[&lt;value-a&gt;, &lt;value-b&gt; ...]</code>: returns the value of the product <code>value-a</code> * <code>value-b</code> * ...</li>
+<li><code>divide[&lt;value-a&gt;, &lt;value-b&gt; ...]</code>: returns the value of the left-associative integer quotient (<code>value-a</code> / <code>value-b</code>) / ...</li>
+<li><code>remainder[&lt;value-a&gt;, &lt;value-b&gt;]</code>: returns the remainder for doing integer division. Note that if <code>value-a</code> is negative, the result will also be negative, and that integer wrap-around may affect the answer.</li>
+<li><code>abs[&lt;value&gt;]</code>: returns the absolute value of <code>value</code></li>
+<li><code>sign[&lt;value&gt;]</code>: returns 1 if <code>value</code> is &gt; 0, 0 if <code>value</code> is 0, and -1 if <code>value</code> is &lt; 0</li>
+</ul>
+<h3 id="comparison-operators-on-values"><a class="header" href="#comparison-operators-on-values">Comparison operators on values</a></h3>
+<p>You can compare integer values using the usual <code>=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, and <code>&gt;=</code>.</p>
+<h3 id="counting"><a class="header" href="#counting">Counting</a></h3>
+<p>Given an arbitrary expression <code>e</code>, the expression <code>#e</code> evaluates to the cardinality of (i.e., number of elements in) <code>e</code>. In Froglet, this is nearly always either <code>0</code> or <code>1</code>, although full Forge allows expressions that evaluate to sets. </p>
+<h4 id="counting-in-froglet"><a class="header" href="#counting-in-froglet">Counting in Froglet</a></h4>
+<p>It is often useful to count even in Froglet, where expressions usually evaluate to either <code>none</code> or some singleton object. For example, in a tic-tac-toe model we might want to count the number of <code>X</code> entries on the board. In both Froglet and Forge, we can write this using a combination of <code>#</code> and <a href="forge-standard-library/../building-models/constraints/expressions/relational-expressions/relational-expressions.html">set comprehension</a> (normally not available in Froglet): <code>#{row, col: Int | b.board[row][col] = X}</code>. </p>
+<p>Concretely:</p>
+<blockquote>
+<p><code>#{x1: T1, ..., xn: Tn | &lt;fmla&gt;}</code> </p>
+</blockquote>
+<p>evaluates to an integer value reflecting the number of tuples <code>o1, ... on</code> where <code>&lt;fmla&gt;</code> is satisfied when <code>x1</code> takes the value <code>o1</code>, etc. </p>
+<h3 id="aggregation-and-conversion"><a class="header" href="#aggregation-and-conversion">Aggregation and Conversion</a></h3>
+<p>To convert between sets of integer atoms and integer values there are the following operations:</p>
+<ul>
+<li><code>sing[&lt;value&gt;]</code>: returns an integer atom representing the given value;</li>
+<li><code>sum[&lt;atoms&gt;]</code>: returns an integer value: the sum of the values that are represented by each of the int atoms in the set;</li>
+<li><code>max[&lt;atoms&gt;]</code>: returns an integer value: the maximum of all the values represented by the int atoms in the set; and</li>
+<li><code>min[&lt;atoms&gt;]</code>: returns an integer value: the minimum of all the values represented by the int atoms in the set.</li>
+</ul>
+<p>While you might use <code>sum</code>, <code>max</code>, and <code>min</code>, you shouldn't need to use <code>sing</code>---Forge now automatically converts between integer values and integer objects.</p>
+<h3 id="sum-aggregator"><a class="header" href="#sum-aggregator">Sum Aggregator</a></h3>
+<p>You should be cautious using <code>sum[...]</code> once you start using the full Forge language, and have access to relations. Suppose you have <code>sig A { i: one Int }</code>, and want to sum over all of the <code>i</code> values, but duplicates exist. Then <code>sum[A.i]</code> would <em>not</em> count duplicates separately, since <code>A.i</code> evaluates to a <em>set</em>, which can have no duplicates. </p>
+<p>Because of this problem, Forge provides a second way to use <code>sum</code> which does count duplicates:</p>
+<pre><code>sum &lt;x&gt;: &lt;set&gt; | { &lt;int-expr&gt; }
+</code></pre>
+<p>Above, <code>x</code> is a variable name, <code>set</code> is the set you are quantifying over (currently only arity-1 sets are supported), and <code>int-expr</code> is an expression that evaluates to an <strong>integer value</strong>. The result of this entire expression is also an <strong>integer value</strong>. This counts duplicate integer values provided the atoms (of any type) in &quot;relation&quot; are different. The following example illustrates the difference between the two different uses of <code>sum</code>.</p>
+<div id="admonition-sum-aggregator" class="admonition example">
+<div class="admonition-title">
+<p>Sum aggregator</p>
+<p><a class="admonition-anchor-link" href="forge-standard-library/integers.html#admonition-sum-aggregator"></a></p>
+</div>
+<div>
+<p>In the instance:</p>
+<pre><code>inst duplicates {
+    A = `A0 + `A1
+    time = `A0 -&gt; 1 + `A1 -&gt; 1
+}
+</code></pre>
+<ul>
+<li><code>sum[A.time]</code> evaluates to the value 1; and</li>
+<li><code>sum a: A | sum[a.time]</code>  evaluates to the value 2.</li>
+</ul>
+</div>
+</div>
+<h3 id="the-successor-relation"><a class="header" href="#the-successor-relation">The Successor Relation</a></h3>
+<p>Forge also provides a successor relation, <code>succ</code> (<code>Int -&gt; Int</code>) where each <code>Int</code> atom points to its successor (e.g. the <code>Int</code> atom 4 points to 5). The maximum <code>Int</code> atom does not point to anything.</p>
+<h3 id="integer-scope"><a class="header" href="#integer-scope">Integer Scope</a></h3>
+<p>Integers in Forge are <strong>bounded</strong> up to a fixed bitwidth that you specify. The default is 4 bits, and this allows Forge to represent, and reason about, the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">16</span></span></span></span> integers in the interval [-8, 7]. Forge uses 2's complement arithmetic, and thus generally handles overflow in the same way a programming language would, just with (usually) smaller minimum and maximum values.</p>
+<div id="admonition-bounded-integers-and-overflow" class="admonition warning">
+<div class="admonition-title">
+<p>Bounded integers and overflow</p>
+<p><a class="admonition-anchor-link" href="forge-standard-library/integers.html#admonition-bounded-integers-and-overflow"></a></p>
+</div>
+<div>
+<p>Remember that a bound on <code>Int</code> is the <em>bitwidth</em> allowed, not the number of integers! This is different from all other types in Forge.</p>
+<p>Moreover, performing arithmetic on Forge integers may trigger integer overflow or underflow.</p>
+<p><strong>Example</strong>: With a bitwidth of <code>4</code>, <code>add[7, 1]</code> evaluates to <code>-8</code>.</p>
+<p>For more on integer bounds, see [[Bounds|Bounds]].</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="constants--keywords"><a class="header" href="#constants--keywords">Constants &amp; Keywords</a></h1>
+<h2 id="constants"><a class="header" href="#constants">Constants</a></h2>
+<p>Forge provides a few built-in constants:</p>
+<ul>
+<li><code>univ</code> (arity 1): the set of all objects in the universe (including <code>Int</code>s);</li>
+<li><code>none</code> (arity 1): the empty set (to produce higher-arity empty relations, use the <code>-&gt;</code> operator. E.g., a 2-ary empty relation would be represented as <code>none -&gt; none</code> 
+);</li>
+<li><code>iden</code>: the identity relation (a total function from all objects in the universe to themselves, including <code>Ints</code>);</li>
+<li><code>Int</code>: the set of available integer objects. By default it contains <code>-8</code> to <code>7</code> inclusive, since the default bitwidth is <code>4</code>. See [Integers|Integers] for more information.</li>
+</ul>
+<h2 id="keywords"><a class="header" href="#keywords">Keywords</a></h2>
+<p>The following is a list of keywords in Forge that may not be used as names for relations, sigs, predicates, and runs. These include:</p>
+<ul>
+<li><code>state</code>, <code>transition</code> (reserved for future use)</li>
+<li><code>sig</code>, <code>pred</code>, <code>fun</code></li>
+<li><code>test</code>, <code>expect</code>, <code>assert</code>, <code>run</code>, <code>check</code>, <code>is</code>, <code>for</code></li>
+<li>names of arithmetic operators, helpers, and built-in constants (e.g., <code>add</code>, <code>univ</code>, and <code>reachable</code>)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="helpers"><a class="header" href="#helpers">Helpers</a></h1>
+<p>Forge and Frglet provide a number of built-in helpers to ease your work in the language.</p>
+<h2 id="sequences"><a class="header" href="#sequences">Sequences</a></h2>
+<p>A sequence is a field <code>f</code> of the form <code>f: pfunc Int -&gt; A</code> (where <code>A</code> can be any <code>sig</code>) such that:</p>
+<ul>
+<li><code>f</code> is a partial function (i.e., each <code>Int</code> has at most one corresponding entry);</li>
+<li>no index <code>Int</code> is less than zero; and</li>
+<li>indexes are contiguous (e.g., if there are entries at index <code>1</code> and index <code>3</code>, there must be one at index <code>2</code>).</li>
+</ul>
+<p>You can think of sequences as roughly analogous to fixed-size arrays in a language like Java. To tell Forge that a partial-function field <code>f</code> is a sequence, use the <code>isSeqOf</code> predicate.</p>
+<p>Hint: make sure that you use <code>isSeqOf</code> in any test or run that you want to enforce that <code>f</code> is a sequence. The <code>isSeqOf</code> predicate is just another constraint: it's not a persistent declaration like <code>pfunc</code> is.</p>
+<h4 id="isseqof"><a class="header" href="#isseqof">isSeqOf</a></h4>
+<ul>
+<li><code>isSeqOf[f, A]</code>: a predicate that holds if and only if <code>f</code> is a sequence of values in <code>A</code>.</li>
+</ul>
+<h3 id="sequence-helpers"><a class="header" href="#sequence-helpers">Sequence Helpers</a></h3>
+<p>The following helpers are also available, but should only be used when <code>f</code> is a sequence:</p>
+<h4 id="sequence-helper-functions"><a class="header" href="#sequence-helper-functions">Sequence Helper Functions:</a></h4>
+<ul>
+<li><code>seqFirst[f]</code>: returns the first element of <code>f</code>, i.e. <code>f[0]</code>.</li>
+<li><code>seqLast[f]</code>: returns the last element of <code>f</code>.</li>
+<li><code>indsOf[f, e]</code>: returns all the indices of <code>e</code> in <code>f</code>.</li>
+<li><code>idxOf[f, e]</code>: returns the first index of <code>e</code> in <code>f</code>.</li>
+<li><code>lastIdxOf[f, e]</code>: returns the last index of <code>e</code> in <code>f</code>.</li>
+<li><code>elems[f]</code>: returns all the elements of <code>f</code>.</li>
+<li><code>inds[f]</code>: returns all the indices of <code>f</code>.</li>
+</ul>
+<h4 id="sequence-helper-predicates"><a class="header" href="#sequence-helper-predicates">Sequence Helper Predicates:</a></h4>
+<ul>
+<li><code>isEmpty[f]</code>: true if and only if sequence <code>f</code> is empty.</li>
+<li><code>hasDups[f]</code>: true if and only if sequence <code>f</code> has duplicates (i.e., there are at least two indices that point to the same value).</li>
+</ul>
+<h2 id="reachability"><a class="header" href="#reachability">Reachability</a></h2>
+<p>Forge provides a convenient way to speak of an object being reachable via fields of other objects.</p>
+<ul>
+<li><code>reachable[a, b, f]</code>: object <code>a</code> is reachable from <code>b</code> through recursively applying field <code>f</code>. This predicate only works if <code>a.f</code> is well-defined.</li>
+<li><code>reachable[a, b, f1, f2, ...]</code>: an extended version of <code>reachable</code> which supports using more than one field to reach <code>a</code> from <code>b</code>.</li>
+</ul>
+<p>The extended version of reachable is useful if you wish to model, e.g., binary trees where nodes have a <code>left</code> and <code>right</code> field. In such a model, if you want to quantify over all descendents of a <code>parent</code> node, you might write <code>all n: Node | reachable[n, parent, left, right]</code>.</p>
+<p>Beware: the order of arguments in <code>reachable</code> matters! The first argument is the object <em>to be reached</em>, and the second argument is the <em>starting object</em>. Getting these reversed is a common source of errors.</p>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="custom-visualization-basics"><a class="header" href="#custom-visualization-basics">Custom Visualization Basics</a></h1>
+<p>As seen in the <a href="sterling/../running-models/sterling-visualizer.html">Sterling Visualizer</a> section, Forge uses an adapted version of the <a href="https://sterling-js.github.io/">Sterling</a> visualization tool. One of the advantages of using Sterling is that users can create their own custom visualization scripts.</p>
+<h2 id="script-view-and-modes"><a class="header" href="#script-view-and-modes">Script View and Modes</a></h2>
+<p>When viewing an instance in Sterling, there are three options for viewing an instance: Graph, Table, and Script. To swap to script-view mode, click on Script. Most of the screen will be taken up by 3 new panes:</p>
+<ul>
+<li>the visualization canvas (blank by default); </li>
+<li>the script editor; and </li>
+<li>a list of available variables that are available for scripts to use.</li>
+</ul>
+<p>Where the &quot;Next&quot; button was in the graph visualizer, there will now be 4 more buttons: </p>
+<ul>
+<li>Run executes the visualization script when clicked.</li>
+<li><code>&lt;div&gt;</code>, <code>&lt;canvas&gt;</code> and <code>&lt;svg&gt;</code> swap between visualization modes. The default is <code>&lt;svg&gt;</code>. 
+This documentation focuses on the <code>&lt;svg&gt;</code> mode, because that is where most of the library support is. </li>
+</ul>
+<div id="admonition-a-basic-script" class="admonition example">
+<div class="admonition-title">
+<p>A Basic Script</p>
+<p><a class="admonition-anchor-link" href="sterling/custom-basics.html#admonition-a-basic-script"></a></p>
+</div>
+<div>
+<p>Try entering some visualization code in the script window and clicking &quot;Run&quot;:</p>
+<pre><code>const stage = new Stage()
+stage.add(new TextBox('Hello!', {x:100, y:100},'black',16))
+stage.render(svg, document)
+</code></pre>
+<p>This will create a <code>TextBox</code> in the visualization area that says &quot;Hello!&quot;.</p>
+</div>
+</div>
+<p>Custom scripts are written in JavaScript. JavaScript constructs like looping, mapping over lists, etc. are all available for your use.</p>
+<div id="admonition-javascript" class="admonition warning">
+<div class="admonition-title">
+<p>JavaScript</p>
+<p><a class="admonition-anchor-link" href="sterling/custom-basics.html#admonition-javascript"></a></p>
+</div>
+<div>
+<p>At the moment (February 2023), the script editor works only with &quot;vanilla&quot; JavaScript; Sterling will not run (e.g.) a TypeScript compiler on the code. Moreover, importing external libraries is somewhat restricted.</p>
+</div>
+</div>
+<h2 id="working-with-an-instance"><a class="header" href="#working-with-an-instance">Working with an Instance</a></h2>
+<p>Sterling uses a number of JavaScript classes to represent an instance. <a href="https://alloy-js.github.io/alloy-ts/">The <code>alloy-ts</code> library documentation</a> describes these in more detail, but you should be aware of the following:</p>
+<h3 id="the-instance"><a class="header" href="#the-instance">The Instance</a></h3>
+<p>The <code>instance</code> variable provides access to the current instance. If temporal mode is active, <code>instance</code> will refer to the current state; to get the entire list of states, use <code>instances</code> instead (which is only available in temporal mode). </p>
+<h3 id="accessing-sigs-and-fields"><a class="header" href="#accessing-sigs-and-fields">Accessing Sigs and Fields</a></h3>
+<p>You can use the <code>.signature(name)</code> method of an instance to obtain an object representing a <code>sig</code> in the instance. Likewise, <code>.field(name)</code> will yield an object representing a particular field. </p>
+<div id="admonition-a-basic-script-1" class="admonition example">
+<div class="admonition-title">
+<p>A Basic Script</p>
+<p><a class="admonition-anchor-link" href="sterling/custom-basics.html#admonition-a-basic-script-1"></a></p>
+</div>
+<div>
+<p>If you're viewing an instance of the <a href="https://csci1710.github.io/2023/livecode/feb15_feb17_binarysearch.frg">binary search model</a> from class, you can run this script directly. (If you use this model, uncomment the <code>run</code> at the bottom of the file!)</p>
+<pre><code>const stage = new Stage()
+stage.add(new TextBox(`${instance.signature('IntArray')}`, {x:100, y:100},'black',16))
+stage.render(svg, document)
+</code></pre>
+<p>This will create a <code>TextBox</code> in the visualization area whose text is a string representation of the <code>Int</code> sig in whatever instance you're viewing. The string won't be very useful yet; it will be something like &quot;[IntArray]&quot;. Next, change <code>instance.signature('IntArray')</code> to <code>instance.signature('IntArray').atoms()[0]</code>---the first (and in this case, only) <code>IntArray</code> object in the instance. You'll see the sig name become an object id like <code>[IntArray0]</code>.</p>
+<p>All <code>IntArray</code> objects have an <code>elements</code> field. We can get access to the field and print its contents by <em>joining</em> the object to its field:</p>
+<pre><code>const stage = new Stage()
+const theArray = instance.signature('IntArray').atoms()[0]
+const elementsField = instance.field('elements')
+stage.add(new TextBox(`${theArray.join(elementsField)}`, {x:100, y:100},'black',16))
+stage.render(svg, document)
+</code></pre>
+<p>This should display something like &quot;1, 7 2, 7 3, 7 4, 7 5, 7 6, 7 7, 7&quot;. Again, not very useful. Sterling is printing the contents of the array in <code>index,value</code> form, but separating elements with space. We can fix this, though!</p>
+</div>
+</div>
+<hr />
+<h2 id="built-in-library-shapes"><a class="header" href="#built-in-library-shapes">Built-in Library Shapes</a></h2>
+<p>Scripts in <code>&lt;svg&gt;</code> mode use the <a href="https://d3-graph-gallery.com/graph/shape.html">D3 visualization library</a> by default. However, D3 can be fairly complex to use, and so various <a href="sterling/./d3fx.html">built-in helpers</a> are also available. We encourage using the helper library, although in more advanced cases you may wish to use D3 directly.</p>
+<hr />
+<h2 id="potential-pitfalls-and-debugging"><a class="header" href="#potential-pitfalls-and-debugging">Potential Pitfalls and Debugging</a></h2>
+<p>Sterling presents a &quot;full Forge&quot; view of instances, and one that's closer to the way the solver works. All sigs and fields are represented as <em>sets</em> in the instance. Each set contains <code>AlloyTuple</code> objects, which themselves contain lists of <code>AlloyAtom</code>s. Because (at the moment) there is no support for types in the script editor, it can sometimes be troublesome to remember which kind of datum you're working with. The <code>alloy-ts</code> docs below provide much more detail, but in brief:</p>
+<ul>
+<li>if the object has an <code>.atoms()</code> method, it's an <code>AlloyTuple</code>;</li>
+<li>if the object has an <code>.id()</code> method, it's an <code>AlloyAtom</code>; and</li>
+<li>signatures, fields, tuples, and atoms are all <code>AlloySets</code> and provide a <code>.tuples()</code> method.</li>
+</ul>
+<p>In order to do a Froglet-style field access, you should use the <code>.join</code> method. (E.g., in the example above, we wrote <code>theArray.join(elementsField)</code> rather than <code>theArray.elementsField</code> or <code>theArray.elements</code>.)</p>
+<p>We suggest using <code>TextBox</code>es to visualize debugging information. As a fallback, you can also use <code>console.log(...)</code> as normally in JavaScript, but the web-developer console in Sterling can be somewhat congested. Printing raw <code>AlloySet</code> objects via <code>console.log</code> will also not be immediately useful, since Sterling uses a proxy to manage the difference between the set as <em>Forge syntax</em> and the set as <em>a value in the instance</em>.</p>
+<hr />
+<h2 id="further-resources-and-examples"><a class="header" href="#further-resources-and-examples">Further Resources and Examples</a></h2>
+<p>Further chapters:</p>
+<ul>
+<li><a href="sterling/./d3fx.html">Visualization Helper Library</a> describes helpers (e.g., text boxes, grids, etc.) for visualization that don't require D3 knowledge.</li>
+<li><a href="sterling/./svg-tips.html">Working with SVG and Imports</a> explains how to (e.g.) increase the size of the rendering area.</li>
+</ul>
+<p>External resources:</p>
+<ul>
+<li><a href="https://www.w3schools.com/graphics/svg_intro.asp">What is the SVG format?</a></li>
+<li><a href="https://docs.google.com/document/d/10pqJuWVp6ap-6JoEE5nDqrCKFpYcuzN81oItnYO3yS4/edit#heading=h.4p6wkcmc113e">D3FX helpers design documentation</a>---<strong>beware, this is actively being worked on and edited, and thus subject to change!</strong></li>
+</ul>
+<p>Examples using D3:</p>
+<ul>
+<li><a href="https://github.com/miasantomauro/lets-get-visual">Mia Santomauro's 2021 Guide</a> for custom visualization in Forge is still useful, but was made before most of the helper functions and classes above existed. If you're interested in using D3 directly with Sterling, it's a great starting point.</li>
+<li>Tim's 2022 visualizer script examples also use D3 directly, rather than leveraging helpers, but may also be a useful reference:
+<ul>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/sudoku_opt_viz">Sudoku Synthesizer</a></li>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/queue">Queue</a></li>
+<li><a href="https://github.com/csci1710/public-examples/tree/main/2022/lights_puzzle">Lights Puzzle (temporal mode)</a> </li>
+</ul>
+</li>
+<li>Tim and Mia also wrote a <a href="https://github.com/miasantomauro/mia-isp-spring-2021/tree/main/musical%20scales">&quot;visualizer&quot; that plays musical scales</a> generated by a model Tim wrote to understand music a bit better.</li>
+</ul>
+<div id="admonition-collaborators" class="admonition note">
+<div class="admonition-title">
+<p>Collaborators</p>
+<p><a class="admonition-anchor-link" href="sterling/custom-basics.html#admonition-collaborators"></a></p>
+</div>
+<div>
+<p>Work on custom visualization in Sterling is an ongoing collaborative effort. We are grateful to Tristan Dyer for working to expand Sterling for Forge. We are also grateful for contributions from (in alphabetic order):</p>
+<ul>
+<li>Ethan Bove</li>
+<li>Sidney LeVine</li>
+<li>Mia Santomauro</li>
+</ul>
+</div>
+</div><div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="d3fx-helpers"><a class="header" href="#d3fx-helpers">D3FX Helpers</a></h1>
+<h2 id="the-stage-and-visual-objects"><a class="header" href="#the-stage-and-visual-objects">The Stage and Visual Objects</a></h2>
+<p>The <code>Stage</code> object is the top-level container for every visual object that gets displayed. You can add further structure to your visual containment using other containers like grids or conjoined objects, but the stage must always be the top-level graphic organizer. You must make exactly one stage, and a stage cannot store other stages. </p>
+<p>Visual objects comprise all other objects to display using the helper library. These may be containers for other objects, or atomic objects like text boxes or shapes. You can add new visual objects to a <code>Stage</code> using the <code>.add</code> method. </p>
+<h2 id="primitive-objects"><a class="header" href="#primitive-objects">Primitive Objects</a></h2>
+<h3 id="textbox"><a class="header" href="#textbox">Textbox</a></h3>
+<p>Textboxes render text to the screen at a given location. To instantiate one, use:</p>
+<pre><code>new Textbox(&lt;text&gt;:string, &lt;coords&gt;:Coords, &lt;color&gt;:string, &lt;textSize&gt;:string)
+</code></pre>
+<p>where <code>Coords</code> is an object with <code>x</code> and <code>y</code> fields. </p>
+<div id="admonition-textbox" class="admonition example">
+<div class="admonition-title">
+<p>TextBox</p>
+<p><a class="admonition-anchor-link" href="sterling/d3fx.html#admonition-textbox"></a></p>
+</div>
+<div>
+<pre><code>new TextBox('hello!', {x: 50, y: 50}, 'black', 12)
+</code></pre>
+</div>
+</div>
+<p>All parameters after <code>text</code> are optional, and can be edited afterwards with corresponding setter methods. </p>
+<h3 id="shapes"><a class="header" href="#shapes">Shapes</a></h3>
+<p>The following three objects (<code>Rectangle</code>, <code>Circle</code>, and <code>Polygon</code>) are all instances of <code>Shape</code>. In general, all <code>Shape</code> objects include the following properties, all of which have corresponding setters and are typically optional parameters in the construction of these shapes:</p>
+<ul>
+<li><code>color: string</code> - This is the color of the interior of the shape.</li>
+<li><code>borderWidth: number</code> - This is the width of the border around the exterior of the shape, in pixels. </li>
+<li><code>borderColor: string</code> - This is the color of the border of the shape. </li>
+<li><code>label: string</code> - This is text to be displayed on top of the shape. All shapes come with an internal <code>TextBox</code> object, which is rendered according to this text in the center of the shape. </li>
+<li><code>labelColor: string</code> - The color of the text that is displayed atop the shape. </li>
+<li><code>labelSize: number</code> - The size of the label’s font, in pixels. </li>
+</ul>
+<h4 id="rectangle"><a class="header" href="#rectangle">Rectangle</a></h4>
+<p>Rectangles work how one would expect them to. Along with the rest of the <code>Shape</code> variables, they also take in values of coordinates, height, and width. The coordinates will be in the typical form of the interface <code>{x:&lt;x position&gt;, y:&lt;y position&gt;}</code>. These coordinates will be the top left of the rectangle. The width and height parameters determine the size of the rectangle in the x and y direction, respectively.</p>
+<h4 id="circle"><a class="header" href="#circle">Circle</a></h4>
+<p>Circles take in all the optional parameters associated with shapes, along with the additional parameters of <code>coords</code> and <code>radius</code>. The x and y values contained in the <code>coords</code> will determine the center of the circle, around which the <code>radius</code> will determine the rest. </p>
+<pre><code>new Circle(
+        radius: number,
+        coords?: Coords,
+        color?: string,
+        borderWidth?: number,
+        borderColor?: string,
+        label?: string,
+        labelColor?: string,
+        labelSize?: number
+    )
+</code></pre>
+<h4 id="polygon"><a class="header" href="#polygon">Polygon</a></h4>
+<p>Polygons are a bit more complicated, and serve as a very general tool. Along with the standard optional shape parameters, they also take in a <code>points</code> parameter. This is in the form of an array of coordinates. Each coordinate should be a point on the outside of the polygon, traversing the outside of the desired shape in order. </p>
+<div id="admonition-a-simple-triangle" class="admonition example">
+<div class="admonition-title">
+<p>A simple triangle</p>
+<p><a class="admonition-anchor-link" href="sterling/d3fx.html#admonition-a-simple-triangle"></a></p>
+</div>
+<div>
+<p>For example, a simple triangle could be rendered as follows:</p>
+<pre><code>let points = [
+    {x: 100, y:100},
+    {x:100, y:200},
+    {x:200, y:100}
+]
+
+let poly = new Polygon(
+    points, &quot;red&quot;
+)
+</code></pre>
+</div>
+</div>
+<h4 id="line"><a class="header" href="#line">Line</a></h4>
+<p><code>Line</code>s work similar to <code>Polygon</code>s, however without an interior. Their constructor takes in an array of coordinates called <code>points</code>, however these points will form a line, and will not reconnect at the end:</p>
+<pre><code>new Line(points: Coords[], color?: string, width?: number)
+</code></pre>
+<div id="admonition-line" class="admonition example">
+<div class="admonition-title">
+<p>Line</p>
+<p><a class="admonition-anchor-link" href="sterling/d3fx.html#admonition-line"></a></p>
+</div>
+<div>
+<pre><code>new Line(points: [{x:50, y:50}, {x:100, y:100}], color: 'black', width: 5)
+</code></pre>
+</div>
+</div>
+<h2 id="complex-objects"><a class="header" href="#complex-objects">Complex Objects</a></h2>
+<h3 id="grids"><a class="header" href="#grids">Grids</a></h3>
+<p>A <code>Grid</code> provides a 2-dimensional array of cells that can store other visual objects. It is initialized by passing an object containing the following fields to its constructor:</p>
+<ul>
+<li>the location of the upper-left corner of the grid: <code>grid_location: {x: upper-left-x-coordinate, y: upper-left-y-coordinate}</code>;</li>
+<li>the size of each cell: <code>cell_size: {x_size: width-per-cell, y_size: height_per_cell}</code>; and </li>
+<li>the number of rows and columns: <code>grid_dimensions: {x_size: number-of-columns, y_size: number-of-rows}</code>.</li>
+</ul>
+<p>Add a visual object <code>obj</code> to a grid using its <code>.add</code> method:</p>
+<ul>
+<li><code>grid.add({x:column-index,y:row-index},obj)</code></li>
+</ul>
+<div id="admonition-cleaning-up-the-array" class="admonition example">
+<div class="admonition-title">
+<p>Cleaning Up the Array</p>
+<p><a class="admonition-anchor-link" href="sterling/d3fx.html#admonition-cleaning-up-the-array"></a></p>
+</div>
+<div>
+<p>In the <a href="sterling/./custom-basics.html">custom viz basics</a> chapter, we built a simple script that printed out the contents of an array (for a model that defined such). Let's create a grid that displays the array contents more readably. We'll get the contents of the array as before, but this time we'll create a new text box for every entry, and store each in the grid.</p>
+<pre><code>const stage = new Stage()
+const theArray = instance.signature('IntArray').atoms()[0]
+const elementsField = instance.field('elements')
+const entries = theArray.join(elementsField)
+
+const arrayGrid = new Grid({
+    grid_location: {x: 50, y: 50},
+    cell_size: {x_size: 80, y_size: 40},
+    grid_dimensions: {x_size:1, y_size:10}})
+
+entries.tuples().forEach( (entry,idx) =&gt; {
+  arrayGrid.add({x: 0, y: idx}, 
+           new TextBox(`${entry}`, {x:100, y:100},'black',16))
+})
+
+stage.add(arrayGrid)
+stage.render(svg, document)
+</code></pre>
+<p>Note the call to <code>entries.tuples()</code>. The variable <code>entries</code> references a Forge expression---a piece of syntax that means something in the instance. To get that meaning into a list we can iterate over, we call the <code>tuples()</code> method.</p>
+<p>There's one problem remaining: we are creating a grid that always has 10 rows in it, no matter how many entries there are in the array. To fix this, we'll use <code>entries.tuples().length</code> in the grid definition: <code>grid_dimensions: {x_size:1, y_size:entries.tuples().length}</code>. Now we'll see a grid without any extra rows.</p>
+</div>
+</div>
+<div id="admonition-other-container-objects" class="admonition info">
+<div class="admonition-title">
+<p>Other container objects</p>
+<p><a class="admonition-anchor-link" href="sterling/d3fx.html#admonition-other-container-objects"></a></p>
+</div>
+<div>
+<ul>
+<li>graphs</li>
+<li>trees
+<ul>
+<li>edge objects with labels (new feature)</li>
+</ul>
+</li>
+<li>conjoined objects</li>
+</ul>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="working-with-svg"><a class="header" href="#working-with-svg">Working with SVG</a></h1>
+<h2 id="expanding-the-svg-region"><a class="header" href="#expanding-the-svg-region">Expanding the SVG Region</a></h2>
+<p>If the default <code>svg</code> area is not the right size for your needs, you can change its dimensions. </p>
+<p>The <code>&lt;svg&gt;</code> element that scripts render to is contained within an element called <code>svg-container</code>, whose only child is the render area. Thus, the render area can be obtained with:</p>
+<pre><code>const renderArea = document.getElementById('svg-container').getElementsByTagName('svg')[0]
+</code></pre>
+<p>You can then set the <code>style.width</code> and <code>style.height</code> attributes of the rendering area. </p>
+<div id="admonition-changing-the-rendering-area-size" class="admonition example">
+<div class="admonition-title">
+<p>Changing the rendering area size</p>
+<p><a class="admonition-anchor-link" href="sterling/svg-tips.html#admonition-changing-the-rendering-area-size"></a></p>
+</div>
+<div>
+<p>This code changes the available space in the <code>&lt;svg&gt;</code> element, giving us 5 times the original vertical space to work with: </p>
+<pre><code>const svgContainer = document.getElementById('svg-container')
+svgContainer.getElementsByTagName('svg')[0].style.height = '500%'
+svgContainer.getElementsByTagName('svg')[0].style.width = '100%'
+</code></pre>
+</div>
+</div>
+<div id="admonition-resizing-in-the-script" class="admonition warning">
+<div class="admonition-title">
+<p>Resizing in the script</p>
+<p><a class="admonition-anchor-link" href="sterling/svg-tips.html#admonition-resizing-in-the-script"></a></p>
+</div>
+<div>
+<p>If you're using the helper library, you may need to resize <em>after</em> calling <code>stage.render</code>.</p>
+</div>
+</div>
+<h3 id="alternative-method"><a class="header" href="#alternative-method">Alternative Method</a></h3>
+<p>You also have access to set the <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"><code>viewBox</code> attribute</a> of the <code>&lt;svg&gt;</code> region.</p>
+<div id="admonition-1000-by-1000-viewbox" class="admonition example">
+<div class="admonition-title">
+<p>1000 by 1000 viewbox</p>
+<p><a class="admonition-anchor-link" href="sterling/svg-tips.html#admonition-1000-by-1000-viewbox"></a></p>
+</div>
+<div>
+<p>require('d3')
+d3.select(svg).attr(&quot;viewBox&quot;, &quot;0 0 1000 1000&quot;)</p>
+</div>
+</div>
+<h2 id="importing-modules"><a class="header" href="#importing-modules">Importing modules</a></h2>
+<p>Sterling uses the <a href="https://github.com/d3/d3-require"><code>d3-require</code></a> and <a href="https://www.jsdelivr.com/">jsdelivr</a> systems to import external libraries. These should be given in the first lines of the script (before any comments!) and be enclosed in a single <code>require</code> form per library. E.g., to import the <code>d3-array</code> and <code>d3-format</code> libraries:</p>
+<pre><code>require(&quot;d3-array&quot;)
+require(&quot;d3-format&quot;)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="temporal-forge-overview"><a class="header" href="#temporal-forge-overview">Temporal Forge Overview</a></h1>
+<p>Temporal mode extends Forge with temporal operators to ease specification and checking of dynamic systems. This mode draws heavily on the <a href="http://haslab.github.io/Electrum/">Electrum work</a> by INESC TEC and ONERA, and the newer Alloy 6 version, but there are differences.</p>
+<p>To enable Electrum mode, pass <code>option problem_type temporal</code> to Forge. This will cause a number of changes in how Forge processes your models, the largest one being that it will now always search for <strong>lasso traces</strong> (see below) rather than arbitrary instances. The maximum length of the trace is given by <code>option max_tracelength &lt;k&gt;</code> and defaults to <code>5</code>. The minimum length of the trace is given by <code>option min_tracelength &lt;k&gt;</code> and defaults to <code>1</code>. </p>
+<div id="admonition-using-minimum-trace-length" class="admonition info">
+<div class="admonition-title">
+<p>Using Minimum Trace Length</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-using-minimum-trace-length"></a></p>
+</div>
+<div>
+<p>The temporal solver works by iterative deepening: try length 1, then length 2, ... and so <em>sometimes</em> (not always) a longer minimum trace length can speed up the process.</p>
+</div>
+</div>
+<h2 id="variable-state-var"><a class="header" href="#variable-state-var">Variable state (<code>var</code>)</a></h2>
+<p>Electrum mode allows <code>var</code> annotations to be placed on <code>sig</code> and field definitions. Such an annotation indicates that the contents of the corresponding relation may vary over time. Any sigs or fields that are not declared <code>var</code> will <em>not</em> vary over time.</p>
+<div id="admonition-importance-of-var" class="admonition warning">
+<div class="admonition-title">
+<p>Importance of <code>var</code></p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-importance-of-var"></a></p>
+</div>
+<div>
+<p>If no sigs or fields are declared <code>var</code>, the temporal solver cannot change anything from state to state.</p>
+</div>
+</div>
+<div id="admonition-var-declarations" class="admonition example">
+<div class="admonition-title">
+<p><code>var</code> declarations</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-var-declarations"></a></p>
+</div>
+<div>
+<p>Writing <code>sig Vertex { var edges: set Vertex }</code> defines a directed graph whose edge relation may vary. </p>
+<p>Writing <code>var sig Student {}</code> denotes that the set of students need not remain constant.</p>
+</div>
+</div>
+<h2 id="temporal-mode-semantics-informally"><a class="header" href="#temporal-mode-semantics-informally">Temporal Mode Semantics (Informally)</a></h2>
+<p>When the temporal solver is enabled, instances are always traces, and a trace is an <strong>infinite</strong> object, containing a state for every natural number <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>. However, the solver underlying Forge needs to finitize the problem in order to solve it. The solution to this, given a finite state-space, is to invoke the Pigeonhole Principle and seek traces that end in a loop: &quot;lassos&quot;.</p>
+<div id="admonition-lassos-must-loop-back" class="admonition warning">
+<div class="admonition-title">
+<p>Lassos must loop back!</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-lassos-must-loop-back"></a></p>
+</div>
+<div>
+<p>If your system needs more steps before it loops back than the maximum trace length (e.g., an integer counter that overflows with a small trace length), Forge may tell you that there are no traces. Always pay attention to your <code>max_tracelength</code> option, and be convinced that it is sufficient to include the lassos you're interested in.</p>
+</div>
+</div>
+<p>Temporal formulas and expressions are always evaluated with respect to a state index. At the top level of any formula, the index is <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> (the first state of the trace). Temporal operators either change or &quot;fan out&quot; across multiple state indexes to let you express things like:</p>
+<ul>
+<li>&quot;in the next state, ...&quot; (add 1 to the state index)</li>
+<li>at some point in the future, ... (search for <code>some</code> state index)</li>
+<li>at all points in the future, ... (check <code>all</code> future indexes)</li>
+<li>...</li>
+</ul>
+<h2 id="added-relational-operators-priming"><a class="header" href="#added-relational-operators-priming">Added relational operators: priming</a></h2>
+<p>Electrum mode adds one relational operator: priming (<code>'</code>). Any relational expression that is primed implicitly means &quot;this expression <strong>in the next state</strong>&quot;. Thus, you can use priming to concisely write transition effects. </p>
+<div id="admonition-priming" class="admonition example">
+<div class="admonition-title">
+<p>Priming</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-priming"></a></p>
+</div>
+<div>
+<p>Writing <code>cookies' in cookies</code> would mean that in every transition, the set of <code>cookies</code> never grows over time (will either shrink or remain the same).</p>
+</div>
+</div>
+<h2 id="added-formula-operators"><a class="header" href="#added-formula-operators">Added formula operators</a></h2>
+<p>Electrum mode adds a number of formula operators, corresponding to those present in Linear Temporal Logic (LTL) and Past-Time Linear Temporal Logic.</p>
+<h3 id="traditional-ltl-future-time"><a class="header" href="#traditional-ltl-future-time">Traditional LTL (future time)</a></h3>
+<h4 id="next-state"><a class="header" href="#next-state">Next State</a></h4>
+<ul>
+<li><code>next_state &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in state <code>i+1</code>.</li>
+</ul>
+<div id="admonition-next_state" class="admonition example">
+<div class="admonition-title">
+<p>next_state</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-next_state"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>next_state no Nim.cookies</code> expresses the sad fact that, in the next state, Nim has no cookies.</p>
+</div>
+</div>
+<div id="admonition-let-and-temporal-operators" class="admonition warning">
+<div class="admonition-title">
+<p>Let and temporal operators</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-let-and-temporal-operators"></a></p>
+</div>
+<div>
+<p>Don't try to write something like:</p>
+<pre><code>let oldCount = Counter.count | 
+    next_state Counter.count = add[oldCount, 1]
+</code></pre>
+<p>The <code>let</code> construct is implemented with substitution, and so the above will be rewritten to:</p>
+<pre><code>next_state Counter.count = add[Counter.count, 1]
+</code></pre>
+<p>which expresses that, in the next state, the counter must be one greater than itself. This will be unsatisfiable.</p>
+</div>
+</div>
+<h4 id="always-now-and-in-the-future"><a class="header" href="#always-now-and-in-the-future">Always (now and in the future)</a></h4>
+<ul>
+<li><code>always &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in every state <code>&gt;=i</code>.</li>
+</ul>
+<div id="admonition-always" class="admonition example">
+<div class="admonition-title">
+<p>always</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-always"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>always no Nim.cookies</code> expresses an alarming universal truth: from now on, Nim will never have any cookies.</p>
+<p>Of course, operators like <code>always</code> can be used inside other operators. So this lamentable destiny might be avoided. E.g., <code>not always no Nim.cookies</code> would mean the reverse: at some point, Nim will in fact have cookies.</p>
+</div>
+</div>
+<h4 id="eventually-now-or-sometime-in-the-future"><a class="header" href="#eventually-now-or-sometime-in-the-future">Eventually (now or sometime in the future)</a></h4>
+<ul>
+<li><code>eventually &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in some state <code>&gt;=i</code>.</li>
+</ul>
+<div id="admonition-eventually" class="admonition example">
+<div class="admonition-title">
+<p>eventually</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-eventually"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>eventually no Nim.cookies</code> expresses that at some point either now or in the future, Nim will lack cookies. Before and after that point, nothing prevents Nim from acquiring cookies.</p>
+</div>
+</div>
+<h4 id="until-and-release-obligations"><a class="header" href="#until-and-release-obligations">Until and Release (obligations)</a></h4>
+<ul>
+<li><code>&lt;fmla-a&gt; until &lt;fmla-b&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla-b</code> holds in some state <code>j&gt;=i</code> and <code>fmla-a</code> holds in all states <code>k</code> where <code>i &lt;= k &lt; j</code>. Note that the obligation to see <code>fmla-a</code> ceases in the state where <code>fmla-b</code> holds.</li>
+</ul>
+<div id="admonition-until" class="admonition example">
+<div class="admonition-title">
+<p>until</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-until"></a></p>
+</div>
+<div>
+<p>In a model with <code>one sig Nim { var cookies: set Cookie }</code>, writing <code>no Nim.cookies until some Nim.vegetables</code> expresses that, <em>starting at this point in time</em>, Nim must have no cookies until they also have vegetables. Once Nim obtains vegetables (including at this point in time), the obligation ends (and thus after that point Nim may have only cookies but no vegetables).</p>
+</div>
+</div>
+<p>A natural question to ask is: what happens if <code>fmla-b</code> holds at multiple points in the future? However, this turns out not to matter: the definition says that the <code>until</code> formula is true in the current state if <code>fmla-b</code> holds at <strong>some</strong> point in the future (and <code>fmla-a</code> holds until then).</p>
+<p>There is an alternative way to express obligations, which we won't use much:</p>
+<ul>
+<li><code>&lt;fmla-a&gt; releases &lt;fmla-b&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla-a</code> holds in some state <code>j&gt;=i</code> and <code>fmla-b</code> holds in all states <code>k</code> where <code>i &lt;= k &lt;= j</code>, or <code>fmla-a</code> never occurs in a later state and <code>fmla-b</code> holds forever after. Note that the intuitive role of the two formulas is reversed between <code>until</code> and <code>releases</code>, and that, unlike <code>until</code>, the obligation extends to the state where <code>fmla-a</code> holds.</li>
+</ul>
+<h3 id="past-time-ltl"><a class="header" href="#past-time-ltl">Past-time LTL</a></h3>
+<p><em>Past-time</em> operators are useful for concisely expressing some constraints. They don't add more expressive power to the temporal language, but they do sometimes make it easier to avoid adding state, etc.</p>
+<h4 id="previous-state"><a class="header" href="#previous-state">Previous State</a></h4>
+<ul>
+<li><code>prev_state &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in state <code>i-1</code>. </li>
+</ul>
+<div id="admonition-there-is-nothing-before-the-first-state" class="admonition warning">
+<div class="admonition-title">
+<p>There is nothing before the first state</p>
+<p><a class="admonition-anchor-link" href="electrum/electrum-overview.html#admonition-there-is-nothing-before-the-first-state"></a></p>
+</div>
+<div>
+<p>The formula <code>prev_state &lt;fmla&gt;</code> is canonically false if <code>i=0</code>, since there is no prior state. This holds regardless of what <code>&lt;fmla&gt;</code> contains; <code>prev_state</code> asserts the existence of a prior state.</p>
+</div>
+</div>
+<h4 id="historically-always-in-the-past"><a class="header" href="#historically-always-in-the-past">Historically (always in the past)</a></h4>
+<ul>
+<li><code>historically &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in every state <code>&lt;=i</code>.</li>
+</ul>
+<h4 id="once-at-some-point-in-the-past"><a class="header" href="#once-at-some-point-in-the-past">Once (at some point in the past)</a></h4>
+<ul>
+<li><code>once &lt;fmla&gt;</code> is true in a state <code>i</code> if and only if: <code>fmla</code> holds in some state <code>&lt;=i</code>.</li>
+</ul>
+<h2 id="note-for-alloy-users"><a class="header" href="#note-for-alloy-users">Note for Alloy Users</a></h2>
+<p>Alloy 6 and Electrum use the keywords <code>after</code> and <code>before</code> where Forge uses <code>next_state</code> and <code>prev_state</code>. We changed Forge to use these (admittedly more verbose) keywords in the hopes they are more clear. For example, <code>after</code> sounds like it could be a binary operator; in English, we might say &quot;turn left after 3 stops&quot;. Also, <code>next_state</code> is definitely a formula about the following state whereas <code>after</code> does not communicate the same sense of immediacy.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

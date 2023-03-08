@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Overview - Forge Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../home.html">Home</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="../getting-started/installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded affix "><li class="part-title">Building Models</li><li class="chapter-item expanded "><a href="../building-models/overview.html" class="active"><strong aria-hidden="true">2.</strong> Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../building-models/alloy-user-overview.html"><strong aria-hidden="true">2.1.</strong> Addendum for Alloy Users</a></li></ol></li><li class="chapter-item expanded "><a href="../building-models/sigs/sigs.html"><strong aria-hidden="true">3.</strong> Sigs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../building-models/sigs/inheritance.html"><strong aria-hidden="true">3.1.</strong> Inheritance</a></li><li class="chapter-item expanded "><a href="../building-models/sigs/singleton-maybe-sigs.html"><strong aria-hidden="true">3.2.</strong> Singleton, Maybe, and Abstract Sigs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> Field Multiplicity</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> Field Types</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> Advanced</div></li></ol></li><li class="chapter-item expanded "><a href="../building-models/constraints/constraints.html"><strong aria-hidden="true">4.</strong> Constraints</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../building-models/constraints/formulas/formulas.html"><strong aria-hidden="true">4.1.</strong> Formulas</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../building-models/constraints/formulas/operators.html"><strong aria-hidden="true">4.1.1.</strong> Operators</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/formulas/cardinality-membership.html"><strong aria-hidden="true">4.1.2.</strong> Cardinality and Membership</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/formulas/quantifiers.html"><strong aria-hidden="true">4.1.3.</strong> Quantifiers</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/formulas/predicates.html"><strong aria-hidden="true">4.1.4.</strong> Predicates</a></li></ol></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/expressions.html"><strong aria-hidden="true">4.2.</strong> Expressions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.</strong> Relational Operators</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.1.</strong> + (union)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.2.</strong> - (set difference)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.3.</strong> & (intersection)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.4.</strong> .  [] (relational join)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.5.</strong> -&gt; (cross product)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.6.</strong> ~ (transpose)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.7.</strong> ^ (transitive closure)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.8.</strong> * (reflexive transitive closure)</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.9.</strong> =&gt; else</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/relational-expressions.html"><strong aria-hidden="true">4.2.1.10.</strong> set comprehension</a></li></ol></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/functions.html"><strong aria-hidden="true">4.2.2.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../building-models/constraints/expressions/let-expressions.html"><strong aria-hidden="true">4.2.3.</strong> Let-Expressions</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../building-models/comments.html"><strong aria-hidden="true">5.</strong> Comments</a></li><li class="chapter-item expanded affix "><li class="part-title">Running Models</li><li class="chapter-item expanded "><a href="../running-models/running.html"><strong aria-hidden="true">6.</strong> Running</a></li><li class="chapter-item expanded "><a href="../running-models/sterling-visualizer.html"><strong aria-hidden="true">7.</strong> Sterling Visualizer</a></li><li class="chapter-item expanded "><a href="../running-models/bounds.html"><strong aria-hidden="true">8.</strong> Bounds</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../running-models/concrete-instance-bounds.html"><strong aria-hidden="true">8.1.</strong> Concrete Instance Bounds</a></li></ol></li><li class="chapter-item expanded "><a href="../running-models/options.html"><strong aria-hidden="true">9.</strong> Options</a></li><li class="chapter-item expanded affix "><li class="part-title">Testing</li><li class="chapter-item expanded "><a href="../testing-chapter/testing.html"><strong aria-hidden="true">10.</strong> Testing</a></li><li class="chapter-item expanded "><a href="../testing-chapter/wheats.html"><strong aria-hidden="true">11.</strong> Testing Against Wheats</a></li><li class="chapter-item expanded affix "><li class="part-title">Forge Standard Library (Built-Ins)</li><li class="chapter-item expanded "><a href="../forge-standard-library/integers.html"><strong aria-hidden="true">12.</strong> Integers</a></li><li class="chapter-item expanded "><a href="../forge-standard-library/constants-and-keywords.html"><strong aria-hidden="true">13.</strong> Constants and Keywords</a></li><li class="chapter-item expanded "><a href="../forge-standard-library/helpers.html"><strong aria-hidden="true">14.</strong> Helpers: Sequences and Reachability</a></li><li class="chapter-item expanded affix "><li class="part-title">Custom Visualizations</li><li class="chapter-item expanded "><a href="../sterling/custom-basics.html"><strong aria-hidden="true">15.</strong> Custom Visualization Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sterling/d3fx.html"><strong aria-hidden="true">15.1.</strong> D3FX Helpers</a></li><li class="chapter-item expanded "><a href="../sterling/svg-tips.html"><strong aria-hidden="true">15.2.</strong> Working with SVG and Imports</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Temporal Mode</li><li class="chapter-item expanded "><a href="../electrum/electrum-overview.html"><strong aria-hidden="true">16.</strong> Temporal Mode Overview and Operators</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Forge Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<h1 id="overview"><a class="header" href="#overview">Overview</a></h1>
+<!-- ```admonish danger title="TODO"
+- [Elaborate A](#admonition-todo-elaborate-a)
+- [Elaborate B](#admonition-todo-elaborate-b)
+- [Unsat](#admonition-todo-unsat)
+- no motivation behind person example
+- car is a real world thing, obviously we care about the aerodynamics, obvious and immediate motivation.
+- running smoke over the car and capturing a picture is an instance.
+- just talk about systems, models, instances using the car analogy. now let's talk about how we would be doing it w/ a computer. 
+```
+  -->
+<p>Forge is a language that allows us to define models of systems and explore instances of those models. But <strong><em>what does that mean</em></strong>? Let's break it down:</p>
+<!-- --- -->
+<h2 id="systems"><a class="header" href="#systems">Systems</a></h2>
+<p>A <strong>system</strong> can be generally thought of as a particular way that various objects interact.  A system isn't necessarily a <em>computer</em> system, although it can be. For example:</p>
+<ul>
+<li>The game of baseball is a system involving players, a ball, a field and bases, etc. along with rules that govern how those things interact with each other.</li>
+<li>Family trees are a system where there are people, and rules that express how they are related to each other.</li>
+<li>A cryptographic protocol is a system where there are parties, messages, cryptographic primitives, and rules that govern how messages can be encrypted, decrypted, sent, and received.</li>
+<li>Binary search trees are a system where there are nodes, values, connections between nodes, and rules that govern how nodes can be created, removed, and positioned relative to one another.
+<em>There is no limit to the type or complexity of a system that we can discuss</em>, although different tools and techniques are useful for working with different kinds of systems.</li>
+</ul>
+<hr />
+<h2 id="models"><a class="header" href="#models">Models</a></h2>
+<p>A <strong>model</strong> is a <em>representation</em> of a system that faithfully includes some but not all of the system's complexity. There are many different ways to model a system, all of which have different advantages and disadvantages. Think about what a car company does before it produces a new car design. Among other things, it creates multiple models. E.g.,</p>
+<ul>
+<li>it models the car in some computer-aided design tool; and then</li>
+<li>creates a physical model of the car, perhaps with clay, for testing in wind tunnels etc.</li>
+</ul>
+<p>There may be many different models of a system, all of them focused on something different, and all of them useful for something. (As the statisticians say, &quot;all models are wrong, but some models are useful&quot;.)</p>
+<!-- The model's description of a system effectively establishes the bounds of all possible states/instances of the system -->
+<p>Models define a notion of what kinds of things exist in the system and (some of) the &quot;rules&quot; governing the system. In a well-crafted model, we can explore what scenarios are possible in the system, which gives us insight and the ability to reason about the system itself---within the bounds of what the model expresses. </p>
+<h3 id="example-friends"><a class="header" href="#example-friends">Example: Friends</a></h3>
+<p>If we wanted to model a group of friends, we might define our model to have the following structure and properties*:</p>
+<ul>
+<li>There's a type of object, <code>Person</code>, in the system.</li>
+<li>Each <code>Person</code> has a list of <code>Person</code>s, representing their friends.</li>
+<li>Each <code>Person</code> must have at least one <code>Person</code> in their friends list.</li>
+</ul>
+<p>(*This seems like a very reasonable model for what we want to do, but we'll discuss some potential errors later on when talking about <a href="./overview.html#instances">instances</a>).</p>
+<h3 id="a-note-on-imperfect-representations"><a class="header" href="#a-note-on-imperfect-representations">A Note on Imperfect Representations</a></h3>
+<p>It is very difficult to fully model some systems, especially if the system is complex and involves many intricate sub-systems. That being said, <em>we don't need to fully model a system to be able to make useful inferences</em>. We can simplify, omit, and abstract concepts/attributes to make models that approximate the system while preserving the fundamentals that we're interested in.</p>
+<p>We can see this principle applied in the car-manufacturing example above. You could use a solid clay model of a car to accurately determine the car's aerodynamics in a wind tunnel, but you'd have a hard time exploring how the doors of the car operate or how any of the interior parts work. What you can explore is limited by how the system is modeled. If all you care about is exploring the aerodynamic profile of a car, then we can safely abstract out the internals of the car and focus on the shape. There's no need to represent things in our model that we aren't interested in exploring!</p>
+<p>Likewise, in our &quot;friend group&quot; system example, we don't have to fully describe a <code>Person</code> in our model, we just have to describe the relevant properties of a <code>Person</code>. We abstract the idea of &quot;friendship,&quot; combining all types of friends (best friend, acquaintance, etc.) into a single concept of &quot;friend.&quot; We omit from our model the concept of a <code>Person</code>'s dietary restrictions and myriad other things. These are all choices (<em>sometimes unintentional</em>) that affect the scope of our model. If we wanted to distinguish between types of friends, or examine familial relationships as well, we would have to expand the model to include those concepts.</p>
+<p>Learning how to model a system is a key skill for engineers, not just within &quot;formal methods&quot;. Abstraction is one of the key tools in Computer Science, and modeling lies at the heart of abstraction.</p>
+<hr />
+<h2 id="instances"><a class="header" href="#instances">Instances</a></h2>
+<p>An <strong>instance</strong> is a concrete scenario that abides by the rules of a model, containing <em>specific</em> objects and their relationships with each other.</p>
+<!-- We can draw rough analogues to object-oriented programming here:
+
+- A Class is a Model: The Class isn't something you can directly interact with, but defines how the instances of the objects are created
+- An Object (after it is instantiated) is an Instance: It contains specific values and data in the form defined by the class it was instantiated from. -->
+<!-- An instance represents one of the possible combinations of the things that exist in a system and their interactions according to the rules we defined. Continuing our "friend group" example, here are three separate instances that abide by the rules of our model:
+
+- **Person A** has **Person B** as a friend, and **Person B** has **Person A** as a friend.
+- **Person A** has **Person B** as a friend, **Person B** has **Person C** as a friend, and **Person C** has **Person A** as a friend\*.
+- **Person A** has **Person A** as a friend\*.
+
+\*Oops... we seem to have gotten some strange instances! Does it make sense for Person A to be friends with Person B, but Person B not be friends with Person A? What about the scenario where everyone is their own friend? Let's recall the model of our system:
+
+> - There are `Person`s in the system.
+> - Each `Person` has a list of `Person`s, representing their friends.
+> - Each `Person` must have at least one `Person` in their friends list. -->
+<!-- ![Forge Instance Meme](../../images/lfsmeme9_v3.png) -->
+<!-- ```admonish todo title="TODO: Elaborate B"
+Elaborate/Finish this section:\
+
+Well... I _guess_ those instances follow all the rules but that definitely could be different from what we expected to be valid instances! Scenarios like these should inspire reflection-
+```
+
+We'll eventually talk about generating instances from our model in Forge in the section on [running models](./running-models/running.md).
+
+### A Note on the _Lack_ of Instances
+
+```admonish todo title="TODO: Unsat"
+Touch on UNSAT here:\
+
+Instances are generated ... abiding by the structure and rules of our model. If the model we have made is too strict, and the rules
+we won't be able to generate an instance. (_TODO: Talk about unsatisfiability/link to it somewhere else_)
+```
+
+---
+
+```admonish todo
+add a system, model, instance example chain for stuff like
+- clay car...
+etc...
+```
+
+--- -->
+<h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
+<p>In Forge, we use <a href="./sigs.html"><code>sig</code>s</a> to define the &quot;things&quot; that exist in a system, and <a href="./constraints.html">constraints</a> to define the &quot;rules&quot; of the system.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../getting-started/installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../building-models/alloy-user-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../getting-started/installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../building-models/alloy-user-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
