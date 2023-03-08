@@ -78,12 +78,10 @@
   - [D3FX Helpers](./sterling/d3fx.md)
   - [Working with SVG and Imports](./sterling/svg-tips.md)
 
-# Temporal Models (Electrum)
+# Temporal Mode 
 
-- [Electrum Overview]()
-<!-- - [Electrum Overview](./electrum/electrum-overview.md) -->
-- [Running & Examining Electrum Models]()
-
+- [Temporal Mode Overview and Operators](./electrum/electrum-overview.md)
+<!-- - [Running & Examining Electrum Models](./electrum/running-and-examining-electrum.md) -->
 
 <!-- # Work In Progress -->
 
