@@ -10,6 +10,8 @@ Forge has a number of options that affect how it functions and how its solver is
     * `MiniSat`, `MiniSatProver`, and `Glucose`
   * Windows (`.dll`):
     * `MiniSatProver`
+  * All: 
+    * `"<path-to-solver>"`, which lets you run a solver of your own that accepts DIMACS input (see the section below for instructions). 
 * `logtranslation`: controls how much of the translation from Forge to boolean logic is logged. The default is `0`; must be `1` or higher to extract unsatisfiable cores.
 * `coregranularity`: controls how fine-grained an unsatisfiable core will be returned. Default is `0`. Suggested value is `1` if you want to see cores.
 * `core_minimization`: controls whether cores are guaranteed minimal. Default is `off`. For minimal cores, use `rce`; `hybrid` is not guaranteed minimal but is often better than `off` while being faster than `rce`.
@@ -43,3 +45,67 @@ option verbose 1
 run {}
 ```
 ~~~
+
+## Custom Solvers 
+
+Forge can use a solver of your choice to produce instances; this is most often used to experiment with the solver you build in the DPLL homework. There are a few factors to be aware of.
+
+### Limitations
+
+While the "Next" button will be enabled in Sterling, the custom solver functionlity will always return the _first_ instance found by the custom solver. There is also no support for unsatisfiable-core extraction; the custom solver will only report "unsat" for an unsatisfiable problem. 
+
+### Instructions
+
+To invoke a custom solver, provide a double-quoted filepath literal as the solver name:
+
+```
+option solver "<filepath-to-solver>"
+```
+
+Note that:
+* the file must exist at the path specified;
+* the file must be executable;
+* the file must implement the DIMACS input/output format given in the DPLL assignment stencil;
+* if the file is a script using a `#!` preamble, the preamble must point to the correct location. E.g., if the file is a Python script that begins with `#!/usr/bin/python3`, your Python 3 executable must reside at `/usr/bin/python3`. 
+
+The solver engine doesn't return rich information in the case of failure. Should any of these conditions not be met, you'll see a generic Pardinus crash error. 
+
+~~~admonish note="An aside for Windows users"
+If you're using Windows directly (rather than the Linux subsystem), extensions like `.py` will not be treated as executable. It may be useful to create a batch file (`.bat` extension) that invokes your solver, and give that batch file as the path in `option solver` instead.
+~~~
+
+### Examples
+
+If you want to create a batch script on MacOS or Linux, you might try something like this: 
+
+```
+#!/bin/sh
+python3 solver.py $1
+```
+
+On windows, you could try something like:
+
+```
+python3 solver.py $1
+```
+
+You might then invoke your solver via a `.frg` file like this:
+
+```
+#lang forge
+option solver "./run.sh"
+
+sig Node {edges: set Node}
+
+test expect {
+    s: {some edges} for 1 Node is sat
+    u: {no edges 
+        all n: Node | some n.edges} for exactly 1 Node is unsat
+        
+}
+
+-- This will work, but will only ever show one instance:
+--run {}
+```
+
+If your script can be executed directly, then you can replace `./run.sh` in the above with the path to your script, including filename.
