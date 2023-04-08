@@ -86,14 +86,21 @@ python3 solver.py $1
 On windows, you could try something like:
 
 ```
-python3 solver.py $1
+@ECHO OFF
+python3 solver.py %1
 ```
 
 You might then invoke your solver via a `.frg` file like this:
 
 ```
 #lang forge
+
+-- MacOS or Linux:
 option solver "./run.sh"
+
+-- Windows:
+-- option solver "./run.bat"
+
 
 sig Node {edges: set Node}
 
