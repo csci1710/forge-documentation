@@ -76,14 +76,14 @@ If you're using Windows directly (rather than the Linux subsystem), extensions l
 
 ### Examples
 
-If you want to create a batch script on MacOS or Linux, you might try something like this: 
+If you want to create a batch script on MacOS or Linux, you might try something like this in a `run.sh` file: 
 
 ```
 #!/bin/sh
 python3 solver.py $1
 ```
 
-On windows, you could try something like:
+On windows, you could try something like this, in a `run.bat` file:
 
 ```
 @ECHO OFF
@@ -115,4 +115,4 @@ test expect {
 --run {}
 ```
 
-If your script can be executed directly, then you can replace `./run.sh` in the above with the path to your script, including filename.
+If your script can be executed directly, then you can replace `./run.sh` in the above with the path to your script, including filename. On Windows, you will only be able to reference `.bat` or `.exe` files in your Forge solver option.
