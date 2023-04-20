@@ -356,3 +356,16 @@ const edge4 = new Edge({obj1: rect, obj2: circ2,
     textProps: {text: "e4", fontSize: 11},
     textLocation: "above"})
 ```
+
+
+## META EXAMPLES
+
+![This is an image example](../images/lfsmeme9_v3.png)
+
+~~~admonish warning name="Watch out!"
+
+This is a warning box
+```
+some code to watch out for
+```
+~~~
