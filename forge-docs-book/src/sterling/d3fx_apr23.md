@@ -250,25 +250,27 @@ Which will render:
 
 ## Compound Objects
 
-While the above objects are good for simple visualizations, it's often difficult to write code for more complicated visuals implementing these objects. With this in mind, there are a number of compound objects, which take in some data and produce a desired visualization. 
+While the above objects are good for simple visualizations, managing the relationship between many primitive objects manually can be difficult.  With this in mind, D3FX provides a number of _compound_ objects, which automatically group their child objects in a particular way. 
 
-~~~admonish warning name="Watch out!"
+~~~admonish warning name="Don't add child objects to the stage"
+Compound objects are responsible for rendering their children. If an object is a child of another object, don't `add` it to the stage as well. If you do so, there may be unexpected consequences when rendering, since the child object would then be rendered twice in two different contexts.
 
-Notably, the subobjects of a compound object (some examples of which will be see very soon), do not need to be manually added to the stage, and instead will render as a consequence of rendering the larger compound object. There may be unwanted extra rendering from also adding a sub-object. In a simplified form, avoid the following:
+In other words, avoid code like the following:
+
 ```
 circ = new Circle({...})
-comp = new Compound({innerObject: circ, ...})
+comp = new SomeCompoundObject({innerObject: circ, ...}) // circ is a child object
 
-stage.add(circ)
-stage.add(comp)
+stage.add(comp) // the stage will render comp, which then renders its child circ
+stage.add(circ) // the stage will render circ (again)
 ```
 ~~~
 
 ### `Grid`
 
-Grids allow the user to create an arrangement of different visual objects in a 2-dimensional arrangement of cells. The grid takes in the following props:
+Grids place visual objects into a 2-dimensional arrangement of cells. The grid constructor takes in the following props:
 ```
-interface gridProps{
+interface gridProps {
     grid_location: Coords, // Top left corner
     cell_size:{
         x_size:number,
@@ -280,7 +282,7 @@ interface gridProps{
     },
 }
 ```
-The `grid_dimensions` field should be a pair of positive integers, referring to the width and height of the array, respectively. The `cell_size`, in pixels, will be the size of each of these objects. Grids also offer the `add` method to fill these cells with `VisualObject`s:
+The `grid_dimensions` field should be a pair of positive integers, referring to the horizontal and vertical capacity of the array, respectively. The `cell_size`, in pixels, will be the size allocated for each of these objects in the rendered grid. Grids also offer the `add` method to fill these cells with `VisualObject`s:
 ```
 add(
     coords: Coords, 
@@ -288,9 +290,9 @@ add(
     ignore_warning?:boolean
 )
 ``` 
-The coordinates should be integers designating which cell to add the visualObject to. Notably, the visualObject's Coordinates will immediately be adjusted to fit the cell, so visualObjects created to be added to a cell do not need coordinates. 
+The coordinates should be integers designating which row and column of the grid to add the child object to. Notably, _the child object's visual location will immediately be adjusted to fit the cell._
 
-The program will produce an error if the passed in visualObject does not fit into the given cell. To ignore this error, set `ignore_warning` to true. 
+Adding a child object will produce an error if the child object does not fit into the given cell. To ignore this error, set the `ignore_warning` prop to true. 
 
 Here is an example of a simple grid:
 
@@ -301,7 +303,6 @@ let grid = new Grid({
     grid_dimensions: {x_size: 4, y_size: 5}
 })
 
-console.log(grid)
 grid.add({x: 0, y: 1}, new Circle({radius: 10, color: "red"}))
 grid.add({x: 3, y: 3}, new Circle({radius: 10, color: "blue"}))
 ```
@@ -311,7 +312,9 @@ Here we have a 4x4 grid of 30x30 pixel squares, into two of which we place circl
 
 ### `Tree`
 
-The `Tree` object allows for visualization of a typical "tree" structure in the computer science sense. The nodes in the tree object are given in terms of visualobjects, which will then be registered with lines between them. The props for `Tree` are as follows:
+The `Tree` object renders a branching data structure. While in principle Sterling's default visualization can produce trees, the `Tree` object in D3FX allows a finer degree of control. 
+
+The nodes in a `Tree` object are themselves visual objects, which will then automatically be rendered with lines between them. The props for `Tree` are as follows:
 ```
 interface TreeProps {
     root: VisTree, 
@@ -322,7 +325,7 @@ interface TreeProps {
     edgeWidth?: number
 }
 ```
-Where `VisTree` is the following interface, which logically represents a tree and its subtrees:
+Where the `VisTree` interface logically represents a tree and its subtrees in recursive fashion:
 ```
 interface VisTree{
     visualObject: VisualObject,
@@ -368,13 +371,13 @@ let tree = new Tree({
     coords: { x: 100, y: 100 }
     });
 ```
-Which renders:
+which renders as:
 
 ![A rendering of a grid with 7 circles and 1 square, arranged as stated in the code.](../images/d3-examples/tree.png)
 
 ### `Edge`
 
-Edges allow the visualizer to display relationships between objects, without requiring manual input of those objects locations. Edge objects take in the following props:
+Edges display relationships between objects, without requiring manual management of those objects' locations---unlike the primitive `Line`. Edge objects take in the following props:
 ```
 export interface EdgeProps {
   obj1: VisualObject;
@@ -384,15 +387,15 @@ export interface EdgeProps {
   textLocation: string;
 }
 ```
-Here, `obj1` represents the first visual object, or the sourse of the edge, and `obj2` is the sink. Styling, color, width, and more attributes of the edge itself can be designated in `lineProps`, which will take in a normal line-props object and use relevant features to generate the edge (which itself is a line). Similarly, the label for the line is designated by `textProps`, which supports all relevant features used in the label textBox.
+Here, `obj1` represents the first visual object, or the source of the edge, and `obj2` is the sink. Styling, color, width, and more attributes of the edge itself can be designated in `lineProps`, which contains all the information that would normally be passed to a `Line`.  Similarly, the label for the line is designated by `textProps`, which supports all relevant features used in the label's underlying `TextBox` object.
 
-~~~admonish warning name="Watch out!"
+~~~admonish warning name="Edges do not render the objects they reference"
+Unlike with other compound objects, `Edge` _does not_ render its children. This is because each object should only be rendered once, but an object might be referenced by multiple edges, such as in visualizing a graph. 
 
-The objects that an edge spans between are *not* considered sub-objects, and should still be added to the stage.
-
+Thus, the objects that an edge spans must still be added to the stage, or to some other appropriate and unique container.
 ~~~
 
-Lastly, `textLocation` allows for freedom in determining the location of the label. By default, it will generate in the exact center of the line. However, passing in `right`, `left`, `above`, or `below` will instead generate the label of the center of the line, offset by whatever orthogonal direction is most close to the input. There is also support for `clockwise` or `counterclockwise`, which places the label in the stated location from the perspective of the source object. Here is an example of a few edges between visualObjects:
+Lastly, `textLocation` allows for freedom in determining the location of the label. By default, the label will appear in the exact center of the line. However, passing in `right`, `left`, `above`, or `below` will offset the location by whatever orthogonal direction closest to the input. There is also support for `clockwise` or `counterclockwise`, which place the label in the stated location from the perspective of the source object. Here is an example of a few edges between visualObjects:
 
 ```
 const rect = new Rectangle({width: 20, height: 20, coords: {x:200, y:50}})
@@ -418,3 +421,9 @@ const edge4 = new Edge({obj1: rect, obj2: circ2,
 
 // Adding all objects and circles to the stage individually before rendering. 
 ```
+
+**TODO: add image**
+
+## Hulls and Masks
+
+**TODO**
