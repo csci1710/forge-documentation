@@ -1,18 +1,30 @@
 # D3FX Helpers
 
-The D3FX helpers library was designed as an interface between sterling users and the D3 library in Javascript. Because D3 is a very big library, it can be hard to pick up on a whim, especially with the restricted use of instance visualization. 
+The D3FX helpers library was designed as an interface between Sterling users and the D3 visualization library in Javascript. D3 was originally the primary way that Forge users wrote custom visualizations. However, we have found that using D3 in Sterling can involve a large amount of learning and prep time--especially for those without much experience with JavaScript.
 
-Because of this, a library of useful shapes and objects has been created. This library requires some knowledge of javascript, but it's object-oriented design is meant to be more user-friendly for those without much experience in the language. 
+D3FX was created to ease writing custom visualizations in Sterling. It contains a library of shapes and objects that were commonly used in the past, such as grid layouts and labeled arrows. Since custom visualizations are still written in JavaScript, using D3FX requires some knowledge of the language, but its object-oriented design is meant to ease basic use for those who might be familiar with languages like Java or Python.
 
-## The Stage and VisualObjects
+This page contains documentation for all classes in D3FX, along with small examples of how to create and work with them. Complete, runnable examples can be found [here](). **TODO: FILL LINK**
 
-Everything on the screen is represented in the form of a `VisualObject`, which includes shapes like squares or circles, and more complicated objects like grids or trees.
+~~~admonish warning name="Changes vs. February 2023"
+There has been one major change in the library since the start of Spring 2023. Constructors now take a single object, rather than a varying number of parameters. This makes it easier to add new parameters without breaking existing code, and avoids confusion about how to order parameters. However, this required a one-time breaking change. If you've already written some visualizations this semester, converting should be easy. 
 
-To render visual objects, a `Stage` object needs to be created to contain them. After creating, the user can call `stage.add(...)` to contain a visual object. To render all added VisualObjects, call `stage.render(...)`. Below is some important information for interacting with these objects, specifically for those without javascript experience.
+For example, our Dining Smiths lab visualization created a new text box with: `new TextBox(\`State:${idx}${lb}\`,{x:0,y:0},'black',16)`. This would need to be updated to `new TextBox({text: \`State:${idx}${lb}\`, coords: {x:0,y:0}, color: 'black', fontSize: 16})`.
+~~~
+
+## The `Stage` and `VisualObjects`
+
+Every element D3FX displays on the screen is represented by a `VisualObject`, which includes shapes like squares or circles, as well as more complicated objects like grids or trees.
+
+To render visual objects, a `Stage` object needs to be created to contain them. After creating, the user can call `stage.add(...)` to place the visual object in the stage. To render all added `VisualObject`s, call `stage.render(...)`. Below is some important information for interacting with these objects, specifically for those without JavaScript experience.
+
+~~~admonish note name="Calling stage.render"
+Most commonly, `render` takes two parameters which are already defined in the script environment: `stage.render(svg, document)`. 
+~~~
 
 ### Props and Optional Parameters
 
-All `VisualObject`s will take in a props object. Props objects have a number of fields with designated types. These types can be entered in any order with their corresponding names. For example:  
+All `VisualObject`s will take in a _props_ (short for "properties") object. Props objects have a number of fields with designated types. These fields can be entered in any order with their corresponding names. For example:  
 ```
 new Rectangle({
     height: 100,
@@ -22,7 +34,7 @@ new Rectangle({
     label: 'Hello'
 })
 ```
-For ease of use, we've written out each of these props objects in terms of an `interface` object, like the following:
+For ease of use, we've written out a template for each of these props objects in terms of an `interface`, like the following:
 ```
 interface Coords {
     x: number,
@@ -30,21 +42,25 @@ interface Coords {
 }
 ```
 
+Fields in such interface declarations may include a `?`. This denotes that the field is _optional_.
 
-~~~admonish warning name="Watch out!"
-While these definitions are useful tools, these `interface` structures **do not** exist in javascript in a meaningful way. Each of these interface objects exists only in typescript, a strongly typed superset of javascript in which the sterling visualizer is written. 
+~~~admonish warning name="Watch out: don't use types in your script code!"
+While these definitions are useful tools, and these `interface` structures do exist in TypeScript (the language we wrote D3FX in), they **do not** exist in the raw JavaScript you'll use to write your visualizations! 
+
+That said, instantiating a props object with `{field1: value, field2: value, ...}` will still be understood by the library as if JavaScript understood this wider interface system. Just don't include types, or try to reference the interfaces directly.
 ~~~
-With all this said, instantiating a props object with `{field1: value, field2: value, ...}` will still be understood by the library as if javascript understood this wider interface system. Lastly, fields in a props object may include a `?`. This denotes that the field is optional.
 
-### Lambda Functions
-
-When implementing one of the classes listed later on, you may be prompted with a type hint of the form `text: string | () => string`. This means that the field `text` can take in either or a string, or an anonymous funtion that produces a string. For simple use, you can more or less ignore this distinction, and choose only to pass in a string. For ease of reading, any type of this form (`T | () => T`) has just been collapsed to just `T` in all library documentation.
+~~~admonish note name="Lambda Functions"
+When implementing one of the classes listed later on, you may be prompted with a type hint of the form `text: string | () => string`. This means that the field `text` can take in either or a string, or an anonymous funtion that produces a string. For simple use, you can more or less ignore this distinction, and choose only to pass in a string. For ease of reading, any type of this form (`T | () => T`) has been collapsed to just `T` in all library documentation.
+~~~
 
 ## Primitive Objects
 
+A _primitive_ object is one that doesn't visually contain any other D3FX objects. 
+
 ### `TextBox`
 
-Textboxes render text to the screen at a given location, taking in a `TextBoxProps` object, of the following form:
+Text boxes render text to the screen at a given location. Their constructor accepts a props object of the following form:
 ```
 interface TextBoxProps {
     text? : string,
@@ -53,7 +69,9 @@ interface TextBoxProps {
     fontSize?: number
 }
 ```
+
 Here is an example `TextBox` using these props:
+
 ```
 let text = new TextBox({
     text: 'hello',
@@ -62,11 +80,14 @@ let text = new TextBox({
     fontSize: 12
 }) 
 ```
-All parameters can be changed after initiation with corresponding setter methods. 
 
-### Shapes
+~~~admonish note="Changing fields"
+All parameters can be changed after initiation with corresponding setter methods.  (**TODO**: do these appear in mouseover? If so we should say so.)
+~~~
 
-The following three primative objects `Rectangle`, `Circle`, and `Polygon`. Are all instances of a wider class called `Shape`. As a result, their props objects all implement the following interface:
+### Primitive Shapes 
+
+The primitive object types `Rectangle`, `Circle`, and `Polygon` are all instances of a wider class called `Shape`. As a result, their props objects all implement the following interface:
 ```
 interface ShapeProps {
   color?: string,
@@ -80,9 +101,9 @@ interface ShapeProps {
 ```
 For ease of reading, these fields will be rewritten later on where applicable.
 
-### `Rectangle`
+#### `Rectangle`
 
-Rectangles take in a pair of coordinates corresponding to the top left corner of the shape, along with a width and height. The parameters object is of the following form:
+Rectangles take in a pair of coordinates corresponding to the top left corner of the shape, along with a width and height. The props object is of the following form:
 ```
 interface RectangleProps extends shape {
     height: number,
@@ -100,7 +121,9 @@ interface RectangleProps extends shape {
     opacity?: number
 }
 ```
-The value of `label-location` can be `"center"` (default). Other options include `"topLeft"`, `"topRight"`, `"bottomLeft"`, and `"bottomRight"`, which will generate text outside the rectangle in these locations. Here is an example `Rectangle` using these props:
+The value of `label-location` can be `"center"` (default). Other options include `"topLeft"`, `"topRight"`, `"bottomLeft"`, and `"bottomRight"`, which will generate text outside the rectangle in these locations. 
+
+Here is an example `Rectangle` using these props:
 ```
 let rect = new Rectangle({
     coords: {x: 100, y:100},
@@ -116,7 +139,7 @@ Which renders the following:
 
 ![Small, light blue circle.](../images/d3-examples/rectangle.png)
 
-### `Circle`
+#### `Circle`
 
 Circles take in a pair of coordinates as the center and a radius, along with the rest of the following props object:
 ```
@@ -147,9 +170,9 @@ Which renders the following:
 
 ![Small, light blue circle.](../images/d3-examples/circle.png)
 
-### `Polygon`
+#### `Polygon`
 
-Polygons are the most generic of the shapes offered in D3Helpers. They take in any list of points, and create a shape with those points on the perimiter. The props are of the form:
+Polygons are the most generic of the primitive shapes offered in D3FX. They take in any list of points and create a shape with those points on the perimeter. The props are of the form:
 ```
 export interface PolygonProps extends ShapeProps {
     points: Coords[]
@@ -188,9 +211,9 @@ Which will render the following pentagon:
 
 ![Concave pentagon labelled 'Hi!'.](../images/d3-examples/polygon.png)
 
-### `Line`
+#### `Line`
 
-Line takes in a series of points, and creates a line passing through said points. 
+A `Line` takes in a series of points and creates a line passing through said points. 
 ```
 interface LineProps {
   points?: Coords[], 
