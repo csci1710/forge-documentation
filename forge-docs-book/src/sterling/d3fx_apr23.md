@@ -29,8 +29,11 @@ interface Coords {
     y: number
 }
 ```
-While these definitions are useful tools, these `interface` structures **do not** exist in javascript in a meaningful way. Each of these interface objects exists only in typescript, a strongly typed superset of javascript in which the sterling visualizer is written. 
 
+
+~~~admonish warning name="Watch out!"
+While these definitions are useful tools, these `interface` structures **do not** exist in javascript in a meaningful way. Each of these interface objects exists only in typescript, a strongly typed superset of javascript in which the sterling visualizer is written. 
+~~~
 With all this said, instantiating a props object with `{field1: value, field2: value, ...}` will still be understood by the library as if javascript understood this wider interface system. Lastly, fields in a props object may include a `?`. This denotes that the field is optional.
 
 ### Lambda Functions
@@ -109,6 +112,10 @@ let rect = new Rectangle({
     label: "5"
 })
 ```
+Which renders the following:
+
+![Small, light blue circle.](../images/d3-examples/rectangle.png)
+
 ### `Circle`
 
 Circles take in a pair of coordinates as the center and a radius, along with the rest of the following props object:
@@ -136,6 +143,9 @@ let circ = new Circle({
     borderColor: 'black', 
 }); 
 ```
+Which renders the following:
+
+![Small, light blue circle.](../images/d3-examples/circle.png)
 
 ### `Polygon`
 
@@ -174,6 +184,9 @@ let poly = new Polygon({
     opacity: 0.7
 });
 ```
+Which will render the following pentagon:
+
+![Concave pentagon labelled 'Hi!'.](../images/d3-examples/polygon.png)
 
 ### `Line`
 
@@ -208,12 +221,25 @@ let line = new Line({
     style: "dotted"
 });
 ```
+Which will render:
+
+![Jagged, dotted line with an arrowhead.](../images/d3-examples/line.png)
 
 ## Compound Objects
 
-While the above objects are good for simple visualizations, it's often difficult to write code for more complicated visuals implementing these objects. With this in mind, there are a number of compound objects, which take in some data and produce a desired visualization.
+While the above objects are good for simple visualizations, it's often difficult to write code for more complicated visuals implementing these objects. With this in mind, there are a number of compound objects, which take in some data and produce a desired visualization. 
 
-Notably, the subobjects of a compound object (some examples of which will be see very soon), do not need to be manually added to the stage, and instead will render as a consequence of rendering the larger compound object. 
+~~~admonish warning name="Watch out!"
+
+Notably, the subobjects of a compound object (some examples of which will be see very soon), do not need to be manually added to the stage, and instead will render as a consequence of rendering the larger compound object. There may be unwanted extra rendering from also adding a sub-object. In a simplified form, avoid the following:
+```
+circ = new Circle({...})
+comp = new Compound({innerObject: circ, ...})
+
+stage.add(circ)
+stage.add(comp)
+```
+~~~
 
 ### `Grid`
 
@@ -256,7 +282,9 @@ console.log(grid)
 grid.add({x: 0, y: 1}, new Circle({radius: 10, color: "red"}))
 grid.add({x: 3, y: 3}, new Circle({radius: 10, color: "blue"}))
 ```
-Here we have a 4x4 grid of 30x30 pixel squares, into two of which we place circles. Note that the circles added to the grid do not have coordinates. This is because the coordinates of these shapes are immediately changed to be in the center of the given squares in the grid. 
+Here we have a 4x4 grid of 30x30 pixel squares, into two of which we place circles. Note that the circles added to the grid do not have coordinates. This is because the coordinates of these shapes are immediately changed to be in the center of the given squares in the grid. This renders as follows:
+
+![Example grid with circles at (0, 1) and (3, 3).](../images/d3-examples/grid.png)
 
 ### `Tree`
 
@@ -317,6 +345,9 @@ let tree = new Tree({
     coords: { x: 100, y: 100 }
     });
 ```
+Which renders:
+
+![A rendering of a grid with 7 circles and 1 square, arranged as stated in the code.](../images/d3-examples/tree.png)
 
 ### `Edge`
 
@@ -330,7 +361,13 @@ export interface EdgeProps {
   textLocation: string;
 }
 ```
-Here, `obj1` represents the first visual object, or the sourse of the edge, and `obj2` is the sink. Styling, color, width, and more attributes of the edge itself can be designated in `lineProps`, which will take in a normal line-props object and use relevant features to generate the edge (which itself is a line). Similarly, the label for the line is designated by `textProps`, which supports all relevant features used in the label textBox. 
+Here, `obj1` represents the first visual object, or the sourse of the edge, and `obj2` is the sink. Styling, color, width, and more attributes of the edge itself can be designated in `lineProps`, which will take in a normal line-props object and use relevant features to generate the edge (which itself is a line). Similarly, the label for the line is designated by `textProps`, which supports all relevant features used in the label textBox.
+
+~~~admonish warning name="Watch out!"
+
+The objects that an edge spans between are *not* considered sub-objects, and should still be added to the stage.
+
+~~~
 
 Lastly, `textLocation` allows for freedom in determining the location of the label. By default, it will generate in the exact center of the line. However, passing in `right`, `left`, `above`, or `below` will instead generate the label of the center of the line, offset by whatever orthogonal direction is most close to the input. There is also support for `clockwise` or `counterclockwise`, which places the label in the stated location from the perspective of the source object. Here is an example of a few edges between visualObjects:
 
@@ -355,17 +392,6 @@ const edge4 = new Edge({obj1: rect, obj2: circ2,
     lineProps: {arrow: true},
     textProps: {text: "e4", fontSize: 11},
     textLocation: "above"})
+
+// Adding all objects and circles to the stage individually before rendering. 
 ```
-
-
-## META EXAMPLES
-
-![This is an image example](../images/lfsmeme9_v3.png)
-
-~~~admonish warning name="Watch out!"
-
-This is a warning box
-```
-some code to watch out for
-```
-~~~
