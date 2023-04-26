@@ -74,9 +74,9 @@
 
 # Custom Visualizations
 
-- [Custom Visualization Basics](./sterling/custom-basics.md)
-  - [D3FX Helpers (January 2023)](./sterling/d3fx.md)
+- [Custom Visualization Basics](./sterling/custom-basics.md)  
   - [D3FX Helpers (April 2023)](./sterling/d3fx_apr23.md)
+    - [Outdated D3FX Helpers (January 2023)](./sterling/d3fx.md)
   - [Working with SVG and Imports](./sterling/svg-tips.md)
 
 # Temporal Mode 

@@ -1,5 +1,7 @@
 # D3FX Helpers
 
+**This page is outdated, and will no longer work on versions of Forge after 2.7.0. If you're using an updated version of Forge, please see [the updated (and much improved) documentation](./d3fx_apr23.md).**
+
 ## The Stage and Visual Objects
 
 The `Stage` object is the top-level container for every visual object that gets displayed. You can add further structure to your visual containment using other containers like grids or conjoined objects, but the stage must always be the top-level graphic organizer. You must make exactly one stage, and a stage cannot store other stages. 
