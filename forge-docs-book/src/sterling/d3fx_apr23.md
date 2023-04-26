@@ -82,7 +82,7 @@ let text = new TextBox({
 ```
 
 ~~~admonish note="Changing fields"
-All parameters can be changed after initiation with corresponding setter methods.  (**TODO**: do these appear in mouseover? If so we should say so.)
+All parameters can be changed after initiation with corresponding setter methods. These methods are in the typical OO style of `setX(newValue: Type)`, and should be suggested by the text editor for ease of use. 
 ~~~
 
 ### Primitive Shapes 
