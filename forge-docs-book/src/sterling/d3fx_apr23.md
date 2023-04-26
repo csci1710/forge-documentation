@@ -21,6 +21,10 @@ new TextBox({text: `State:${idx}${lb}`, coords: {x:0,y:0}, color: 'black', fontS
 ```
 ~~~
 
+## Further Resources
+
+In addition to this page, you can view supplementary examples in the Forge repository [here](https://github.com/tnelson/Forge/tree/dev/viz-examples). Each contains both a Forge model to run (`.frg`) and the corresponding script file (`.js`).
+
 ## The `Stage` and `VisualObjects`
 
 Every element D3FX displays on the screen is represented by a `VisualObject`, which includes shapes like squares or circles, as well as more complicated objects like grids or trees.
