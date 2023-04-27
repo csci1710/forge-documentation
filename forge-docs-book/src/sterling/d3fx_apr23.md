@@ -435,8 +435,4 @@ const edge4 = new Edge({obj1: rect, obj2: circ2,
 // Adding all objects and circles to the stage individually before rendering. 
 ```
 
-**TODO: add image**
-
-## Hulls and Masks
-
-**TODO**
+![A rendering of a rectangle and two circles, with edges between them as specified in the above code.](../images/d3-examples/edges.png)
