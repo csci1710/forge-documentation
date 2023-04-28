@@ -4,7 +4,7 @@ The D3FX helpers library was designed as an interface between Sterling users and
 
 D3FX was created to ease writing custom visualizations in Sterling. It contains a library of shapes and objects that were commonly used in the past, such as grid layouts and labeled arrows. Since custom visualizations are still written in JavaScript, using D3FX requires some knowledge of the language, but its object-oriented design is meant to ease basic use for those who might be familiar with languages like Java or Python.
 
-This page contains documentation for all classes in D3FX, along with small examples of how to create and work with them. Complete, runnable examples can be found [here](). **TODO: FILL LINK**
+This page contains documentation for all classes in D3FX, along with small examples of how to create and work with them. Complete, runnable examples can be found in the Forge repository's [`viz-examples` directory](https://github.com/tnelson/Forge/tree/dev/viz-examples). 
 
 ~~~admonish warning name="Changes vs. February 2023"
 There has been one major change in the library since the start of Spring 2023. Constructors now take a single object, rather than a varying number of parameters. This makes it easier to add new parameters without breaking existing code, and avoids confusion about how to order parameters. However, this required a one-time breaking change. 
@@ -434,5 +434,7 @@ const edge4 = new Edge({obj1: rect, obj2: circ2,
 
 // Adding all objects and circles to the stage individually before rendering. 
 ```
+
+This renders as:
 
 ![A rendering of a rectangle and two circles, with edges between them as specified in the above code.](../images/d3-examples/edges.png)
