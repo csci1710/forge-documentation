@@ -442,3 +442,50 @@ const edge4 = new Edge({obj1: rect, obj2: circ2,
 This renders as:
 
 ![A rendering of a rectangle and two circles, with edges between them as specified in the above code.](../images/d3-examples/edges.png)
+
+### `Hull`
+
+When forming polygons for visualizations, it's ofteen unknown just how large a shape should be to encompass some given set of objects. To remedy this, the `Hull` object is offered, which creates a customized wrapper for a set of objects. It takes the following parameters:
+
+```typescript
+interface HullProps {
+  objs: VisualObject[];
+  fuzz?: number; //space around each point
+  smooth?: boolean; //if the edges of bounding box should be "jagged" or not
+}
+```
+
+Here, `obj` is the list of objects to encircle. `fuzz` dictates the berth given to the objects that `Hull` encircles - `fuzz: 0` will draw the smallest path around a set of objects. `smooth` dictates the shape of the hull drawn around the objects: `smooth:true` will have rounded edges (generally preferred), and `smooth:false` will have sharp corners.
+
+```javascript
+const points = [{x:80,y:80}, {x:180, y:80}, {x:200,y:180}, {x:80,y:180}]
+
+const c1 = new Circle({center: points[0], radius: 5})
+const c2 = new Circle({center: points[1], radius: 5})
+const c3 = new Circle({center: points[2], radius: 5})
+const c4 = new Circle({center: points[3], radius: 5})
+
+const circs = [c1,c2,c3,c4]
+
+const h = new Hull({objs: circs, fuzz: 40, smooth: true})
+```
+After the hull and circles are added to the screen, the following will render:
+
+![A rendering of three circles, with a round shape encompassing all of them.](../images/d3-examples/hull.png)
+
+
+### `addMask`
+
+`addMask` is a function inherited by all visual objects. It allows for a portion of the object to be hidden in the final visualization. This mask will only effect the object to which it is added, along with any children of that object (For example, objects in the cells of a grid). 
+
+```javascript
+  const rect = new Rectangle({coords: {x:0, y:0}, width: 150, height:150})
+
+  rect.addMask(
+    top_left: {x: 10, y: 10},
+    bottom_right: {x: 100, y:100}
+  )
+```
+Which will render the following:
+
+![A square, with a smaller square missing from teh inside.](../images/d3-examples/mask.png)
