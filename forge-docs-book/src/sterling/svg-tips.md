@@ -25,12 +25,14 @@ If you're using the helper library, you may need to resize _after_ calling `stag
 
 ### Alternative Method
 
-You also have access to set the [`viewBox` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox) of the `<svg>` region.
+You also have access to set the [`viewBox` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox) of the `<svg>` region. However, we don't suggest making this specific kind of low-level change if you're working only with D3FX.
 
-```admonish example title="1000 by 1000 viewbox"
+~~~admonish example title="1000 by 1000 viewbox"
+```
 require('d3')
 d3.select(svg).attr("viewBox", "0 0 1000 1000")
 ```
+~~~
 
 ## Importing modules
 

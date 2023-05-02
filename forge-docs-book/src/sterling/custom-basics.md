@@ -18,7 +18,12 @@ This documentation focuses on the `<svg>` mode, because that is where most of th
 Try entering some visualization code in the script window and clicking "Run":
 ~~~
 const stage = new Stage()
-stage.add(new TextBox('Hello!', {x:100, y:100},'black',16))
+stage.add(new TextBox({
+  text: 'Hello!', 
+  coords: {x:100, y:100},
+  color: 'black',
+  fontSize: 16
+}))
 stage.render(svg, document)
 ~~~
 This will create a `TextBox` in the visualization area that says "Hello!". 
@@ -46,7 +51,12 @@ You can use the `.signature(name)` method of an instance to obtain an object rep
 If you're viewing an instance of the [binary search model](https://csci1710.github.io/2023/livecode/feb15_feb17_binarysearch.frg) from class, you can run this script directly. (If you use this model, uncomment the `run` at the bottom of the file!)
 ~~~
 const stage = new Stage()
-stage.add(new TextBox(`${instance.signature('IntArray')}`, {x:100, y:100},'black',16))
+stage.add(new TextBox({
+  text: `${instance.signature('IntArray')}`, 
+  coords: {x:100, y:100},
+  color: 'black',
+  fontSize: 16
+}))
 stage.render(svg, document)
 ~~~
 This will create a `TextBox` in the visualization area whose text is a string representation of the `Int` sig in whatever instance you're viewing. The string won't be very useful yet; it will be something like "[IntArray]". Next, change `instance.signature('IntArray')` to `instance.signature('IntArray').atoms()[0]`---the first (and in this case, only) `IntArray` object in the instance. You'll see the sig name become an object id like `[IntArray0]`.   
@@ -56,7 +66,11 @@ All `IntArray` objects have an `elements` field. We can get access to the field 
 const stage = new Stage()
 const theArray = instance.signature('IntArray').atoms()[0]
 const elementsField = instance.field('elements')
-stage.add(new TextBox(`${theArray.join(elementsField)}`, {x:100, y:100},'black',16))
+stage.add(new TextBox({
+  text: `${theArray.join(elementsField)}`, 
+  coords: {x:100, y:100},
+  color: 'black',
+  fontSize: 16}))
 stage.render(svg, document)
 ~~~
 This should display something like "1, 7 2, 7 3, 7 4, 7 5, 7 6, 7 7, 7". Again, not very useful. Sterling is printing the contents of the array in `index,value` form, but separating elements with space. We can fix this, though!
@@ -86,7 +100,7 @@ We suggest using `TextBox`es to visualize debugging information. As a fallback, 
 ## Further Resources and Examples
 
 Further chapters:
-* [Visualization Helper Library](./d3fx.md) describes helpers (e.g., text boxes, grids, etc.) for visualization that don't require D3 knowledge.
+* [Visualization Helper Library](./d3fx_apr23.md) describes helpers (e.g., text boxes, grids, etc.) for visualization that don't require D3 knowledge.
 * [Working with SVG and Imports](./svg-tips.md) explains how to (e.g.) increase the size of the rendering area.
 
 External resources:
