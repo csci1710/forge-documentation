@@ -4,42 +4,50 @@
 
 To run Forge, you will need to have installed:
 
-- [Racket](https://download.racket-lang.org/all-versions.html) (we suggest the latest version, which was 8.3 as of writing);
-- Java 11 or later (which you can get [here](https://www.oracle.com/java/technologies/javase-downloads.html) if you don't have it)
+- [Racket](https://download.racket-lang.org/all-versions.html) (we suggest the latest version, which was 8.7 as of writing);
+- Java 11 or later (which you can get [here](https://www.oracle.com/java/technologies/javase-downloads.html) if you don't have it); 
+- A modern web-browser for visualizing output (we suggest, and primarily test on, Firefox).
 
 ## Installing Forge
 
-To install Forge, you have two options. The first is to install from Racket’s package system, and the second is to work from the latest development build.
+To install Forge, you have two options. The first is to install from Racket’s package server, and the second is to work from Git, which also allows you to use the latest development build if you wish.
 
 ### Standard Package System
 
-For the standard package-system installation, after installing Racket, run `raco pkg install forge` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type _forge_ as the package name and choose **Install** (if it's already installed, it'll be an **Update** button, which it's good to do regularly as we will be pushing new features/content throughout the semester).
+For the standard package-server installation, after installing Racket, run `raco pkg install forge` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type _forge_ as the package name and choose **Install** (if it's already installed, it'll be an **Update** button, which it's good to do regularly as we will be pushing new features/content throughout the semester).
 
 #### Forge Version
 
-When you run a Forge file, you'll be told the _Forge version_ you're running. This is important information to include with questions, etc. We'll be announcing Forge updates on EdStem roughly every week.
+When you run a Forge file (via `racket <filename>` at the command line), you'll be told the _Forge version_ you're running. This is important information to include with questions, etc. If you're taking a class that uses Forge, you can expect a few Forge updates throughout the semester---please keep Forge updated!
 
 ### Latest Development Build
 
-For the latest development build, you'll need to:
+To install via Git, you'll need to:
 
 - clone our Git repository (`git clone https://github.com/tnelson/forge`);
 - cd to the repository (`cd forge`);
-- check out the development branch (`git checkout dev`);
-- finally, install the `forge` and `froglet` packages (`raco pkg install ./forge ./froglet`).
+- install the `forge` and `froglet` packages (`raco pkg install ./forge ./froglet`).
 
-Note the `./` in the command! If you write `raco pkg install forge froglet`, that will install both from the package server. Adding `./` makes the install use those local folders. It's also important to have both `./forge` and `./froglet` in the single command; they depend on each other, so leaving one out will cause `raco` to install it from the package server, not your local drive.
+If you wish to switch to the development branch, you must:
+- check out the development branch (`git checkout dev`);
+- rebuild Forge (`raco setup forge`).
+
+~~~admonish warning title="Using ./"
+Note the `./` in the `install` command! If you write `raco pkg install forge froglet`, that will install both from the package server instead of your local directory. Adding `./` makes the install use those local folders. It's also important to have both `./forge` and `./froglet` in the single command; they depend on each other, so leaving one out will cause `raco` to install it from the package server, not your local drive.
+~~~
 
 ## Installing VSCode Extension for Forge
+
+You may also optionally run Forge from VSCode. 
 
 - Download the latest release from [here](https://github.com/csci1710/forge-language-extension-vscode/releases/). You should download the file that says "forge-language-server-\[version].vsix".
 - Open VSCode and click on the Extensions button on the left hand side of the window.
 - Click the three dots on the top.
 - Select “Install from VSIX” and select the file you just downloaded.
 
-We may be issuing updates to the extension via EdStem as the semester progresses.
+If you use the extension, please keep it updated!
 
-## Installing VSCode Extension for GPT-3
+<!-- ## Installing VSCode Extension for GPT-3
 
 This extension allows you to write questions to GPT-3 from your editor. 
 
@@ -82,18 +90,20 @@ Queries GPT-3 with highlighted text. The response is automatically injected **be
 > - Open command palette and run `Update UserId` (alt + u on Windows, cmd + u on Mac)
 > - Enter your correct UserId into the prompt 
 > - Reload VSCODE
----
+--- -->
 
 
 ## Checking your installation
 
-Once Racket, Forge, and Java are installed, you should confirm that everything is working properly. Create a textfile `test.frg` with only the contents `#lang forge/bsl` and then, from your command line, type `racket test.frg`. If this runs without error, congratulations, Forge should now be installed!
+Once Racket, Forge, and Java are installed, you should confirm that everything is working properly. Create a text file `test.frg` with only the contents `#lang forge` and then, from your command line, type `racket test.frg`. If this runs without error, congratulations, Forge should now be installed!
 
-If you encounter any issues installing, please report them on EdStem! We'll do our best to get you help as soon as possible.
+If you encounter any issues installing, please report them. We'll do our best to get you help as soon as possible.
+- If you're taking CSCI 1710 at Brown, a class that uses Forge, report bugs on EdStem. 
+- If you don't have a course-related means of reporting bugs, please mail Tim (Tim_Nelson@brown.edu).
 
 ## Updating Forge
 
-Please remember to update using the method appropriate for your install. 
+**Please remember to update using the method appropriate for your install.**
 
 ### If you installed via Racket's package system
 
@@ -105,7 +115,7 @@ or click `Update` for both in the DrRacket package manager.
 ### If you installed via Git 
 
 Do:
-  * `cd` to the location of the Forge repository on your system;
+  * `cd` to the location of the `Forge` repository on your system;
   * make sure you're in the branch you want (`main` for published updates, `dev` for our development build);
   * `git pull` in the repository, and then 
   * `raco setup forge` and `raco setup froglet` (to rebuild the packages). 

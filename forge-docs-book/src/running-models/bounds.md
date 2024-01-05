@@ -4,7 +4,7 @@ Forge is a _bounded_ model finder, meaning it can only look for instances up to 
 
 ---
 
-## Numeric bounds
+## Numeric bounds (also called "scopes")
 
 The most basic way of specifying bounds in Forge is providing a maximum number of objects for each `sig`. If no bound is specified, Forge defaults to allowing up to 4 of each `sig`. The default bound on `Int` is a _bitwidth_ of 4 (16 integers total).
 
@@ -30,7 +30,7 @@ run { ... } for exactly 5 Cat
 run { ... } for exactly 5 Cat, 2 Dog
 ```
 
-The first run will search for instances containing exactly 5 cats and 0--4 dogs. The second run will search for instances contsaining exactly 5 cats and 0--2 dogs.
+The first run will search for instances containing exactly 5 cats and 0--4 dogs. The second run will search for instances containing exactly 5 cats and 0--2 dogs.
 
 ~~~
 
