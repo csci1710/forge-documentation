@@ -1,6 +1,10 @@
 # Expressions
 
-_Expressions_ are a type of Forge syntax.  Given an instance, every expression evaluates to an object or set of objects. In the `froglet` sublanguage, expressions are limited to improve error-checking and reduce reliance on the relational algebra that the solver engine uses and the full `forge` language includes.
+Given an instance, _expressions_ in Forge evaluate to sets of atoms. 
+
+## Froglet 
+
+In Froglet, expressions must always denote a single atom or the empty set (`none`). This matches the abstraction where fields are always either total (`one`, `func`) or partial (`lone`, `pfunc`) functions.
 
 <!-- ```admonish danger title="TODO"
 - talk somewhere about the distinction between () and {} and when to use them

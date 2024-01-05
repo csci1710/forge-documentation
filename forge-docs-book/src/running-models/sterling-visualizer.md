@@ -17,14 +17,22 @@ In temporal mode, when the trace found is of length greater than 1, Sterling wil
   - The "Next Config" button will ask the solver for a new trace that _varies the non-variable relations_ of your model. If all your relations are variable, or if other constraints prevent a different non-variable subset of the instance from satisfying your run, this button will lead to a no-more-instances screen.
   - The "Next" button will ask the solver for a new trace that _holds the non-variable relations constant_. If there are no other traces possible without changing the non-variable relations, this button will lead to a no-more-instances screen.
 
+![The trace viewer shows a cycle of 4 states, with the final state looping back to the first. A header says "State 1 of 4" between a forward and backward button.](../images/temporal-minimap.png "The trace viewer for temporal Forge")
+
+
 ## The Evaluator
 
-The evaluator provides a prompt that lets you query instances with Forge expressions. There are some minor differences between the evaluator language and Forge itself:
+The evaluator provides a prompt that lets you query instances with Forge expressions. You can open the evaluator by clicking the "Evaluator" drawer on the far right of the Sterling window. Type a Forge expression and the evaluator will return its value in the current instance (assuming that Forge is still running). E.g.:
 
-- Individual atoms can be directly referenced by name, like in `inst` blocks (remember to prefix them with a backquote!)
-- Higher order quantification is allowed
+![Evaluating an expression: the evaluator is open, and the user has just evaluated the expression `\`Board1.places`. The result, `((A0 C0 X0))`, appears beneath the input box.](../images/eval-ttt-places.png "Evaluating an Expression")
 
-Because the evaluator works with respect to a single instance, exact values of expressions are returned. These expressions are (as of January 2024) not always Forge syntax. E.g., relations are displayed using nested parentheses, and `false` is written as `#f`.
+
+Because the evaluator works with respect to a single instance, exact values of expressions are returned. These expressions are (as of January 2024) not always Forge syntax. E.g., relations are displayed using nested parentheses, and `false` is written as `#f`. Fields are displayed in row form, with every entry in the field grouped into a parenthesis; in the example above, the meaning is that there's only one move on the board: `X` moved at row `A`, column `C`.
+
+~~~admonish hint title="Atoms can be referenced"
+Individual atoms can be directly referenced by name in the evaluator, like in `inst` blocks (remember to prefix atom names with a backquote!) E.g., in the above example, `\`Board1` was an atom name.
+~~~
+
   
 
 <!-- The evaluator can also be given commands like `--version` (`-v`) to show the version of Forge being used or `--help` (`-h`) to show the file being run. -->
