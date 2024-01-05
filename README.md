@@ -2,7 +2,9 @@
 
 **The deployed documentation is viewable here:** https://csci1710.github.io/forge-documentation/
 
-## About
+Alternatively, for local viewing, use the `deployed-pages` branch, which has pre-built HTML etc. 
+
+## Instructions to Build
 
 This is the source for the Forge documentation. It is built using mdbook.
 
@@ -18,4 +20,6 @@ TL;DR:
 
 Check out the rest of the docs here: https://rust-lang.github.io/mdBook/guide/creating.html
 
-(TODO: Add more info about contributing and stuff here...)
+## Want to contribute? 
+
+Submit a pull request or mail Tim (Tim_Nelson@brown.edu).
