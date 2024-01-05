@@ -13,6 +13,7 @@ assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
 on_failure = "bail" # remove for warn and to allow build to continue
 
 [preprocessor.katex]
+renderers = ["html"]
 after = ["links"]
 # KaTeX options.
 output = "html"

@@ -38,9 +38,7 @@ jobs:
           # Delete the ref to avoid keeping history.
           git update-ref -d refs/heads/deployed-pages
           rm -rf *
-          echo `pwd`
-          echo `ls ..`
-          mv ../book/html/* .
+          mv ../book/* .
           git add .
           git commit -m "Deploy $GITHUB_SHA to deployed-pages"
           git push --force --set-upstream origin deployed-pages
