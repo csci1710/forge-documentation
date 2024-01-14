@@ -8,8 +8,10 @@ Forge is a lightweight modeling language, similar to [Alloy](https://alloytools.
 
 Students can progress through this language hierarchy as new concepts are introduced in class; this lets the course avoid a steep language-learning curve and cover important practical material earlier than would otherwise be possible.
 
----
+~~~admonish note title="If there are three languages, are there three versions of the documentation?"
+**No!** In principle, we might ideally have three separate versions, but we are focusing (for now) on 
+producing better documentation overall rather than taking on the subtle cross-language page-linking challenge. 
 
-```admonish
-Don't worry about the greyed-out chapters! Those chapters will become available when they become relevant in the course/assignments.
-```
+We will nevertheless try to maintain a reasonable separation. 
+This means that, for example, the [glossary](./glossary.md) is organized by language, and might contain separate definitions for one term.
+~~~
