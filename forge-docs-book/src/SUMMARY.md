@@ -78,3 +78,7 @@
 # Domain-Specific Input
 
 - [Attribute-Based Access Control](./dsl/abac.md)
+
+# Glossary
+
+- [Glossary](./glossary.md)

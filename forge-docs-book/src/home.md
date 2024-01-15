@@ -13,7 +13,6 @@ Students can progress through this language hierarchy as new concepts are introd
 producing better documentation overall rather than taking on the subtle cross-language page-linking challenge. 
 
 We will nevertheless try to maintain a reasonable separation. 
-This means that, for example, the [glossary](./glossary.md) is organized by language, and might contain separate definitions for one term.
 ~~~
 
 ```admonish hint title="Table of Contents, Theme, and Search"
