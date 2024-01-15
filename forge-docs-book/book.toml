@@ -36,4 +36,6 @@ inline-delimiter = { left = "$", right = "$" }
 site-url = "/forge-documentation/"
 additional-css = ["././mdbook-admonish.css", "./mdbook-admonish.css"]
 
+[output.html.fold]
+enable = true
 
