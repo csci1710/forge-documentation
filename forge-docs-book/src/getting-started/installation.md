@@ -4,28 +4,34 @@
 
 To run Forge, you will need to have installed:
 
-- [Racket](https://download.racket-lang.org/all-versions.html) (we suggest the latest version, which was 8.7 as of writing);
+- [Racket](https://download.racket-lang.org/all-versions.html) (we suggest the latest version, and certainly no lower than 8.7);
 - Java 11 or later (which you can get [here](https://www.oracle.com/java/technologies/javase-downloads.html) if you don't have it); 
 - A modern web-browser for visualizing output (we suggest, and primarily test on, Firefox).
 
+We strongly suggest using our VSCode extension to write Forge, although you can also run from the terminal or use DrRacket (Racket's built-in IDE). You can get VSCode [here](https://code.visualstudio.com).
+
 ## Installing Forge
 
-To install Forge, you have two options. The first is to install from Racket’s package server, and the second is to work from Git, which also allows you to use the latest development build if you wish.
+To install Forge, you have two options. The first is to **install from Racket’s package server**, and the second is to **install from Git**, which also allows (but doesn't require) you to use the latest development build if you wish.
+
+We recommend installing from Git, because this way you can pull updates immediately if you wish to. 
 
 ### Standard Package System
 
-For the standard package-server installation, after installing Racket, run `raco pkg install forge` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type _forge_ as the package name and choose **Install** (if it's already installed, it'll be an **Update** button, which it's good to do regularly as we will be pushing new features/content throughout the semester).
+For the standard package-server installation, after installing Racket, run `raco pkg install forge froglet` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type `forge` as the package name and choose **Install**, then do the same for `froglet` 
+
+If the package is already installed, you'll see an **Update** button instead of an **Install** button.
 
 #### Forge Version
 
-When you run a Forge file (via `racket <filename>` at the command line), you'll be told the _Forge version_ you're running. This is important information to include with questions, etc. If you're taking a class that uses Forge, you can expect a few Forge updates throughout the semester---please keep Forge updated!
+When you run a Forge file (via `racket <filename>` at the command line), you'll be told the _Forge version_ you're running. This is important information to include with questions, etc. If you're taking a class that uses Forge, you can expect a few Forge updates throughout the semester---*please keep Forge updated!*
 
 ### Latest Development Build
 
-To install via Git, you'll need to:
+To install via Git, open a terminal window. Then: 
 
 - clone our Git repository (`git clone https://github.com/tnelson/forge`);
-- cd to the repository (`cd forge`);
+- change directory to the repository folder (`cd forge`);
 - install the `forge` and `froglet` packages (`raco pkg install ./forge ./froglet`).
 
 If you wish to switch to the development branch, you must:
@@ -33,19 +39,34 @@ If you wish to switch to the development branch, you must:
 - rebuild Forge (`raco setup forge`).
 
 ~~~admonish warning title="Using ./"
-Note the `./` in the `install` command! If you write `raco pkg install forge froglet`, that will install both from the package server instead of your local directory. Adding `./` makes the install use those local folders. It's also important to have both `./forge` and `./froglet` in the single command; they depend on each other, so leaving one out will cause `raco` to install it from the package server, not your local drive.
+Note the `./` in the `install` command! If you write `raco pkg install forge froglet`, that will install both from the package server instead of your local directory. Adding prefix `./` tells `raco` that you're talking about folders instead. It's also important to have both `./forge` and `./froglet` in the single command; they depend on each other, so leaving one out will cause `raco` to "helpfully" install it from the package server, not your local drive.
 ~~~
 
 ## Installing VSCode Extension for Forge
 
-You may also optionally run Forge from VSCode. 
+To get Forge's VSCode extension:
 
-- Download the latest release from [here](https://github.com/csci1710/forge-language-extension-vscode/releases/). You should download the file that says "forge-language-server-\[version].vsix".
+- Download the latest release from [here](https://github.com/csci1710/forge-language-extension-vscode/releases/). You should download the file that says `forge-language-server-[version].vsix` (where `[version]` is the latest version of the extension).
 - Open VSCode and click on the Extensions button on the left hand side of the window.
 - Click the three dots on the top.
 - Select “Install from VSIX” and select the file you just downloaded.
 
-If you use the extension, please keep it updated!
+Please keep the extension updated!
+
+### Logging in VSCode
+
+If you're working in a file with the `.frg` extension, you should see an eye icon in your VSCode toolbar (usually on the upper right). This can be used to opt out of (and back into) logging. By default, we log the state of your Forge model whenever you click the run button in VSCode. This includes the contents of every `.frg` file being edited in VSCode. No other information is recorded, not even your identity. 
+
+~~~admonish note title="Comparison to Spring 2023"
+In prior years, logging was done via annotations to `#lang` in homework files. We no longer do this. A major consequence is that we no longer know your identity from logs; we believe this is an improvement! However, it does mean we can't reach out if we see a problem happening. Please _report problems_ if you see them. 
+~~~
+
+We log primarily for two reasons. 
+* First, Forge is under active development---the majority of the codebase was written by undergraduate researchers working with Tim! This means that information about how Forge is used, what errors arise, etc. can be useful in making Forge better. 
+* Second, Forge is mainly used in the classroom. It's easy for instructors to claim, anecdotally, that students "like" something or "find it useful" based on a handful of office-hours conversations. We want to hold ourselves to a higher standard. What proportion of students _actually uses_ that feature? Is the hinting we provide on some problems _effective_? Questions like these are impossible to answer without knowing something about patterns of use. 
+
+
+
 
 <!-- ## Installing VSCode Extension for GPT-3
 
@@ -120,4 +141,16 @@ Do:
   * `git pull` in the repository, and then 
   * `raco setup forge` and `raco setup froglet` (to rebuild the packages). 
 
-Confirm that these packages are installed properly from local directories using `raco pkg show froglet` and `raco pkg show forge`. If one is installed from a directory on your machine, and another via the Racket package system, issues can occur. You should see both say `link <path on your machine>`. If one says `catalog ...` then it's installed via Racket's servers. 
+~~~admonish hint title="Confirming install location"
+Confirm that these packages are installed properly using `raco pkg show froglet` and `raco pkg show forge`. 
+
+If one is installed from a directory on your machine, and another via the Racket package system, issues can occur. Here's how to read the information that `raco` provides. If it says: 
+* `link <path on your machine>` then the package is installed from a local folder; and 
+* `catalog ...` means the package is installed via Racket's servers. 
+~~~
+
+## Known Installation-Related Issues 
+
+### Windows: Visualizer Connectivity
+
+If you use Windows, running Forge from `cmd` or PowerShell is not recommended (as of January 2024); we strongly suggest using the VSCode extension, DrRacket, the Windows Subsystem for Linux (`wsl`), Git `bash`, or Cygwin.  
