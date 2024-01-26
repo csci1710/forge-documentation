@@ -18,7 +18,7 @@ Forge is a language that allows us to define models of systems and explore insta
 
 ## Systems
 
-A **system** can be generally thought of as a particular way that various objects interact.  A system isn't necessarily a _computer_ system, although it can be. For example:
+A **system** is just a particular way that various objects interact.  A system isn't necessarily a _computer_ system, although it can be. For example:
 
 - The game of baseball is a system involving players, a ball, a field and bases, etc. along with rules that govern how those things interact with each other.
 - Family trees are a system where there are people, and rules that express how they are related to each other.

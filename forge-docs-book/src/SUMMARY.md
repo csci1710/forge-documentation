@@ -56,7 +56,6 @@
 # Testing
 
 - [Testing](./testing-chapter/testing.md)
-- [Testing Against Wheats](./testing-chapter/wheats.md)
 
 # Forge Standard Library (Built-Ins)
 
