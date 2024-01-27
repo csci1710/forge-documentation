@@ -28,8 +28,8 @@ Models define a notion of what kinds of things exist in the system and (some of)
 If we wanted to model a group of friends, we might define our model to have the following structure:
 
 - There's a type of object, `Person`, in the system.
-- Each `Person` has a list of `Person`s, representing their friends.
-- Each `Person` must have at least one `Person` in their friends list.
+- Each `Person` has a `bestFriend` field, possibly containing a `Person`.
+- Each `Person` has a best friend. 
 
 These three items correspond to three different concepts in Forge: defining types (`sig`s), defining fields that those types have, and defining constraints. 
 
@@ -59,12 +59,12 @@ Just remember that **it is an analogy and not the exact truth**. There are impor
 ~~~
 
 Each instance shows a single way that the constraints in the model can be satisfied. Here are two example instances, described in English:
-* There are two people, `Tim` and `Nim`. `Tim` has `Nim` as a friend, and `Nim` has `Tim` as a friend. 
-* There is one person, `Nim`, who has `Nim` as a friend. 
+* There are two people, `Tim` and `Nim`. `Tim` has `Nim` as a best friend, and `Nim` has `Tim` as a best friend. 
+* There is one person, `Nim`, who has `Nim` as a best friend. 
 * There are no people. 
 
 Why do the second and third instance get produced? Because all we told Forge to enforce was:
-* Each `Person` must have at least one `Person` in their friends list.
+* Each `Person` must have a best friend.
 
 If there are no people, there is nobody to be obligated to have friends. The empty instance satisfies this constraint.
 

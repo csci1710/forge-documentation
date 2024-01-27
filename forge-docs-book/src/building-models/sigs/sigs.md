@@ -1,16 +1,12 @@
 # Sigs
 
-<!-- ```admonish danger title="TODO"
-- Do sigs have to be defined before they are used?
-``` -->
-
-_Sigs_ are the basic building block of any model in Forge. Sigs represent the "things" of the system we are modeling. You can think of a `sig` as analogous to a class in an object-oriented programming language. You can declare a `sig` in the following way:
+_Sigs_ (short for "signatures") are the basic building block of any model in Forge. They represent the types of the system being modeled. To declare one, use the `sig` keyword. 
 
 ```
 sig <name> {}
 ```
 
-A `sig` can also have one or more _fields_, which define relationships between that `sig` and other `sig`s.
+A `sig` can also have one or more _fields_, which define relationships between members of that `sig` other atoms. The definition above has no fields because the braces are empty. In contrast, this `sig` definition would have many fields:
 
 ```
 sig <name> {
@@ -30,17 +26,23 @@ Ensure that there is a **comma after every field except for the last one**. This
 Fields allow us to define relationships between a given `sig`s and other components of our model. Each _field_ in a `sig` has:
 
 - a _**name**_;
-- a [_**multiplicity**_](multiplicity.md) (`one`, `lone`, `pfunc`, `func`, or, in the full Forge language, `set`);
+- a [_**multiplicity**_](multiplicity.md) (`one`, `lone`, `pfunc`, `func`, or, in Relational or Temporal Forge, `set`);
 - a [_**type**_](sig-types.md) (a `->` separated list of `sig` names)_**.**_
 
-Put together, a field takes the form:
 
+~~~admonish example title="Example sig definition"
+Here is a sig that defines the `Person` type from the [overview](../overview.md).
 ```
-name: multiplicity type
+sig Person {
+    friends: lone Person
+}
 ```
+The `lone` [multiplicity](./multiplicity.md) says that the field may contain at most one atom. (Note that this example has yet to express the constraint that everyone has a friend!)
+~~~
 
-<!-- - The **name** of a field does exactly what it sounds like, and assigns a name to the relationship. You can use the name of the relationship to reference the relationship when writing the "rules" of the system (we'll cover this when we talk about [constraints](../constraints/constraints.md)).
-- The **multiplicity** of a field allows you to define the type of relationship -->
+### More Examples
+
+Let's look at a few more examples.
 
 ```admonish example title="Example: Sig with one field"
 **Basic Sig with Fields (Linked List):**
@@ -72,8 +74,7 @@ sig Node {
 _**(`Int`** is a built-in sig provided by Forge. Read more about [valid types](./sig-types.md), and [Integers in Forge](../../forge-standard-library/integers.md))._
 ```
 
-
-```admonish example title="Example: Sig w/ No Fields"
+```admonish example title="Example: Sig with No Fields"
 
 **Example - Basic Sig without Fields:**
 
@@ -85,9 +86,11 @@ sig Group {
     member: set Student
 }
 ~~~
+
+Note that the `set` multiplicity is only available in Relational and Temporal Forge, not Froglet.
 ```
 
-```admonish note title="Field names must be unique"
+```admonish warning title="Field names must be unique"
 You cannot use the same field name within two different `sigs` in a model. This is because field names are globally available for writing constraints.
 ```
 
