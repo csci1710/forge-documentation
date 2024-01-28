@@ -10,9 +10,15 @@ Forge _instances_ give the context in which constraints are evaluated. E.g., an 
   - etc.
 What an instance contains depends on the current model. Family-tree instances would make sense if the model had defined people, a parenthood relationship, etc.---but not if it was about the game of chess!
 
-An instance gives concrete values for `sig`s and their fields. It says which objects actually exist in the world, and their fields contain. This is what gives constraints their meaning. We could write a model of tic-tac-toe in Forge, but statements like "some player has won the game" is neither true nor false by itself. In context of a specific game board, however, it will be.
+An instance gives concrete values for `sig`s and their fields. It says which atoms actually exist in the world, and what their fields contain. This is what gives constraints their meaning. We could write a model of tic-tac-toe in Forge, but statements like "some player has won the game" is neither true nor false by itself---**it depends on the instance**. 
 
-## Formal Definition
+The remainder of this page defines instances more formally.
+
+```admonish warning
+If you are working in Froglet, the remainder of this page may reference terms you are as yet unfamiliar with. Don't worry; this will be covered more in class. Informally, you might read "relation" as "function".
+``` 
+
+## Formal Definition of Instances
 
 Because `sig` definitions can involve concepts like inheritance, partial functions, and uniqueness, the precise definition is a bit involved.
 
@@ -30,18 +36,14 @@ For each field `f` of type `S1 -> ... -> Sn` of `sig S` in the model, an instanc
   - if `f` is declared `func`, then there is exactly one entry in $f$ for each $(s, s_1, ..., s_{n-1})$ in $S\times S_1 \times ... \times S_{(n-1)}$.
   - if `f` is declared `pfunc`, then there is at most one entry in $f$ for each $(s, s_1, ..., s_{n-1})$ in $S\times S_1 \times ... \times S_{(n-1)}$.
 
-The union over all `sig`-sets $S$ in an instance is said to be the _universe_ of that instance.
+The union over all `sig`-sets $S$ in an instance (including the built-in sig `Int`) is said to be the _universe_ of that instance.
 
 ```admonish tip title="Fields are not objects"
 It is sometimes useful to use terminology from object-oriented programming to think about Forge models. For example, we can think of a `pfunc` field like a dictionary in Python or a map in Java. However, _a field is not an object_. This matters for at least two reasons:
-- We can't write a constraint like "every `pfunc` field in the model is non-empty", because there's no set of `pfunc` objects to examine.
-- Two different objects in an instance will be considered non-equal in Forge, even if they belong to the same `sig` and have identical field contents. In contrast, two fields themselves are equal in Forge if they have identical contents---they are to sets that involve objects, not objects themselves.
+- We can't write a constraint like "every `pfunc` field in the model is non-empty", because there's no set of `pfunc` "objects" to examine.
+- Two different objects in an instance will be considered non-equal in Forge, even if they belong to the same `sig` and have identical field contents. In contrast, two fields themselves are equal in Forge if they have identical contents; fields are relations that involve atoms, not objects themselves.
 ```
   
 ```admonish info title="Tuples, Arity"
 An ordered list of elements is called a _tuple_, and we'll sometimes use that term to refer to elements of the `sig` and field sets in an instance. The number of elements in a tuple is called its _arity_. Since any single `sig` or field set will contain tuples with the same arity, we can safely talk about the arity of these sets as well. E.g., in the above definition, a field `f` of type `S1 -> ... -> Sn` in `sig S` would always correspond to a set with arity $n+1$.
 ```
-
-<!-- ```admonish note
-If you've taken CSCI 0220, you might recall the term [_relation_](https://en.wikipedia.org/wiki/Finitary_relation). Formally,  
-``` -->

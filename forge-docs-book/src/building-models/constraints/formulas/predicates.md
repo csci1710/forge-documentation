@@ -1,6 +1,6 @@
 # Predicates
 
-If you have a set of constraints that you use often, or that you'd like to give a name to, you can define a _predicate_ using the `pred` keyword:
+If you have a set of constraints that you use often, or that you'd like to give a name to, you can define a _predicate_ using the `pred` keyword. A predicate has the following form:
 
 ```
 pred <pred-name> {
@@ -23,3 +23,4 @@ pred parentOrChildOf[p1, p2: Person] {
 ```
 
 and then write something like `some p : Person | parentOrChildOf[Tim, p]`. Predicates may be used like this anywhere a formula can appear.
+

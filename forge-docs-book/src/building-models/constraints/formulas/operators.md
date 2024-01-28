@@ -1,8 +1,8 @@
-# Operators
+# Formula-Combining Operators
 
-Formula operators are used to create bigger formulas from other formulas.
+Formula operators combine smaller formulas to produce new formulas. Many closely resemble similar operators from programming languages, like `&&`, `||`, and `!`.
 
-### List of Available Operators:
+## List of Available Operators:
 
 For the following `<fmla>` means an arbitrary formula.
 
@@ -11,10 +11,10 @@ For the following `<fmla>` means an arbitrary formula.
 - Disjunction: [`or (||)`](./operators.md#or)
 - Implication: [`implies (=>)`](./operators.md#implies)
   - If-then-else: [`else`](./operators.md#implies-else)
-- Bi-implication: [`iff (<=>)`](./operators.md#iff)
+- If-and-only-if: [`iff (<=>)`](./operators.md#iff)
 
 ```admonish note title="Alternative syntax"
-Some operators have alternative syntax (marked by **_alt_**) which are equivalent. Use whichever is most natural and convenient to you.
+Some operators have alternative syntax (marked by **_alt_**) which are equivalent. Use whichever is most natural and convenient to you. 
 ```
 
 ---

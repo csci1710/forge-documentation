@@ -1,6 +1,6 @@
 # Cardinality and Membership
 
-The following formulas produce booleans based on expression arguments:
+The following operators produce formulas from smaller expression arguments:
 
 - `no <expr>`: true when `<expr>` is **empty**
 - `lone <expr>`: true when `<expr>` contains **zero or one** elements
