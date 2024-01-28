@@ -1,9 +1,15 @@
 # Advanced Material (How do sigs and fields work?)
 
-Forge's solver engine works entirely in terms of _sets_. Each `sig` name corresponds to the set of objects of that sig type in a given instance. Similarly, each field name `f` corresponds to a relation (set) with arity _1+arity(f)_. 
+In case you're curious, we include a very brief sketch of how sigs, fields, etc. relate to Forge's core solver engine. This information might be useful when debugging a tough problem or just for understanding the tool better.
+
+~~~admonish warning title="Froglet"
+If you are currently working in Froglet, you may see terms in this document that you aren't yet familiar with.
+~~~
+
+Forge's solver engine works entirely in terms of _sets_, regardless of which Forge language you are using. Each `sig` name corresponds to the set of atoms of that type in a given instance. Similarly, each field name `f` corresponds to a relation (set) with arity $1+arity(f)$. (The extra column in the relation holds the atom the field value belongs to.) 
 
 ```admonish note title="Arity"
-Recall that the _arity_ of a set is how many elements its member tuples contain. E.g., a set of objects would have arity 1, but a set of pairs of objects would have arity 2.
+The _arity_ of a set is how many elements its member tuples contain. E.g., a set of atoms would have arity 1, but a set of pairs of atoms would have arity 2.
 ```
 
 E.g.,
@@ -16,6 +22,8 @@ sig A {
 ```
 
 is internally represented as a pair of sets `A` and `B` and a 3-ary relation named `myField` that must be a subset of `A -> A -> B` in any instance. 
+
+## The role of bounds
 
 Because every `run` is always equipped with a finite bound on every sig, the solver is then able to convert Forge constraints to a purely boolean logic problem, where every _possible_ membership in each set is assigned a unique boolean variable. 
 
@@ -47,5 +55,3 @@ You can see these reflected in the _primary variable_ portion of the statistical
 #vars: (size-variables 178); #primary: (size-primary 16); #clauses: (size-clauses 311)
 ```
 ~~~
-
-For more information, see the CSCI 1710 lecture notes.

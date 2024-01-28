@@ -13,16 +13,10 @@
 - [Sigs](./building-models/sigs/sigs.md)
   - [Inheritance](./building-models/sigs/inheritance.md)
   - [Singleton, Maybe, and Abstract Sigs](./building-models/sigs/singleton-maybe-sigs.md)    
-  - [Field Multiplicity](./building-models/sigs/multiplicity.md)
-  - [Field Types]()  
-  - [Advanced]()
-  <!-- - [Field Multiplicity](./building-models/sigs/multiplicity.md)
-  - [Field Types](./building-models/sigs/sig-types.md)
-  
-  - [Advanced](./building-models/sigs/advanced.md) -->
+  - [Field Multiplicity](./building-models/sigs/multiplicity.md)  
+  - [Advanced: Sigs and fields, under-the-hood](./building-models/sigs/advanced.md) 
 - [Constraints](building-models/constraints/constraints.md)
   - [Instances](./building-models/constraints/instances.md)
-  <!-- - [Constraints are Rules](./building-models/constraints/constraints-are-rules.md) -->
   - [Formulas](building-models/constraints/formulas/formulas.md)
     - [Operators](building-models/constraints/formulas/operators.md)
     - [Cardinality and Membership](building-models/constraints/formulas/cardinality-membership.md)
