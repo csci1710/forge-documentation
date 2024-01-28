@@ -7,7 +7,7 @@ let <id> = <expression> |
   <formula>
 ```
 
-This is useful to avoid coat bloat due to re-use. E.g., if `s` is a state:
+This is useful to avoid code bloat due to re-use. E.g., if `s` is a state:
 
 ```
 let s2 = Traces.nextState[s] |
@@ -28,4 +28,6 @@ you can check individual values by directly substituting (e.g., `some Person0.sp
 let p = Person0 | some p.spouse
 ```
 
-This trick (referring to concrete objects) is only usable in the evaluator.
+~~~admonish warning title="Concrete atoms"
+This trick (referring to concrete objects) is only usable in the evaluator, because at that point a specific instance has been identified.
+~~~

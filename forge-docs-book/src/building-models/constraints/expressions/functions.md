@@ -1,6 +1,6 @@
 # Functions
 
-In the same way that predicates define reusable constraints, _functions_ define reusable expressions. Define functions with the `fun` keyword:
+In the same way that [predicates](../formulas/predicates.md) define reusable formulas, _functions_ define reusable expressions in Relational and Temporal Forge. Define functions with the `fun` keyword:
 
 ```
 fun <fun-name>[<args>]: <result-type> {
@@ -28,7 +28,6 @@ This expands to:
 ```
 all p: Person | some (p.spouse.parent1)
 ```
-
 ~~~
 
 
