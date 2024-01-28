@@ -25,16 +25,15 @@ Ensure that there is a **comma after every field except for the last one**. This
 
 Fields allow us to define relationships between a given `sig`s and other components of our model. Each _field_ in a `sig` has:
 
-- a _**name**_;
+- a _**name**_ for the field;
 - a [_**multiplicity**_](./multiplicity.md) (`one`, `lone`, `pfunc`, `func`, or, in Relational or Temporal Forge, `set`);
-- a [_**type**_](sig-types.md) (a `->` separated list of `sig` names)_**.**_
-
+- a _**type**_ (a `->` separated list of `sig` names, including the built-in sig [`Int`](../../forge-standard-library/constants-and-keywords.md))_**.**_
 
 ~~~admonish example title="Example sig definition"
 Here is a sig that defines the `Person` type from the [overview](../overview.md).
 ```
 sig Person {
-    friends: lone Person
+    bestFriend: lone Person
 }
 ```
 The `lone` [multiplicity](./multiplicity.md) says that the field may contain at most one atom. (Note that this example has yet to express the constraint that everyone has a friend!)
@@ -71,7 +70,7 @@ sig Node {
     val: one Int
 }
 ~~~
-_**(`Int`** is a built-in sig provided by Forge. Read more about [valid types](./sig-types.md), and [Integers in Forge](../../forge-standard-library/integers.md))._
+_`Int` is a built-in sig provided by Forge. To learn more about how Forge handles integers, see [Integers in Forge](../../forge-standard-library/integers.md)._
 ```
 
 ```admonish example title="Example: Sig with No Fields"
