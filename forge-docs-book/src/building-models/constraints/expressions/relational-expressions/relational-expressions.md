@@ -1,22 +1,22 @@
 # Relational Operators
 
-_Relational Operators_ produce expressions (not formulas) from other expressions.
+_Relational Operators_ produce expressions (not formulas) from other expressions. 
 
-### Important Note: Fields
-
-Recall that Forge treats every field of a sig as a relation of arity 1 higher than the arity of the field itself, with the object the field belongs to as the added left-most column. 
-
-```admonish example title="Sig Fields as Relations"
-In this sig definition:
+~~~admonish note title="Froglet"
+If you are using Froglet, not all of these operators are available. 
 ~~~
+
+~~~admonish warning title="Relational Forge" 
+Recall that Forge treats every field of a sig as a relation of arity 1 higher than the arity of the field itself, with the object the field belongs to as the added left-most column. E.g., in this sig definition:
+```
 sig City {
     roads: set City
 }
-~~~
-the relation `roads` is an arity-2 set which contains ordered pairs of `City` objects.
 ```
+the relation `roads` is an arity-2 set which contains ordered pairs of `City` objects.
 
 This is what allows the dot operator in Forge to act as if it is field access when it is actually a [relational join](./relational-expressions.md#-join).
+~~~
 
 ### List of Relational Expression Operators:
 
@@ -204,8 +204,6 @@ one sig Providence extends City {}
 ~~~
 then `^roads` is the _reachability relation_ between cities.
 ```
-
-<!-- [TODOLINK]() -->
 
 ---
 
