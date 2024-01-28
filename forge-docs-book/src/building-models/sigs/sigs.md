@@ -26,7 +26,7 @@ Ensure that there is a **comma after every field except for the last one**. This
 Fields allow us to define relationships between a given `sig`s and other components of our model. Each _field_ in a `sig` has:
 
 - a _**name**_;
-- a [_**multiplicity**_](multiplicity.md) (`one`, `lone`, `pfunc`, `func`, or, in Relational or Temporal Forge, `set`);
+- a [_**multiplicity**_](./multiplicity.md) (`one`, `lone`, `pfunc`, `func`, or, in Relational or Temporal Forge, `set`);
 - a [_**type**_](sig-types.md) (a `->` separated list of `sig` names)_**.**_
 
 
