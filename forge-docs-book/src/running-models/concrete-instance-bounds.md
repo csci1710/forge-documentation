@@ -21,16 +21,18 @@ Finally, because bounds declarations can concretely refer to atoms in the world,
 An `inst` declaration contains a `{}`-enclosed sequence of bind declarations.  A bind declaration is one of the following, where `A` is either a sig name or field name.
 
 - `#Int = k`: use bitwidth `k` (where `k` is an integer greater than zero); 
-- `A in <bounds-expr>`: specify _upper_ bounds on a sig or field `A` 
-- `A ni <bounds-expr>`: specify _lower_ bounds on a sig or field `A`
-- `A = <bounds-expr>`: _exactly_ specify the contents of the sig or field `A` (effectively setting both the lower and upper bounds to be the same)
-- `r is linear` : use bounds-based symmetry breaking to make sure field `r` is a linear ordering on its types (useful for optimizing model-checking queries in Forge)
+- `A in <bounds-expr>`: specify _upper_ bounds on a sig or field `A`;
+- `A ni <bounds-expr>`: specify _lower_ bounds on a sig or field `A`;
+- `A = <bounds-expr>`: _exactly_ specify the contents of the sig or field `A` (effectively setting both the lower and upper bounds to be the same);
+- `no A`: specify that `A` is empty;
+- `r is linear` : use bounds-based symmetry breaking to make sure field `r` is a linear ordering on its types (useful for optimizing model-checking queries in Forge); and
 - `r is plinear` : similar to `r is linear`, but possibly not involving the entire contents of the sig. I.e., a total linear order on `A'`->`A'` for some subset `A'` of `A`.
 
 When binding fields, the binding can also be given _piecewise_ per atom. Keep in mind that atom names should be prefixed by a backquote:
-- `AtomName.f in <bounds-expr>` (upper bound, restricted to `AtomName`)
-- `AtomName.f ni <bounds-expr>` (lower bound, restricted to `AtomName`)
-- `AtomName.f = <bounds-expr>` (exact bound, restricted to `AtomName`)
+- `AtomName.f in <bounds-expr>` (upper bound, restricted to `AtomName`);
+- `AtomName.f ni <bounds-expr>` (lower bound, restricted to `AtomName`);
+- `AtomName.f = <bounds-expr>` (exact bound, restricted to `AtomName`); and
+- `no AtomName.f` (exact bound _contains nothing_, restricted to `AtomName`).
 Piecewise bindings add no restrictions to _other_ atoms, only those mentioned. They can improve readability if you're defining a field for many different atoms. There is an example below.
 
 The specifics of `<bounds-expr>` depend on which Forge language you are using. 
