@@ -6,9 +6,25 @@ Forge uses a modified version of the [Sterling](https://sterling-js.github.io/) 
 
 When you execute your model, Forge will either look for instances that satisfy the predicates you wrote, or look for counterexamples to the assertion you wrote. If you used a `run` command, or if Forge found a counter-example to a `test`, `example`, or `assert` you wrote, Forge launches a window in your browser that displays the output. (See the run and check sections for the different displays Sterling has in various scenarios.)
 
-The basic visualization of the model is a directed graph showing all the atoms in that instance and the relations between them. You can also view an alternate depiction of the instance in the table view tab. To keep visualizations neat, Sterling will not show you any `Int` atoms that are not used in the instance.
+The basic visualization of the model is a **directed graph** showing all the atoms in that instance and the relations between them. You can also view an alternate depiction of the instance in the **table** view tab. To keep visualizations neat, Sterling will not show you any `Int` atoms that are not used in the instance.
 
-## Visualizing in Temporal Forge
+### Theming 
+
+The directed-graph view can be customized by clicking the **Theme** tray to the right of the Sterling window. Sterling supports two kinds of theming.
+
+#### Projections
+
+_Projecting_ over a `sig` hides atoms of that `sig` in the visualizer and shows the rest of the instance as if that were the only atom of the projected `sig`. This can be a very useful for simplifying (e.g.) finite-trace instances, since much of the clutter will be eliminated. 
+
+When a projection is active, the theming window will give the option to change which atom is being used, so a user can step through states in a finite-trace instance easily.
+
+#### Styles 
+
+Style attributes such as font and line thickness for each `sig` and field can be customized. For fields only, clicking the "display as attribute" checkbox will tell Sterling to stop visualizing the field as an edge in the graph, and display it as an annotation on nodes.
+
+Clicking a `sig` or field name will expand the style selection box for that `sig` or field. Click the name again to collapse the box.
+
+### Visualizing in Temporal Forge
 
 In temporal mode, when the trace found is of length greater than 1, Sterling will enable a few new features:
 
@@ -30,16 +46,17 @@ The evaluator provides a prompt that lets you query instances with Forge express
 Because the evaluator works with respect to a single instance, exact values of expressions are returned. These expressions are (as of January 2024) not always Forge syntax. E.g., relations are displayed using nested parentheses, and `false` is written as `#f`. Fields are displayed in row form, with every entry in the field grouped into a parenthesis; in the example above, the meaning is that there's only one move on the board: `X` moved at row `A`, column `C`.
 
 ~~~admonish hint title="Atoms can be referenced"
-Individual atoms can be directly referenced by name in the evaluator, like in `inst` blocks (remember to prefix atom names with a backquote!) E.g., in the above example, `\`Board1` was an atom name.
+Individual atoms can be directly referenced by name in the evaluator, like in `inst` blocks (remember to prefix atom names with a backquote!) E.g., in the above example, ``` `Board1 ``` was an atom name.
 ~~~
 
   
 
 <!-- The evaluator can also be given commands like `--version` (`-v`) to show the version of Forge being used or `--help` (`-h`) to show the file being run. -->
 
-## The Evaluator in Temporal Forge
+### The Evaluator in Temporal Forge
 
 If running in temporal mode, the evaluator is run in the context of the _first state_ of the trace shown. To ask about later traces, use the `'` or `next_state` operators. Remember that `next_state` applies to formulas, and `'` applies to relational expressions. So in a directed graph you could ask whether there are `edges` in the second state via `some edges'` or `after some edges`.
+
 
 ## Custom Visualizations: Script View
 
