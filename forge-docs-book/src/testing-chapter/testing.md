@@ -57,6 +57,35 @@ Examples are analogous to unit tests in Forge. Every example says that if the in
 The `example` keyword is not supported in Temporal Forge. 
 ~~~
 
+#### How do examples work?
+
+An example passes if and only if the instance given is consistent with the predicate given. 
+
+~~~admonish warning title="Total vs. partial instances"
+If you leave a sig or field unbound in an `example`, Forge is free to assign that sig or field in any way to achieve consistency with the predicate. The consequence is that it is possible to write apparently contradictory examples that pass. E.g., in the above example, if we left out the binding for `board`:
+
+```
+example exampleYes is {wellformed} for {
+  Board = `Board0
+  X = `X0 
+  O = `O0
+  A = `A0
+  B = `B0
+  C = `C0  
+}
+example exampleNo is {not wellformed} for {
+  Board = `Board0
+  X = `X0 
+  O = `O0
+  A = `A0
+  B = `B0
+  C = `C0  
+}
+```
+**Both** of these examples would pass vs. the `wellformed` predicate, because Forge can find values for the `board` field that either satisfy or dissatisfy the `wellformed` predicate. 
+~~~
+
+
 ### Notes on Example Syntax
 
 The block within the second pair of braces must always be a concrete instance. That is, a series of assignments for each sig and field to some set of tuples, defined over atom names. Atom names must be preceded by a backquote; this reinforces the idea that they are atoms in a specific instance, rather than names in the model. You will not be able to refer to these atoms in predicates and most other Forge syntax.
