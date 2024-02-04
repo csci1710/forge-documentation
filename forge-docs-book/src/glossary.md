@@ -37,7 +37,13 @@ example someIntro is {wellformed} for {
     Intro = `CSCI0150
 }
 ```
-the above error will be produced. Add a bound for `Course`! 
+the above error will be produced. Add a bound for `Course`:
+```
+example someIntro is {wellformed} for {
+    Intro = `CSCI0150
+    Course = `CSCI0150
+}
+```
 ~~~
 
 
