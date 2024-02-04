@@ -46,4 +46,10 @@ Forge provides a convenient way to speak of an object being reachable via fields
 
 The extended version of reachable is useful if you wish to model, e.g., binary trees where nodes have a `left` and `right` field. In such a model, if you want to quantify over all descendents of a `parent` node, you might write `all n: Node | reachable[n, parent, left, right]`.
 
+~~~admonish title="Order matters!"
 Beware: the order of arguments in `reachable` matters! The first argument is the object _to be reached_, and the second argument is the _starting object_. Getting these reversed is a common source of errors.
+~~~
+
+~~~admonish title="The value `none` is reachable from anything"
+Beware: if you pass something that might be `none` as the first argument of `reachable`, in such cases `reachable` will evaluate to true. E.g., `reachable[p.spouse, p, father]` will evaluate to true if `p` happens to be unmarried.
+~~~
