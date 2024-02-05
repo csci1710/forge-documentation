@@ -8,6 +8,8 @@ Forge supports several different testing constructs:
 
 If tests pass, they do not open the visualizer, making them well-suited for building test suites for your Forge models.
 
+**Note on terminology**: we will sometimes refer to `assert` and (some) `test expect` tests as _property tests_. This is because they can be used to express sweeping expectations about predicates, rather than just the point-wise, single-instance expectations that `example` can. 
+
 ~~~admonish note title="Shared Context"
 All the subsections below contain tests for the same small model of tic-tac-toe:
 
