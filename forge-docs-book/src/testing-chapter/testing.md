@@ -121,7 +121,7 @@ which should both pass, since:
 * if someone has won the game, there must be moves taken on the board.
 ~~~
 
-Assertions also support universal quantification. For example, if you instead wrote the predicates:
+Assertions also support universal quantification (i.e. `all`, but not `some`, `one`, `lone`, etc). For example, if you instead wrote the predicates:
 
 ~~~admonish example title="AssertionsQuant"
 
