@@ -124,8 +124,6 @@ which should both pass, since:
 Assertions also support universal quantification (i.e. `all`, but not `some`, `one`, `lone`, etc). For example, if you instead wrote the predicates:
 
 ~~~admonish example title="AssertionsQuant"
-
-
 ```
 pred fullFirstRow[b : Board] {b.board[0][0] = X and b.board[0][1] = X and b.board[0][2] = X}
 pred someMoveTaken[b : Board, row : Int, col : Int] {some b.board[row][col] }
@@ -136,7 +134,7 @@ You could write the assertions
 assert all b : Board | fullFirstRow[b] is sufficient for winning for 1 Board
 assert all b : Board, row, col : Int | someMoveTaken[b, row, col] is necessary for winning for 1 Board
 ```
-
+~~~
 
 
 Assertions are an excellent way to check and document your goals and assumptions about your model. In a more complex setting, we might write assertions that enforce:
@@ -164,7 +162,7 @@ The meaning of each intention is:
 
 Like the other test forms, each test may be accompanied by numeric scopes and `inst` bounds.
 
-~~~admonish example title="Test-expect"
+~~~admonish example title="Test expect"
 
 This expresses that it's possible to satisfy the `someMoveTaken` predicate:
 ```
