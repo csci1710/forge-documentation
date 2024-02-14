@@ -61,6 +61,6 @@
 
 - [Attribute-Based Access Control](./dsl/abac.md)
 
-# Glossary
+# Glossary of Terms and Errors
 
 - [Glossary](./glossary.md)

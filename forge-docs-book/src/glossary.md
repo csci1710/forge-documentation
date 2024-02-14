@@ -93,3 +93,46 @@ example selfloopNotWellformed is {wellformed} for {
 ```
 
 If you receive this message, it means your example does something like the above, where some type declaration unrelated to the predicate under test is being violated.
+
+### Errors related to syntax
+
+#### Unexpected type or Contract Violation
+
+In Forge there are 2 kinds of constraint syntax for use in predicates:
+* formulas, which evaluate to true or false; and 
+* expressions, which evaluate to values like specific atoms. 
+
+If you write something like this:
+
+~~~admonish example title="Contract Violation"
+```
+#lang forge/bsl 
+sig Person {spouse: lone Person}
+run { some p: Person | p.spouse}
+```
+produces:
+```
+some: contract violation
+  expected: formula?
+  given: (join p (Relation spouse))
+```
+~~~
+
+The syntax is invalid: the `some` quantifier expects a _formula_ after its such-that bar, but `p.spouse` is an expression. Something like `some p.spouse` is OK. (The phrase "contract violation" in this case just means "I was passed something I didn't expect.")
+
+Likewise: 
+
+~~~admonish example title="Unexpected Type"
+```
+sig Person {spouse: lone Person}
+run { all p1,p2: Person | p1.spouse = p2.spouse implies p2.spouse}
+```
+results in:
+```
+=>: argument to => had unexpected type. 
+  expected #<procedure:node/formula?>,
+  got (join p2 (Relation spouse))
+```
+~~~
+
+Since `implies` is a boolean operator, it takes a *formula* as its argument. Unfortunately, `p2.spouse` is an expression, not a formula. To fix this, express what you really meant was _implied_. 
