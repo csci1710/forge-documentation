@@ -46,4 +46,50 @@ example someIntro is {wellformed} for {
 ```
 ~~~
 
+### Errors Related to Testing
 
+
+#### Invalid example ... the instance specified is impossible ... 
+
+If an example fails, Forge will attempt to disambiguate between:
+* it actually fails the _predicate under test_; and 
+* it fails because it violates the type declarations for sigs and fields. 
+
+Consider this example:
+
+```admonish example title="Impossible Instance"
+
+~~~
+#lang forge/bsl 
+
+abstract sig Grade {} 
+one sig A, B, C, None extends Grade {} 
+sig Course {} 
+sig Person { 
+    grades: func Course -> Grade,
+    spouse: lone Person 
+}
+
+pred wellformed { 
+    all p: Person | p != p.spouse 
+    all p1,p2: Person | p1 = p2.spouse implies p2 = p1.spouse
+}
+
+example selfloopNotWellformed is {wellformed} for {
+    Person = `Tim + `Nim 
+    Course = `CSCI1710 + `CSCI0320
+    A = `A   B = `B   C = `C   None = `None 
+    Grade = A + B + C + None
+
+    -- this violates wellformed
+    `Tim.spouse = `Tim 
+    
+    -- but this violates the definition: "grades" is a total function
+    -- from courses to grades; there's no entry for `CSCI0320.
+    `Tim.grades = (`CSCI1710) -> B
+    
+}
+~~~
+```
+
+If you receive this message, it means your example does something like the above, where some type declaration unrelated to the predicate under test is being violated.
