@@ -98,6 +98,39 @@ let text = new TextBox({
 All parameters can be changed after initiation with corresponding setter methods. These methods are in the typical OO style of `setX(newValue: Type)`, and should be suggested by the text editor for ease of use. 
 ~~~
 
+Additionally, `TextBox` supports script-defined callbacks. You can register _events_ using the `events` prop. Supported events are described [here](https://developer.mozilla.org/en-US/docs/Web/Events).
+
+```admonish example title="TextBox with events"
+~~~
+new TextBox({
+    text: 'hello',
+    coords: {x: 50, y:50},
+    color: 'black',
+    fontSize: 12,
+    events: [
+        {event: 'click', callback: () => {console.log('clicked!')}}
+    ]
+}) 
+~~~
+```
+
+### ImageBox 
+
+An `ImageBox` contains an image loaded from a URL. 
+
+```admonish example title="ImageBox"
+~~~
+const stage = new Stage()
+const box = new ImageBox({
+    coords: {x:100,y:100}, 
+    url: "https://csci1710.github.io/2024/static/media/LFS_FROG.8de0a0795d10898e5fe9.png", 
+    width:200, 
+    height:200})
+stage.add(box)
+stage.render(svg)
+~~~
+```
+
 ### Primitive Shapes 
 
 The primitive object types `Rectangle`, `Circle`, and `Polygon` are all instances of a wider class called `Shape`. As a result, their props objects all implement the following interface:

@@ -27,6 +27,8 @@ new TextBox('hello!', {x: 50, y: 50}, 'black', 12)
 
 All parameters after `text` are optional, and can be edited afterwards with corresponding setter methods. 
 
+
+
 ###  Shapes
 
 The following three objects (`Rectangle`, `Circle`, and `Polygon`) are all instances of `Shape`. In general, all `Shape` objects include the following properties, all of which have corresponding setters and are typically optional parameters in the construction of these shapes:
