@@ -9,7 +9,7 @@ This page contains documentation for all classes in D3FX, along with small examp
 ~~~admonish warning name="Changes vs. February 2023"
 There has been one major change in the library since the start of Spring 2023. Constructors now take a single object, rather than a varying number of parameters. This makes it easier to add new parameters without breaking existing code, and avoids confusion about how to order parameters. However, this required a one-time breaking change. 
 
-If you've already written some visualizations this semester, converting should be easy. For example, our Dining Smiths lab visualization created a new text box with: 
+If you've already written some visualizations based on the old method, converting should be easy. For example, our Dining Smiths lab visualization created a new text box with: 
 
 ```
 new TextBox(`State:${idx}${lb}`,{x:0,y:0},'black',16)
