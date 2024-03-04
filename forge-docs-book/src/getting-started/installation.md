@@ -44,14 +44,16 @@ Note the `./` in the `install` command! If you write `raco pkg install forge fro
 
 ## Installing VSCode Extension for Forge
 
-To get Forge's VSCode extension:
+To get Forge's VSCode extension, open VSCode and click the Extensions button on the sidebar: 
 
-- Download the latest release from [here](https://github.com/csci1710/forge-language-extension-vscode/releases/). You should download the file that says `forge-language-server-[version].vsix` (where `[version]` is the latest version of the extension).
-- Open VSCode and click on the Extensions button on the left hand side of the window.
-- Click the three dots on the top.
-- Select “Install from VSIX” and select the file you just downloaded.
+<center>
+<img src="./vscode_extension_button.png" width="10%"/>
+</center>
 
-Please keep the extension updated!
+Then type `forge-language-server` in the search bar. You should see an extension with that title, under the developer name "Siddhartha Prasad". Install it and reload VSCode.
+
+~~~admonish warning title="An early version of this extension was provided via Github, rather than the VSCode Marketplace. Please **use the Marketplace version** (and uninstall the other, if you have it) if for no other reason than it will automatically update when you restart VSCode.
+~~~
 
 ### Logging in VSCode
 
