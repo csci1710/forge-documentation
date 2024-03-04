@@ -16,17 +16,7 @@ To install Forge, you have two options. The first is to **install from Racket’
 
 We recommend installing from Git, because this way you can pull updates immediately if you wish to. 
 
-### Standard Package System
-
-For the standard package-server installation, after installing Racket, run `raco pkg install forge froglet` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type `forge` as the package name and choose **Install**, then do the same for `froglet` 
-
-If the package is already installed, you'll see an **Update** button instead of an **Install** button.
-
-#### Forge Version
-
-When you run a Forge file (via `racket <filename>` at the command line), you'll be told the _Forge version_ you're running. This is important information to include with questions, etc. If you're taking a class that uses Forge, you can expect a few Forge updates throughout the semester---*please keep Forge updated!*
-
-### Latest Development Build
+### Installing from Git 
 
 To install via Git, open a terminal window. Then: 
 
@@ -42,6 +32,17 @@ If you wish to switch to the development branch, you must:
 Note the `./` in the `install` command! If you write `raco pkg install forge froglet`, that will install both from the package server instead of your local directory. Adding prefix `./` tells `raco` that you're talking about folders instead. It's also important to have both `./forge` and `./froglet` in the single command; they depend on each other, so leaving one out will cause `raco` to "helpfully" install it from the package server, not your local drive.
 ~~~
 
+### Installing from Racket's Package Servers
+
+For the standard package-server installation, after installing Racket, run `raco pkg install forge froglet` from your command line. Alternatively, you can run Racket's IDE, DrRacket, and navigate to _File > Install Package_. Type `forge` as the package name and choose **Install**, then do the same for `froglet` 
+
+If the package is already installed, you'll see an **Update** button instead of an **Install** button.
+
+#### Forge Version
+
+When you run a Forge file (via `racket <filename>` at the command line), you'll be told the _Forge version_ you're running. This is important information to include with questions, etc. If you're taking a class that uses Forge, you can expect a few Forge updates throughout the semester---*please keep Forge updated!*
+
+
 ## Installing VSCode Extension for Forge
 
 To get Forge's VSCode extension, open VSCode and click the Extensions button on the sidebar: 
@@ -52,7 +53,8 @@ To get Forge's VSCode extension, open VSCode and click the Extensions button on 
 
 Then type `forge-language-server` in the search bar. You should see an extension with that title, under the developer name "Siddhartha Prasad". Install it and reload VSCode.
 
-~~~admonish warning title="An early version of this extension was provided via Github, rather than the VSCode Marketplace. Please **use the Marketplace version** (and uninstall the other, if you have it) if for no other reason than it will automatically update when you restart VSCode.
+~~~admonish warning title="For early adopters" 
+An early version of this extension was provided via Github, rather than the VSCode Marketplace. Please **use the Marketplace version** (and uninstall the other, if you have it) if for no other reason than it will automatically update when you restart VSCode.
 ~~~
 
 ### Logging in VSCode
