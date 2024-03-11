@@ -1,8 +1,8 @@
 # Temporal Forge Overview
 
-Temporal mode extends Forge with temporal operators to ease specification and checking of dynamic systems. This mode draws heavily on the [Electrum work](http://haslab.github.io/Electrum/) by INESC TEC and ONERA, and the newer Alloy 6 version, but there are differences.
+Temporal mode extends Forge with temporal operators to ease specification and checking of dynamic systems. This mode draws heavily on the [Electrum work](http://haslab.github.io/Electrum/) by INESC TEC and ONERA, and the newer Alloy 6 version, but there are (slight) differences.
 
-To enable Electrum mode, pass `option problem_type temporal` to Forge. This will cause a number of changes in how Forge processes your models, the largest one being that it will now always search for **lasso traces** (see below) rather than arbitrary instances. The maximum length of the trace is given by `option max_tracelength <k>` and defaults to `5`. The minimum length of the trace is given by `option min_tracelength <k>` and defaults to `1`. 
+To use Temporal Forge, just use `#lang forge/temporal`. This will cause a number of changes in how Forge processes your models, the largest one being that it will now always search for **lasso traces** (see below) rather than arbitrary instances. The maximum length of the trace is given by `option max_tracelength <k>` and defaults to `5`. The minimum length of the trace is given by `option min_tracelength <k>` and defaults to `1`. 
 
 ~~~admonish info title="Using Minimum Trace Length"
 The temporal solver works by iterative deepening: try length 1, then length 2, ... and so _sometimes_ (not always) a longer minimum trace length can speed up the process.

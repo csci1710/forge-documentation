@@ -28,9 +28,11 @@ case 5 : return Level.FINER;
 case 6 : return Level.FINEST;
 default : return Level.ALL;
 ```
-* `run_sterling`: decides whether to use the Sterling visualizer. Default is `on`. To disable, give `off`.
+* `run_sterling`: decides whether to use the Sterling visualizer. Default is `on`. To disable, give `off`. Alternatively, pass a string containing the file path of a visualizer script to auto-load it in Sterling.
 * `sterling_port`: sets the port used by the Racket web-server that Sterling connects to. The default picks an unused ephemeral port.
-* `problem_type`: used to enable `temporal_mode` for Alloy6-style LTL support.
+* `test_keep`: controls Forge's behavior when running test suites. The default (`first`) will cause Forge to stop immediately on the first test failure. The only currently-supported alternative (`last`) will cause Forge to run all tests and print a report at the end; only the *final test failure* will remain open for use with Sterling.
+* `problem_type`: used to enable `temporal_mode` for Alloy6-style LTL support. **This option is deprecated in favor of using `#lang forge/temporal` instead**, and may be removed in future versions.
+
 
 ~~~admonish warning title="Location matters!"
 
