@@ -10,19 +10,29 @@ The basic visualization of the model is a **directed graph** showing all the ato
 
 ### Theming 
 
-The directed-graph view can be customized by clicking the **Theme** tray to the right of the Sterling window. Sterling supports two kinds of theming.
+The directed-graph view can be customized by clicking the **Theme** tray to the right of the Sterling window. Sterling supports two kinds of theming, listed below. 
+
+~~~admonish tip title="Saving a theme" 
+You can save your theme in a file and re-load it later in a new session. To do this, click the "Save As..." or "Choose File" options at the very top of the theming tray. The file will be downloaded as `theme.json`. 
+
+If you get a fresh instance and lose your theming, reloading a saved theme is a fast fix.
+~~~
 
 #### Projections
 
-_Projecting_ over a `sig` hides atoms of that `sig` in the visualizer and shows the rest of the instance as if that were the only atom of the projected `sig`. This can be a very useful for simplifying (e.g.) finite-trace instances, since much of the clutter will be eliminated. 
-
-When a projection is active, the theming window will give the option to change which atom is being used, so a user can step through states in a finite-trace instance easily.
+_Projecting_ over a `sig` hides atoms of that `sig` in the visualizer and shows the rest of the instance as if that were the only atom of the projected `sig`. This can be a very useful for simplifying (e.g.) finite-trace instances, since much of the clutter will be eliminated. When a projection is active, the theming window will give the option to change which atom is being used.
 
 #### Styles 
 
 Style attributes such as font and line thickness for each `sig` and field can be customized. For fields only, clicking the "display as attribute" checkbox will tell Sterling to stop visualizing the field as an edge in the graph, and display it as an annotation on nodes.
 
 Clicking a `sig` or field name will expand the style selection box for that `sig` or field. Click the name again to collapse the box.
+
+~~~admonish tip title="Changing source and target nodes"
+The default graph layout can sometimes be frustrating. For example, if you are modeling a weighted directed graph, you may have something like `sig Node { edges: set Node -> Int }`. By default, Sterling will display each tuple in `edges` as an edge from the _first_ tuple element to the _last_ tuple element, meaning that you'll see a lot of arcs from nodes to numbers. 
+
+To fix this, set the "Source Index" and "Target Index" fields in the styling for a given field. In the above case, you would want a source index of `0` and a target index of `1`; Sterling would then move the weight to an edge label, resulting in a much more readable graph.
+~~~
 
 ### Visualizing in Temporal Forge
 

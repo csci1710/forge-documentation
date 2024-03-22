@@ -91,6 +91,10 @@ inst duplicates {
 - `sum a: A | sum[a.time]`  evaluates to the value 2.
 ~~~
 
+~~~admonish warning title="Only one variable at a time"
+The `sum` aggregator doesn't support multiple variables at once. If you want to express something like `sum x, y: A | ...`, write `sum x: A | sum y : A | ...` instead.
+~~~
+
 ## The Successor Relation
 
 Forge also provides a successor relation, `succ` (`Int -> Int`) where each `Int` atom points to its successor (e.g. the `Int` atom 4 points to 5). The maximum `Int` atom does not point to anything.
