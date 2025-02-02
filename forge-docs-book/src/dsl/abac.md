@@ -56,7 +56,8 @@ For the moment, the ABAC language is built for a specific assignment. Thus, the 
 - for subjects: `admin`, `accountant`, and `customer`;
 - for actions: `read` and `write`;
 - for resources: `file`. 
-- for combinations of subject and resource: `owner-of` and `under-audit`.
+- for resources (not exclusive with `file`): `under-audit`.
+- for combinations of subject and resource: `owned-by`.
 
 ## Analysis Commands 
 
