@@ -2,7 +2,7 @@
 
 Forge is a lightweight modeling language, similar to [Alloy](https://alloytools.org), that has been designed for _teaching_ modeling and lightweight formal methods. It comprises three sublanguages or modes:
 
-- **Froglet** (`#lang forge/bsl`), a language for modeling using only functions and partial functions;
+- **Froglet** (`#lang forge/froglet`), a language for modeling using only functions and partial functions;
 - **Relational Forge** (`#lang forge`), an extension of Froglet to include relations and relational operators;
 - **Temporal Forge** (`#lang forge/temporal`), an extension of Forge to include linear-temporal operators (akin to Alloy 6 or [Electrum](https://github.com/haslab/Electrum)).
 
@@ -14,6 +14,12 @@ producing better documentation overall rather than taking on the subtle cross-la
 
 We will nevertheless try to maintain a reasonable separation. 
 ~~~
+
+## Textbook
+
+Forge also has a [draft textbook](https://csci1710.github.io/book/), which is in a different document in order to make searching easier.
+
+## Using this Documentation
 
 ```admonish hint title="Table of Contents, Theme, and Search"
 This page has three buttons for popping out the table of contents, changing the color theme, and searching. If you do not see them, please ensure that JavaScript is enabled.
