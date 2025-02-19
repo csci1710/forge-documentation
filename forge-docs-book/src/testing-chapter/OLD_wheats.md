@@ -1,4 +1,4 @@
-# What is a Wheat?
+# (OLD) What is a Wheat?
 
 Included in most Forge assignments are solution file(s) for each part of the assignment.
 These are referred to as _wheats_, and have the `.wheat` file extension.

@@ -1,14 +1,17 @@
 # Testing
 
-Forge supports several different testing constructs:
+Forge supports several different testing constructs. Chiefly:
 
-- `example`, for expressing that specific instances should satisfy (or not satisfy) a predicate; 
-- `assert`, for expressing that a specific predicate should be necessary or sufficient for another; and 
-- `test expect`, an expressive and general form that can be somewhat more difficult to use.
+- `example`, for expressing that _specific instances_ should satisfy (or not satisfy) a predicate; 
+- `assert`, for expressing that a predicate should be...
+  - sufficient to satisfy another (`is sufficient for`); 
+  - necessary for another to be satisfied (`is necessary for`);
+  - is consistent with another, i.e., that the combination of the two predicates can be satisfied by at least one instance (`is consistent with`);
+  - is satisfiable or unsatisfiable (`is sat` and `is unsat`).   
 
-If tests pass, they do not open the visualizer, making them well-suited for building test suites for your Forge models.
+Assertions largely subsume an older testing form, `test expect` blocks, which are less structured and used mostly within Forge's internal test cases.
 
-**Note on terminology**: we will sometimes refer to `assert` and (some) `test expect` tests as _property tests_. This is because they can be used to express sweeping expectations about predicates, rather than just the point-wise, single-instance expectations that `example` can. 
+**Note on terminology**: we will sometimes refer to tests, particularly assertions of necessity and sufficiency, as _property tests_. This is because they can be used to express sweeping expectations about predicates, rather than just the point-wise, single-instance expectations that `example` can. We also sometimes refer to a test as a _test of exclusion_ (if it asserts that some set of instances shouldn't be admitted by a predicate) or _test of inclusion_ (to assert that some set of instances should be admitted, or that such an instance exists). 
 
 ~~~admonish note title="Shared Context"
 All the subsections below contain tests for the same small model of tic-tac-toe:
@@ -98,7 +101,12 @@ Names of `sig`s may be used on the right-hand-side of an assignment only if the 
 
 ## Assert
 
-The `assert` syntax allows you to write tests in terms of _necessary_ and _sufficient_ properties for a predicate. 
+The `assert` syntax allows you to write tests at a more abstract level than examples do. An assert has these parts:
+  - an optional name, followed by a colon;
+  - an optional block of `all`-quantified variables;
+  - the keyword `assert`, followed by a predicate name or `{}`-delimited constraint block;
+  - the assertion type: `is necessary for`, `is sufficient for`, `is consistent with`, `is sat`, or `is unsat`; and 
+  - for `is necessary for`, `is sufficient for`, and `is consistent with` asserts, a predicate name. 
 
 ~~~admonish example title="Assertions"
 
@@ -119,6 +127,21 @@ assert someMoveTaken is necessary for winning for 1 Board
 which should both pass, since:
 * if `X` occupied the entire first row, it has won; and 
 * if someone has won the game, there must be moves taken on the board.
+
+But surely we also wish to make sure that these don't pass only because `fullFirstRow` and `someMoveTaken` are unsatisfiable!
+
+```
+assert fullFirstRow is sat
+assert someMoveTaken is sat
+```
+
+or even better (and with names, too):
+
+```
+nonvacuous_fullFirstRow: assert fullFirstRow is consistent with wellformed
+nonvacuous_someMoveTaken: assert someMoveTaken is consistent with wellformed
+```
+
 ~~~
 
 Assertions also support universal quantification (i.e. `all`, but not `some`, `one`, `lone`, etc). For example, if you instead wrote the predicates:
@@ -139,40 +162,17 @@ assert all b : Board, row, col : Int | someMoveTaken[b, row, col] is necessary f
 
 Assertions are an excellent way to check and document your goals and assumptions about your model. In a more complex setting, we might write assertions that enforce:
 * Dijkstra's algorithm doesn't terminate until the destination vertex has been reached; 
-* for a game of chess to be won, a king must be in check; or
-* someone must first be logged into Gmail to read their mail.
+* for a game of chess to be won, a king must be in check; 
+* someone must first be logged into Gmail to read their mail;
+or confirm that:
+* it is possible to generate a run of Dijkstra's algorithm in the model;
+* it is possible to generate a chess configuration where the king is in check; or
+* someone can log into Gmail to begin with. 
 
 ### Notes on Assert Syntax
 
-Both the left- and right-hand-side of the assertion must be predicate names. That is, you *cannot* provide arbitrary formulas enclosed in brackets to an `assert`. This restriction eases some analysis but also encourages you to create reusable predicates.
+The right-hand-side of the assertion must be a predicate name. That is, you *cannot* provide arbitrary formulas enclosed in brackets to an `assert`. This restriction eases some analysis but also encourages you to create reusable predicates.
 
-## Test-Expect Blocks
-
-Forge's `test expect` blocks are the most general, but also the most complex, form of testing in the tool. You don't need to provide a concrete, specific instance for `test expect`, and can check general properties. 
-
-Every `test expect` contains a set of individual checks. Each has:
-* an optional test name;
-* a predicate block; and 
-* an intention (`is sat`, `is unsat`, or `is theorem`). 
-
-The meaning of each intention is:
-* `is sat`: the predicate block is satisfiable under the given bounds; 
-* `is unsat`: the predicate block is unsatisfiable under the given bounds; and 
-* `is theorem`: the predicate block's *negation* is unsatisfiable under the given bounds.
-
-Like the other test forms, each test may be accompanied by numeric scopes and `inst` bounds.
-
-~~~admonish example title="Test expect"
-
-This expresses that it's possible to satisfy the `someMoveTaken` predicate:
-```
-test expect { possibleToMove: {someMoveTaken} is sat }  
-```
-~~~
-
-~~~admonish warning title="We encourage `assert` over `test expect` where possible"
-Sometimes, `test expect` is the only way to write a test for satisfiability without undue effort. But, if your test is really an assertion that something _cannot_ happen, use an `assert` instead. Yes, a `test expect` with `is unsat` can express the same thing that an `assert` can, but we find that the `assert` form is more intuitive. 
-~~~
 
 ## Suites: Organizing Your Tests
 
@@ -201,4 +201,28 @@ test suite for winning {
 ```
 ~~~
 
-**Test suites can only contain tests of the above forms, and all tests should reference the predicate under test.**
+
+## Test-Expect Blocks
+
+We generally suggest using assertions rather than test-expect blocks if you can do so. 
+
+Every `test expect` contains a set of individual checks. Each has:
+* an optional test name;
+* a predicate block; and 
+* an intention (`is sat`, `is unsat`, `is checked`, or `is forge_error`). 
+
+The meaning of each intention is:
+* `is sat`: the predicate block is satisfiable under the given bounds; 
+* `is unsat`: the predicate block is unsatisfiable under the given bounds; and 
+* `is checked`: the predicate block's *negation* is unsatisfiable under the given bounds.
+* `is forge_error`: the predicate block produces a forge error when run.
+
+Like the other test forms, each test may be accompanied by numeric scopes and `inst` bounds.
+
+~~~admonish example title="Test expect"
+
+This expresses that it's possible to satisfy the `someMoveTaken` predicate:
+```
+test expect { possibleToMove: {someMoveTaken} is sat }  
+```
+~~~
