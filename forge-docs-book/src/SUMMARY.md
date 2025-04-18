@@ -35,6 +35,7 @@
 - [Bounds](./running-models/bounds.md)
   - [Concrete Instance Bounds](./running-models/concrete-instance-bounds.md)
 - [Options](./running-models/options.md)
+- [Optimization](./running-models/optimization.md)
 
 # Testing
 
