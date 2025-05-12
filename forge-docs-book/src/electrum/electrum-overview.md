@@ -10,7 +10,7 @@ The temporal solver works by iterative deepening: try length 1, then length 2, .
 
 ## Variable state (`var`)
 
-Electrum mode allows `var` annotations to be placed on `sig` and field definitions. Such an annotation indicates that the contents of the corresponding relation may vary over time. Any sigs or fields that are not declared `var` will _not_ vary over time.
+Temporal Forge allows `var` annotations to be placed on `sig` and field definitions. Such an annotation indicates that the contents of the corresponding relation may vary over time. Any sigs or fields that are not declared `var` will _not_ vary over time.
 
 ~~~admonish warning title="Importance of `var`"
 If no sigs or fields are declared `var`, the temporal solver cannot change anything from state to state.
@@ -38,7 +38,7 @@ Temporal formulas and expressions are always evaluated with respect to a state i
 
 ## Added relational operators: priming
 
-Electrum mode adds one relational operator: priming (`'`). Any relational expression that is primed implicitly means "this expression **in the next state**". Thus, you can use priming to concisely write transition effects. 
+Temporal Forge adds one relational operator: priming (`'`). Any relational expression that is primed implicitly means "this expression **in the next state**". Thus, you can use priming to concisely write transition effects. 
 
 ~~~admonish example title="Priming"
 Writing `cookies' in cookies` would mean that in every transition, the set of `cookies` never grows over time (will either shrink or remain the same).
@@ -46,7 +46,7 @@ Writing `cookies' in cookies` would mean that in every transition, the set of `c
 
 ## Added formula operators
 
-Electrum mode adds a number of formula operators, corresponding to those present in Linear Temporal Logic (LTL) and Past-Time Linear Temporal Logic.
+Temporal Forge adds a number of formula operators, corresponding to those present in Linear Temporal Logic (LTL) and Past-Time Linear Temporal Logic.
 
 ### Traditional LTL (future time)
 
