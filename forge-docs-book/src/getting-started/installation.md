@@ -22,7 +22,7 @@ To install via Git, open a terminal window. Then:
 
 - clone our Git repository (`git clone https://github.com/tnelson/forge`);
 - change directory to the repository folder (`cd forge`);
-- install the `forge` and `froglet` packages (`raco pkg install ./forge ./froglet`).
+- install the `forge` and `froglet` packages (`raco pkg install ./forge`).
 
 If you wish to switch to the development branch, you must:
 - check out the development branch (`git checkout dev`);
@@ -30,6 +30,10 @@ If you wish to switch to the development branch, you must:
 
 ~~~admonish warning title="Using ./"
 Note the `./` in the `install` command! If you write `raco pkg install forge froglet`, that will install both from the package server instead of your local directory. Adding prefix `./` tells `raco` that you're talking about folders instead. It's also important to have both `./forge` and `./froglet` in the single command; they depend on each other, so leaving one out will cause `raco` to "helpfully" install it from the package server, not your local drive.
+~~~
+
+~~~admonish note title="Upgrading a version from before 2025?"
+If you have already installed a version of Forge prior to 2025, we are no longer using the separate package `froglet`. Rather than simply updating, you should run `raco pkg uninstall forge froglet` and follow the installation instructions from the beginning.
 ~~~
 
 ### Installing from Racket's Package Servers
